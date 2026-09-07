@@ -30,7 +30,7 @@ export const OrderTrackingPage: React.FC<OrderTrackingPageProps> = ({
   const matchingOrder = orders.find(
     (o) =>
       o.id.toLowerCase() === searchQuery.trim().toLowerCase() ||
-      o.customerEmail.toLowerCase() === searchQuery.trim().toLowerCase()
+      (o.buyerEmail || o.customerEmail || '').toLowerCase() === searchQuery.trim().toLowerCase()
   ) || (searchQuery.trim() === '' && orders.length > 0 ? orders[0] : null);
 
   const handleSearch = (e: React.FormEvent) => {
@@ -189,11 +189,11 @@ export const OrderTrackingPage: React.FC<OrderTrackingPageProps> = ({
                   <span>Secure Handover Vault</span>
                 </div>
                 <span className="text-[11px] font-semibold text-slate-400">
-                  Encrypted for {matchingOrder.customerEmail}
+                  Encrypted for {matchingOrder.buyerEmail || matchingOrder.customerEmail}
                 </span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Credentials, recovery email backup keys, and proxy login guides were dispatched to <strong>{matchingOrder.customerEmail}</strong>. If you cannot locate the transmission in your inbox, check spam or contact live Telegram support with your Order ID.
+                Credentials, recovery email backup keys, and proxy login guides were dispatched to <strong>{matchingOrder.buyerEmail || matchingOrder.customerEmail}</strong>. If you cannot locate the transmission in your inbox, check spam or contact live Telegram support with your Order ID.
               </p>
               <div className="pt-2 flex flex-wrap gap-2">
                 <button

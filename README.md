@@ -1,52 +1,62 @@
-# GolfCrater — Verified Digital Marketplace
+# GolfCrater — Verified Digital Marketplace & Professional Services
 
-GolfCrater is a modern eCommerce web platform built with React 19, Vite, TypeScript, and Tailwind CSS. It is configured for instant hosting and deployment, including **GitHub Pages**, Vercel, Netlify, and Cloud Run.
+GolfCrater is a modern, responsive digital marketplace built with **React 19**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
 ---
 
-## 🚀 Quick Start (Local Development)
+## ⚡ How to Fix the "Blank White Page" on GitHub Pages
+
+If your site was showing a blank white page on GitHub, it was caused by one of two common GitHub Pages configuration issues:
+
+### Solution: Choose Option 1 (Easiest) or Option 2
+
+### ✅ Option 1: Deploy from the `/docs` Folder (Recommended & Fastest)
+GitHub Pages **cannot run raw TypeScript files from the repository root**. We have pre-compiled the entire application into the `/docs` folder so it works right out of the box with zero build configuration!
+
+1. Open your repository on GitHub.
+2. Go to **Settings** → **Pages** (in the left navigation).
+3. Under **Build and deployment**:
+   - **Source**: Select `Deploy from a branch`
+   - **Branch**: Select `main` (or `master`)
+   - **Folder**: Select `/docs` **(do NOT select `/ (root)`)**
+4. Click **Save**.
+5. Wait 30–60 seconds, then refresh your site URL (`https://<username>.github.io/<repo>/`). The full site will load with all styles and products!
+
+---
+
+### ✅ Option 2: Deploy using Automated GitHub Actions
+
+If you prefer GitHub to build the website automatically on every `git push`:
+
+1. Open your repository on GitHub.
+2. Go to **Settings** → **Pages**.
+3. Under **Build and deployment**:
+   - **Source**: Select `GitHub Actions`
+4. The workflow in `.github/workflows/deploy.yml` will automatically build the site using the included `package-lock.json` and publish it.
+
+---
+
+## 💻 Local Development
 
 ```bash
-# 1. Install dependencies
+# Install dependencies
 npm install
 
-# 2. Start development server
+# Start development server
 npm run dev
 
-# 3. Build for production
+# Build both /dist and /docs for production
 npm run build
 
-# 4. Preview production build locally
+# Preview production build locally
 npm run preview
 ```
 
 ---
 
-## 🌐 Deploying to GitHub & GitHub Pages
+## 🌟 Key Features
 
-This repository is pre-configured with **relative asset paths** (`base: './'` in `vite.config.ts`), hash-based client routing, and a GitHub Actions workflow (`.github/workflows/deploy.yml`).
-
-### Method 1: Automated GitHub Actions (Recommended)
-
-1. Push your repository to GitHub (`main` or `master` branch).
-2. Go to your repository on GitHub: **Settings** → **Pages**.
-3. Under **Build and deployment** → **Source**, select **GitHub Actions**.
-4. The workflow in `.github/workflows/deploy.yml` will automatically build the site with `npm run build` and deploy the `dist/` directory directly to GitHub Pages whenever you push code!
-
-### Method 2: Manual Branch Deployment (gh-pages)
-
-1. Build the production files:
-   ```bash
-   npm run build
-   ```
-2. The compiled static website is generated in the `dist/` folder.
-3. In your repository on GitHub: **Settings** → **Pages**, select your branch (e.g. `gh-pages` or `main`), set folder to `/` or `/docs`, and save.
-
----
-
-## 🛠️ Features Included
-
-- **Multi-Page Hash Routing**: Clean URLs (`#/`, `#/shop`, `#/category/bank-account`, `#/product/buy-google-reviews`, `#/contact`, `#/track-order`) compatible with GitHub Pages without server rewrite issues.
-- **Product & Category Showcases**: Full catalog with filtering, sorting, real-time search, and product detail views.
-- **Shopping Cart & Checkout**: Interactive cart drawer, discount promo codes (`GOLF20`), instant order generation, and invoice downloads.
-- **Order Tracking & Live Status**: Instant lookup of orders, encrypted credentials docket, and delivery progress tracking.
+- **Multi-Page Hash Routing**: Smooth navigation across pages (`#/`, `#/shop`, `#/category/bank-account`, `#/product/buy-google-reviews`, `#/contact`, `#/track-order`) with browser back/forward support.
+- **Full Product Pages**: Dedicated pages for each service with custom requirement inputs, real-time package tier calculation, instant checkout, and technical charters.
+- **Trailing Slash Normalizer**: Automatically ensures relative assets (`./assets/...`) resolve without 404 errors on GitHub Pages subfolder paths.
+- **Error Boundary & Pre-loader**: Integrated fallback error handling and a branded pre-render loader to prevent blank white screens.

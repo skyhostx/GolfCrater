@@ -10,7 +10,7 @@ export interface Product {
   id: string;
   name: string;
   slug: string;
-  category: 'Reviews' | 'Bank Account' | 'Crypto Account' | 'SMM Account' | 'Email Service';
+  category: 'Reviews' | 'Reviews Service' | 'Bank Account' | 'Crypto Account' | 'SMM Account' | 'Email Service';
   shortDescription: string;
   priceRange: string;
   startingPrice: number;
@@ -50,6 +50,7 @@ export interface Order {
   discount: number;
   total: number;
   buyerEmail: string;
+  customerEmail?: string;
   contactHandle?: string;
   paymentMethod: 'card' | 'crypto' | 'paypal' | 'wise';
   cryptoCurrency?: 'USDT (TRC20)' | 'BTC' | 'ETH';

@@ -78,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const getCategoryProducts = (cat: string): Product[] => {
     if (!products) return [];
     if (cat === 'Reviews Service' || cat === 'Reviews') {
-      return products.filter((p) => p.category === 'Reviews' || p.category === 'Reviews Service');
+      return products.filter((p) => (p.category as string) === 'Reviews' || (p.category as string) === 'Reviews Service');
     }
     return products.filter((p) => p.category === cat);
   };

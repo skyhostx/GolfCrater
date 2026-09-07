@@ -40,7 +40,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
   // Filter products for this category
   const categoryProducts = products.filter((p) => {
     if (category === 'Reviews Service' || category === 'Reviews') {
-      return p.category === 'Reviews' || p.category === 'Reviews Service';
+      return (p.category as string) === 'Reviews' || (p.category as string) === 'Reviews Service';
     }
     return p.category === category;
   });
