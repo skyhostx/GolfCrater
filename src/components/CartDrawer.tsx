@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CartItem } from '../types';
+import { ProductLogo } from './ProductLogo';
 import { 
   X, 
   Trash2, 
@@ -121,10 +122,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-3">
-                    <img
-                      src={item.productImage}
-                      alt={item.productName}
-                      className="w-12 h-12 rounded-lg object-cover bg-slate-100 shrink-0"
+                    <ProductLogo
+                      productId={item.productId}
+                      productName={item.productName}
+                      size="small"
+                      className="w-12 h-12 rounded-lg"
                     />
                     <div>
                       <span className="text-[10px] uppercase font-bold text-slate-500">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Product, ProductVariant } from '../types';
+import { ProductLogo } from './ProductLogo';
 import { 
   Star, 
   Check, 
@@ -48,20 +49,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     >
       {/* Product Image & Badges */}
       <div 
-        className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100 cursor-pointer"
+        className="relative h-48 sm:h-52 w-full overflow-hidden cursor-pointer border-b border-slate-100"
         onClick={() => onViewDetails(product)}
       >
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          loading="lazy"
+        <ProductLogo
+          productId={product.id}
+          productName={product.name}
+          size="medium"
+          className="w-full h-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
 
         {/* Top Badges */}
-        <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-          <span className="bg-white/90 backdrop-blur-md text-slate-800 text-[11px] font-bold px-2.5 py-1 rounded-md shadow-xs">
+        <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-20">
+          <span className="bg-white/95 backdrop-blur-md text-slate-800 border border-slate-200/80 text-[11px] font-bold px-2.5 py-1 rounded-md shadow-xs">
             {product.category}
           </span>
           {product.badge && (
@@ -72,10 +72,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           )}
         </div>
 
-        {/* Bottom tags on image */}
-        <div className="absolute bottom-2.5 left-3 flex items-center space-x-1.5 text-white text-xs">
-          <ShieldCheck className="w-4 h-4 text-emerald-400" />
-          <span className="font-semibold text-[11px] drop-shadow-xs">Verified & Guaranteed</span>
+        {/* Bottom tags on card */}
+        <div className="absolute bottom-2.5 left-3 z-20 flex items-center space-x-1.5 text-slate-600 text-xs bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          <span className="font-semibold text-[10px]">Verified & Guaranteed</span>
         </div>
       </div>
 

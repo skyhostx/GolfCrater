@@ -20,6 +20,7 @@ import {
   Package
 } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
+import { ProductLogo } from '../components/ProductLogo';
 
 interface ProductPageProps {
   product: Product;
@@ -115,18 +116,21 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             
             {/* Left Column: Image, Trust Badges, Specifications */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm group">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-72 sm:h-96 object-cover object-center group-hover:scale-102 transition-transform duration-300"
-                />
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm group">
+                <div className="w-full h-72 sm:h-96">
+                  <ProductLogo
+                    productId={product.id}
+                    productName={product.name}
+                    size="large"
+                    className="w-full h-full"
+                  />
+                </div>
                 {product.badge && (
-                  <span className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                  <span className="absolute top-4 left-4 z-20 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
                     {product.badge}
                   </span>
                 )}
-                <div className="absolute bottom-3 right-3 bg-slate-900/85 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md flex items-center space-x-1.5">
+                <div className="absolute bottom-3 right-3 z-20 bg-slate-900/85 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md flex items-center space-x-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   <span>100% Guaranteed</span>
                 </div>

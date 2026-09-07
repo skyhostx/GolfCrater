@@ -1,4 +1,5 @@
 import { Product } from '../types';
+import { PRODUCT_LOGOS } from './productLogos';
 
 export const PRODUCTS: Product[] = [
   // ===================== REVIEWS CATEGORY =====================
@@ -12,7 +13,7 @@ export const PRODUCTS: Product[] = [
     startingPrice: 19,
     rating: 4.9,
     reviewCount: 348,
-    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-google-reviews'],
     badge: 'Best Seller',
     tags: ['Google Maps', 'Local SEO', 'Geo-Targeted', 'Permanent Retention', 'Natural Drip-Feed', 'Real Profiles'],
     metaDescription: 'Buy verified 5-star Google Reviews at GolfCrater. Organic drip delivery, geo-targeted localized accounts, 100% safe retention warranty, and 24/7 dedicated support.',
@@ -74,7 +75,7 @@ We prioritize account longevity above all else. Our methodologies comply with mo
     startingPrice: 19,
     rating: 4.9,
     reviewCount: 294,
-    image: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-trustpilot-reviews'],
     badge: 'High Impact',
     tags: ['TrustScore 4.8+', 'Green Trust Star', 'Verified Badges', 'Global Reach', 'E-Commerce Trust', 'Fast Drip'],
     metaDescription: 'Buy authentic Trustpilot reviews with green verified badges at GolfCrater. Elevate TrustScore, improve ad CTR, and outrank competitors today.',
@@ -129,7 +130,7 @@ Trustpilot employs strict automated fraud detection algorithms. GolfCrater bypas
     startingPrice: 25,
     rating: 4.8,
     reviewCount: 187,
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-facebook-reviews'],
     tags: ['Facebook Page', 'Social Proof', 'Real Profiles', 'High Engagement', 'Boost Ad Trust'],
     metaDescription: 'Buy Facebook business page reviews and recommendations from GolfCrater. Real active accounts, customized text, non-drop warranty, and instant boost in social credibility.',
     specifications: {
@@ -167,7 +168,7 @@ GolfCrater delivers genuine recommendations from established Facebook profiles b
     startingPrice: 49,
     rating: 4.9,
     reviewCount: 219,
-    image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-amazon-reviews'],
     tags: ['Amazon FBA', 'Verified Purchase', 'BSR Rank Boost', 'High Conversion', 'Prime Buyer Profiles'],
     metaDescription: 'Buy verified Amazon product reviews at GolfCrater. Genuine buyer accounts, detailed feedback with photo options, safe review velocity, and 24/7 customer service.',
     specifications: {
@@ -202,7 +203,7 @@ GolfCrater breaks this deadlock. Our network of verified Amazon Prime member pro
     startingPrice: 90,
     rating: 4.9,
     reviewCount: 165,
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-yelp-reviews'],
     badge: 'Yelp Elite',
     tags: ['Yelp Elite Squad', 'Unfiltered Reviews', 'Restaurant & Local', 'Sticky Placements', 'US/CA Focus'],
     metaDescription: 'Buy Yelp Elite & regular reviews at GolfCrater. Engineered specifically to bypass Yelp automated recommendation filters and remain sticky permanently.',
@@ -243,7 +244,7 @@ Yelp Elite accounts are curated community ambassadors whose reviews bypass algor
     startingPrice: 50,
     rating: 4.8,
     reviewCount: 142,
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-bbb-reviews'],
     tags: ['BBB Accredited', 'High Net Worth Trust', 'A+ Rating Protection', 'Corporate Integrity', 'USA/Canada'],
     metaDescription: 'Buy verified BBB reviews for your Better Business Bureau profile at GolfCrater. Solidify corporate credibility and win institutional contracts.',
     specifications: {
@@ -279,7 +280,7 @@ GolfCrater delivers organic BBB customer experiences detailing transaction dates
     startingPrice: 19,
     rating: 5.0,
     reviewCount: 128,
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-g2-reviews'],
     badge: 'B2B SaaS',
     tags: ['G2 Crowd', 'B2B SaaS', 'LinkedIn Verified', 'Grid Leader', 'High-Value Lead Gen'],
     metaDescription: 'Buy verified G2 reviews with authenticated LinkedIn profiles at GolfCrater. Climb the G2 Grid, attract qualified demo bookings, and close enterprise deals.',
@@ -314,7 +315,7 @@ Our G2 reviews are authored by authentic tech professionals with aged LinkedIn p
     startingPrice: 45,
     rating: 4.8,
     reviewCount: 98,
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-glassdoor-reviews'],
     tags: ['Glassdoor', 'Employer Branding', 'Talent Recruitment', 'CEO Approval Rating', 'Corporate Culture'],
     metaDescription: 'Buy Glassdoor company and employee reviews at GolfCrater. Enhance employer branding, improve CEO ratings, and win the recruiting war.',
     specifications: {
@@ -352,7 +353,7 @@ GolfCrater’s Glassdoor service supplies balanced, constructive, and highly pos
     startingPrice: 189,
     rating: 4.9,
     reviewCount: 412,
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-cash-app-accounts'],
     badge: 'High Limit',
     tags: ['Cash App', 'BTC Enabled', '$25k Limit', 'SSN Verified', 'Virtual Card Ready', 'Instant Payouts'],
     metaDescription: 'Buy fully verified Cash App accounts at GolfCrater. Choose BTC-enabled or Non-BTC accounts with $4k, $15k, and $25k transaction limits. Fast, secure delivery.',
@@ -395,7 +396,7 @@ At GolfCrater, we provide 100% verified, clean-standing Cash App accounts config
     startingPrice: 189,
     rating: 4.9,
     reviewCount: 520,
-    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-paypal-account'],
     badge: 'Popular',
     tags: ['PayPal Business', 'Aged Accounts', 'No 21-Day Hold', 'Full Docs', 'Bank Linked', 'Global Payments'],
     metaDescription: 'Buy verified PayPal accounts (personal & business) at GolfCrater. Includes aged accounts with transaction history and complete KYC legal documentation.',
@@ -430,7 +431,7 @@ GolfCrater offers legitimate, pre-warmed personal and business PayPal accounts. 
     startingPrice: 299,
     rating: 4.9,
     reviewCount: 310,
-    image: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-wise-account'],
     tags: ['Multi-Currency', 'Dedicated IBAN', 'US Routing', 'UK Sort Code', 'Low FX Rates', 'Corporate Ready'],
     metaDescription: 'Buy verified Wise multi-currency accounts at GolfCrater. Access dedicated USD, EUR, and GBP account numbers with zero cross-border hassle.',
     specifications: {
@@ -460,7 +461,7 @@ For international e-commerce sellers, agencies, and cross-border consultants, fo
     startingPrice: 149,
     rating: 4.8,
     reviewCount: 275,
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-payoneer-account'],
     tags: ['Payoneer', 'Global Payment Service', 'Marketplace Ready', 'Mastercard Available', 'Multi-Country'],
     metaDescription: 'Buy verified Payoneer accounts (USA, UK, Global, and Business) at GolfCrater. Fast payouts, linked global banking, and complete compliance documents.',
     specifications: {
@@ -491,7 +492,7 @@ Payoneer is the preferred payout mechanism for leading digital platforms like Am
     startingPrice: 499,
     rating: 5.0,
     reviewCount: 388,
-    image: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-stripe-account'],
     badge: 'Enterprise',
     tags: ['Stripe Gateway', 'Instant API Keys', 'Apple Pay Ready', 'Low Chargeback Risk', 'Live Processing'],
     metaDescription: 'Buy verified Stripe accounts with corporate documents at GolfCrater. Accept card payments, Apple Pay, and Google Pay worldwide without onboarding delays.',
@@ -522,7 +523,7 @@ Stripe is the premier developer-first payments infrastructure, powering millions
     startingPrice: 299,
     rating: 4.8,
     reviewCount: 220,
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-revolut-account'],
     tags: ['Revolut', 'SEPA Instant', 'Virtual Cards', 'Crypto/Stocks', 'EU/UK IBAN'],
     metaDescription: 'Buy verified Revolut accounts (personal & business) at GolfCrater. Unlimited disposable cards, instant SEPA transfers, and full KYC documents.',
     specifications: {
@@ -554,7 +555,7 @@ Revolut leads European and UK digital banking with instant zero-fee SEPA transfe
     startingPrice: 219,
     rating: 5.0,
     reviewCount: 460,
-    image: 'https://images.unsplash.com/photo-1622979135225-d2ba269bc1df?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-binance-account'],
     badge: 'Top Crypto',
     tags: ['Binance Plus', '100 BTC Limit', 'P2P Trading', 'KYC Verified', 'Futures Ready', 'Clean IP History'],
     metaDescription: 'Buy verified Binance accounts at GolfCrater. New, aged, and documents-included accounts with top tier withdrawal limits and 24/7 delivery.',
@@ -586,7 +587,7 @@ Binance provides unmatched digital asset liquidity, low spot and futures trading
     startingPrice: 249,
     rating: 4.9,
     reviewCount: 340,
-    image: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-coinbase-account'],
     tags: ['Coinbase Pro', 'Level 3 KYC', 'Instant Fiat Ramp', 'ACH/SEPA Ready', 'US/EU Verified'],
     metaDescription: 'Buy verified Coinbase accounts at GolfCrater. High transaction capacity, instant crypto buying, and full KYC identity documentation.',
     specifications: {
@@ -616,7 +617,7 @@ Coinbase represents the most trusted publicly traded crypto platform in North Am
     startingPrice: 199,
     rating: 4.8,
     reviewCount: 215,
-    image: 'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-kraken-accounts'],
     tags: ['Kraken Pro', 'Intermediate/Pro Tier', 'High Limits', 'Margin Trading', 'EUR/USD Wire'],
     metaDescription: 'Buy verified Kraken accounts at GolfCrater. Personal and business tiers available with unlimited crypto deposit and high fiat withdrawal capabilities.',
     specifications: {
@@ -646,7 +647,7 @@ Known for exceptional security standards and robust margin trading suites, Krake
     startingPrice: 319,
     rating: 4.9,
     reviewCount: 180,
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-moonpay-account'],
     tags: ['MoonPay', 'Card to Crypto', 'Instant Buying', 'Apple Pay Support', 'Clean History'],
     metaDescription: 'Buy verified MoonPay accounts at GolfCrater. Seamless card-to-crypto checkout infrastructure with high daily purchase limits.',
     specifications: {
@@ -678,7 +679,7 @@ MoonPay allows users to purchase Bitcoin, Ethereum, and hundreds of altcoins dir
     startingPrice: 99,
     rating: 4.9,
     reviewCount: 260,
-    image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-verified-smm-accounts'],
     badge: 'Marketing',
     tags: ['Instagram', 'Twitter / X', 'TikTok Creator', 'Aged Accounts', 'Meta Verified Ready', 'High Authority'],
     metaDescription: 'Buy aged and verified SMM creator and business accounts at GolfCrater. Jumpstart social authority and brand reach.',
@@ -711,7 +712,7 @@ Building social media momentum from an empty profile in 2026 is an uphill battle
     startingPrice: 79,
     rating: 5.0,
     reviewCount: 310,
-    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&w=800&q=80',
+    image: PRODUCT_LOGOS['buy-business-email-services'],
     tags: ['Google Workspace', 'Microsoft 365', 'Warm IP SMTP', 'Cold Outreach', 'SPF/DKIM/DMARC Setup'],
     metaDescription: 'Buy high-deliverability business email and SMTP packages at GolfCrater. Perfect inbox rates for marketing, newsletters, and transactional messages.',
     specifications: {

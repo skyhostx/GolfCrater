@@ -7,53 +7,98 @@ export type AppRoute =
   | { page: 'track-order' };
 
 export const categoryToSlug = (cat: string): string => {
-  return cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const normalized = cat.trim();
+  const map: Record<string, string> = {
+    'Bank Account': 'bank-account',
+    'Crypto Account': 'crypto-account',
+    'Reviews': 'reviews',
+    'Reviews Service': 'reviews',
+    'SMM Account': 'smm-account',
+    'Email Service': 'email-service',
+    'Digital Tools': 'digital-tools',
+  };
+  if (map[normalized]) return map[normalized];
+  return normalized.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 };
 
 export const slugToCategory = (slug: string): string => {
   const map: Record<string, string> = {
     'bank-account': 'Bank Account',
+    'bank': 'Bank Account',
     'crypto-account': 'Crypto Account',
-    'reviews-service': 'Reviews Service',
-    'reviews': 'Reviews Service',
+    'crypto': 'Crypto Account',
+    'reviews': 'Reviews',
+    'reviews-service': 'Reviews',
+    'review': 'Reviews',
     'smm-account': 'SMM Account',
+    'smm': 'SMM Account',
     'email-service': 'Email Service',
+    'email': 'Email Service',
     'digital-tools': 'Digital Tools',
   };
-  return map[slug] || 'All';
+  return map[slug.toLowerCase()] || 'All';
 };
 
-export const routeToHash = (route: AppRoute): string => {
+/**
+ * Detects base repository path if hosted under a GitHub Pages subfolder (e.g. username.github.io/repo)
+ * On custom domain (e.g. golfcrater.com) or root hosting, returns empty string ''.
+ */
+export const getBasePath = (): string => {
+  if (typeof window === 'undefined') return '';
+  const hostname = window.location.hostname;
+  
+  // If hosted on GitHub Pages subfolder
+  if (hostname.endsWith('github.io')) {
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    if (segments.length > 0) {
+      const first = segments[0].toLowerCase();
+      // If first segment is not one of our standard top-level routes, it's the repo name
+      if (!['category', 'product', 'shop', 'contact', 'track-order', 'orders'].includes(first)) {
+        return `/${segments[0]}`;
+      }
+    }
+  }
+  return '';
+};
+
+/**
+ * Converts an AppRoute into a clean path URL (e.g., "/category/crypto-account")
+ */
+export const routeToPath = (route: AppRoute): string => {
+  const base = getBasePath();
   switch (route.page) {
     case 'home':
-      return '#/';
+      return base ? `${base}/` : '/';
     case 'shop':
-      return '#/shop';
+      return `${base}/shop`;
     case 'category':
-      return `#/category/${categoryToSlug(route.category)}`;
+      return `${base}/category/${categoryToSlug(route.category)}`;
     case 'product':
-      return `#/product/${route.productId}`;
+      return `${base}/product/${route.productId}`;
     case 'contact':
-      return '#/contact';
+      return `${base}/contact`;
     case 'track-order':
-      return '#/track-order';
+      return `${base}/track-order`;
     default:
-      return '#/';
+      return base ? `${base}/` : '/';
   }
 };
 
-export const hashToRoute = (hash: string): AppRoute => {
-  const clean = hash.replace(/^#\/?/, '').trim();
+/**
+ * Parses path segments into an AppRoute
+ */
+const parseRouteSegments = (segmentsString: string): AppRoute => {
+  const clean = segmentsString.replace(/^\/+|\/+$/g, '').trim();
   if (!clean || clean === 'home') {
     return { page: 'home' };
   }
   if (clean === 'shop' || clean === 'products') {
     return { page: 'shop' };
   }
-  if (clean === 'contact') {
+  if (clean === 'contact' || clean === 'help' || clean === 'support') {
     return { page: 'contact' };
   }
-  if (clean === 'track-order' || clean === 'orders' || clean === 'account') {
+  if (clean === 'track-order' || clean === 'orders' || clean === 'track') {
     return { page: 'track-order' };
   }
 
@@ -66,4 +111,44 @@ export const hashToRoute = (hash: string): AppRoute => {
   }
 
   return { page: 'home' };
+};
+
+/**
+ * Converts current pathname (or hash fallback) into an AppRoute
+ */
+export const pathToRoute = (pathname?: string, hash?: string): AppRoute => {
+  if (typeof window === 'undefined') return { page: 'home' };
+
+  const currentHash = hash !== undefined ? hash : window.location.hash;
+  const currentPath = pathname !== undefined ? pathname : window.location.pathname;
+
+  // If a hash exists (e.g., legacy #/category/crypto-account), honor and restore it
+  if (currentHash && currentHash.length > 1) {
+    const cleanHash = currentHash.replace(/^#\/?/, '').trim();
+    if (cleanHash) {
+      return parseRouteSegments(cleanHash);
+    }
+  }
+
+  // Handle clean pathname
+  const base = getBasePath();
+  let pathOnly = currentPath;
+  if (base && pathOnly.startsWith(base)) {
+    pathOnly = pathOnly.slice(base.length);
+  }
+
+  return parseRouteSegments(pathOnly);
+};
+
+export const getCurrentRoute = (): AppRoute => {
+  return pathToRoute(window.location.pathname, window.location.hash);
+};
+
+// Backward-compatible helpers
+export const routeToHash = (route: AppRoute): string => {
+  return `#${routeToPath(route)}`;
+};
+
+export const hashToRoute = (hash: string): AppRoute => {
+  return pathToRoute('/', hash);
 };

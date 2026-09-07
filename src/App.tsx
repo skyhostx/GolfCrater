@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PRODUCTS } from './data/products';
 import { Product, ProductVariant, CartItem, Order } from './types';
-import { AppRoute, hashToRoute, routeToHash } from './utils/navigation';
+import { AppRoute, getCurrentRoute, pathToRoute, routeToPath } from './utils/navigation';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
@@ -17,8 +17,9 @@ import { Check } from 'lucide-react';
 
 export default function App() {
   // Navigation Route State
+  // Navigation Route State with Clean Path URL detection
   const [currentRoute, setCurrentRoute] = useState<AppRoute>(() => {
-    return hashToRoute(window.location.hash);
+    return getCurrentRoute();
   });
 
   // Modal and Drawer states
@@ -56,16 +57,28 @@ export default function App() {
     setTimeout(() => setToastMessage(null), 3000);
   };
 
-  // Sync hash changes (Browser Back/Forward buttons and direct URLs)
+  // Synchronize Browser Back/Forward navigation and clean URL normalization
   useEffect(() => {
-    const handleHashChange = () => {
-      const newRoute = hashToRoute(window.location.hash);
+    // If user arrived with a hash fragment like #/category/crypto-account, normalize to clean path
+    if (window.location.hash) {
+      const normalizedRoute = pathToRoute(window.location.pathname, window.location.hash);
+      const cleanPath = routeToPath(normalizedRoute);
+      window.history.replaceState(null, '', cleanPath);
+      setCurrentRoute(normalizedRoute);
+    }
+
+    const handleLocationChange = () => {
+      const newRoute = getCurrentRoute();
       setCurrentRoute(newRoute);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
   }, []);
 
   // Update document title dynamically based on the current page
@@ -94,11 +107,15 @@ export default function App() {
     }
   }, [currentRoute]);
 
-  // Navigate handler
+  // Clean Path Navigation handler (e.g. /category/crypto-account)
   const navigateTo = (route: AppRoute) => {
-    const newHash = routeToHash(route);
-    if (window.location.hash !== newHash) {
-      window.location.hash = newHash;
+    const newPath = routeToPath(route);
+    if (window.location.pathname !== newPath) {
+      window.history.pushState(null, '', newPath);
+    }
+    // Also remove hash if any was present
+    if (window.location.hash) {
+      window.history.replaceState(null, '', newPath);
     }
     setCurrentRoute(route);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -233,7 +250,9 @@ export default function App() {
         );
 
       case 'product': {
-        const foundProduct = PRODUCTS.find((p) => p.id === currentRoute.productId);
+        const foundProduct = PRODUCTS.find(
+          (p) => p.id === currentRoute.productId || p.slug === currentRoute.productId
+        );
         if (!foundProduct) {
           return (
             <ShopPage
