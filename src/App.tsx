@@ -1,19 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { PRODUCTS } from './data/products';
 import { Product, ProductVariant, CartItem, Order } from './types';
 import { AppRoute, getCurrentRoute, pathToRoute, routeToPath } from './utils/navigation';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
-import { ProductPage } from './pages/ProductPage';
-import { CategoryPage } from './pages/CategoryPage';
-import { ShopPage } from './pages/ShopPage';
-import { ContactPage } from './pages/ContactPage';
-import { OrderTrackingPage } from './pages/OrderTrackingPage';
-import { CartDrawer } from './components/CartDrawer';
-import { CheckoutModal } from './components/CheckoutModal';
-import { SearchModal } from './components/SearchModal';
 import { Check } from 'lucide-react';
+
+// Lazy-loaded secondary pages (only loaded when navigated to, speeding up initial reload)
+const ProductPage = lazy(() => import('./pages/ProductPage').then((m) => ({ default: m.ProductPage })));
+const CategoryPage = lazy(() => import('./pages/CategoryPage').then((m) => ({ default: m.CategoryPage })));
+const ShopPage = lazy(() => import('./pages/ShopPage').then((m) => ({ default: m.ShopPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
+const OrderTrackingPage = lazy(() => import('./pages/OrderTrackingPage').then((m) => ({ default: m.OrderTrackingPage })));
+
+// Lazy-loaded drawers and checkout modals (only loaded when user triggers them)
+const CartDrawer = lazy(() => import('./components/CartDrawer').then((m) => ({ default: m.CartDrawer })));
+const CheckoutModal = lazy(() => import('./components/CheckoutModal').then((m) => ({ default: m.CheckoutModal })));
+const SearchModal = lazy(() => import('./components/SearchModal').then((m) => ({ default: m.SearchModal })));
+
+// Lightweight non-blocking page transition skeleton
+const PageLoadingFallback = () => (
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 animate-pulse">
+    <div className="h-8 bg-slate-100 rounded-lg w-64 mb-4"></div>
+    <div className="h-4 bg-slate-100 rounded w-96 mb-8"></div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="h-64 bg-slate-100 rounded-2xl"></div>
+      <div className="h-64 bg-slate-100 rounded-2xl"></div>
+      <div className="h-64 bg-slate-100 rounded-2xl"></div>
+    </div>
+  </div>
+);
 
 export default function App() {
   // Navigation Route State
@@ -230,23 +247,27 @@ export default function App() {
     switch (currentRoute.page) {
       case 'shop':
         return (
-          <ShopPage
-            products={PRODUCTS}
-            onNavigate={navigateTo}
-            onAddToCart={handleAddToCart}
-            onBuyNow={handleBuyNow}
-          />
+          <Suspense fallback={<PageLoadingFallback />}>
+            <ShopPage
+              products={PRODUCTS}
+              onNavigate={navigateTo}
+              onAddToCart={handleAddToCart}
+              onBuyNow={handleBuyNow}
+            />
+          </Suspense>
         );
 
       case 'category':
         return (
-          <CategoryPage
-            category={currentRoute.category}
-            products={PRODUCTS}
-            onNavigate={navigateTo}
-            onAddToCart={handleAddToCart}
-            onBuyNow={handleBuyNow}
-          />
+          <Suspense fallback={<PageLoadingFallback />}>
+            <CategoryPage
+              category={currentRoute.category}
+              products={PRODUCTS}
+              onNavigate={navigateTo}
+              onAddToCart={handleAddToCart}
+              onBuyNow={handleBuyNow}
+            />
+          </Suspense>
         );
 
       case 'product': {
@@ -255,29 +276,41 @@ export default function App() {
         );
         if (!foundProduct) {
           return (
-            <ShopPage
-              products={PRODUCTS}
+            <Suspense fallback={<PageLoadingFallback />}>
+              <ShopPage
+                products={PRODUCTS}
+                onNavigate={navigateTo}
+                onAddToCart={handleAddToCart}
+                onBuyNow={handleBuyNow}
+              />
+            </Suspense>
+          );
+        }
+        return (
+          <Suspense fallback={<PageLoadingFallback />}>
+            <ProductPage
+              product={foundProduct}
               onNavigate={navigateTo}
               onAddToCart={handleAddToCart}
               onBuyNow={handleBuyNow}
             />
-          );
-        }
-        return (
-          <ProductPage
-            product={foundProduct}
-            onNavigate={navigateTo}
-            onAddToCart={handleAddToCart}
-            onBuyNow={handleBuyNow}
-          />
+          </Suspense>
         );
       }
 
       case 'contact':
-        return <ContactPage onNavigate={navigateTo} />;
+        return (
+          <Suspense fallback={<PageLoadingFallback />}>
+            <ContactPage onNavigate={navigateTo} />
+          </Suspense>
+        );
 
       case 'track-order':
-        return <OrderTrackingPage orders={orders} onNavigate={navigateTo} />;
+        return (
+          <Suspense fallback={<PageLoadingFallback />}>
+            <OrderTrackingPage orders={orders} onNavigate={navigateTo} />
+          </Suspense>
+        );
 
       case 'home':
       default:
@@ -321,37 +354,49 @@ export default function App() {
       {/* Footer */}
       <Footer onNavigate={navigateTo} />
 
-      {/* Slide-out Cart Drawer */}
-      <CartDrawer
-        isOpen={cartDrawerOpen}
-        onClose={() => setCartDrawerOpen(false)}
-        items={cart}
-        onUpdateQuantity={handleUpdateCartQuantity}
-        onRemoveItem={handleRemoveCartItem}
-        onClearCart={handleClearCart}
-        onProceedToCheckout={handleProceedToCheckout}
-      />
+      {/* Slide-out Cart Drawer - Lazy loaded only when opened */}
+      {cartDrawerOpen && (
+        <Suspense fallback={null}>
+          <CartDrawer
+            isOpen={cartDrawerOpen}
+            onClose={() => setCartDrawerOpen(false)}
+            items={cart}
+            onUpdateQuantity={handleUpdateCartQuantity}
+            onRemoveItem={handleRemoveCartItem}
+            onClearCart={handleClearCart}
+            onProceedToCheckout={handleProceedToCheckout}
+          />
+        </Suspense>
+      )}
 
-      {/* Integrated Secure Payment Gateway Checkout Modal */}
-      <CheckoutModal
-        isOpen={checkoutModalOpen}
-        onClose={() => setCheckoutModalOpen(false)}
-        items={cart}
-        discount={checkoutDiscount}
-        discountCode={appliedPromoCode}
-        onOrderComplete={handleOrderCompleted}
-      />
+      {/* Integrated Secure Payment Gateway Checkout Modal - Lazy loaded only when opened */}
+      {checkoutModalOpen && (
+        <Suspense fallback={null}>
+          <CheckoutModal
+            isOpen={checkoutModalOpen}
+            onClose={() => setCheckoutModalOpen(false)}
+            items={cart}
+            discount={checkoutDiscount}
+            discountCode={appliedPromoCode}
+            onOrderComplete={handleOrderCompleted}
+          />
+        </Suspense>
+      )}
 
-      {/* Search Modal */}
-      <SearchModal
-        isOpen={searchModalOpen}
-        onClose={() => setSearchModalOpen(false)}
-        products={PRODUCTS}
-        onSelectProduct={(p) => {
-          setSearchModalOpen(false);
-          navigateTo({ page: 'product', productId: p.id });
-        }}
-      />
+      {/* Search Modal - Lazy loaded only when opened */}
+      {searchModalOpen && (
+        <Suspense fallback={null}>
+          <SearchModal
+            isOpen={searchModalOpen}
+            onClose={() => setSearchModalOpen(false)}
+            products={PRODUCTS}
+            onSelectProduct={(p) => {
+              setSearchModalOpen(false);
+              navigateTo({ page: 'product', productId: p.id });
+            }}
+          />
+        </Suspense>
+      )}
 
     </div>
   );
