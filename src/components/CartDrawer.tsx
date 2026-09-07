@@ -132,7 +132,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       <span className="text-[10px] uppercase font-bold text-slate-500">
                         {item.category}
                       </span>
-                      <h4 className="text-xs font-bold text-slate-900 line-clamp-1">
+                      <h4 className="text-xs font-bold text-slate-900 leading-snug">
                         {item.productName}
                       </h4>
                       <p className="text-xs text-emerald-700 font-semibold mt-0.5">

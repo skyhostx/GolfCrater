@@ -101,7 +101,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {/* Product Name */}
           <h3 
             onClick={() => onViewDetails(product)}
-            className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors cursor-pointer line-clamp-1"
+            className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors cursor-pointer leading-snug min-h-[3.25rem] flex items-start"
             title={product.name}
           >
             {product.name}
