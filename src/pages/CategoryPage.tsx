@@ -42,6 +42,9 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
     if (category === 'Reviews Service' || category === 'Reviews') {
       return (p.category as string) === 'Reviews' || (p.category as string) === 'Reviews Service';
     }
+    if (category === 'Email' || category === 'Email Service') {
+      return (p.category as string) === 'Email Service' || (p.category as string) === 'Email';
+    }
     return p.category === category;
   });
 
@@ -60,7 +63,10 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
   });
 
   const categoryMeta = CATEGORIES.find(
-    (c) => c.name === category || (category === 'Reviews' && c.name === 'Reviews Service')
+    (c) =>
+      c.name === category ||
+      (category === 'Reviews' && c.name === 'Reviews Service') ||
+      (category === 'Email' && c.name === 'Email Service')
   ) || {
     name: category,
     description: `Premium verified ${category.toLowerCase()} solutions, digital accounts, and operational infrastructure.`,
