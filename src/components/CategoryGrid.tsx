@@ -9,6 +9,7 @@ import {
   ArrowRight,
   ShieldCheck
 } from 'lucide-react';
+import { categoryToSlug } from '../utils/navigation';
 
 interface CategoryGridProps {
   onSelectCategory: (category: string) => void;
@@ -106,11 +107,17 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
             const isSelected = activeCategory === cat.id;
 
             return (
-              <div
+              <a
                 key={cat.id}
                 id={`category-card-${cat.id.toLowerCase().replace(/\s+/g, '-')}`}
-                onClick={() => onSelectCategory(cat.id)}
-                className={`group relative bg-white rounded-2xl border p-6 sm:p-7 transition-all duration-200 cursor-pointer text-left flex flex-col justify-between ${
+                href={`/category/${categoryToSlug(cat.id)}`}
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                    e.preventDefault();
+                    onSelectCategory(cat.id);
+                  }
+                }}
+                className={`group relative bg-white rounded-2xl border p-6 sm:p-7 transition-all duration-200 block text-left flex flex-col justify-between ${
                   isSelected 
                     ? 'border-emerald-500 shadow-md ring-2 ring-emerald-500/20 bg-emerald-50/30' 
                     : 'border-slate-200 hover:border-slate-300 hover:shadow-lg hover:-translate-y-0.5'
@@ -139,7 +146,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
                   <span>{cat.actionText}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>

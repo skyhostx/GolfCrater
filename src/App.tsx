@@ -10,6 +10,9 @@ import { CategoryPage } from './pages/CategoryPage';
 import { ShopPage } from './pages/ShopPage';
 import { ContactPage } from './pages/ContactPage';
 import { OrderTrackingPage } from './pages/OrderTrackingPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { SEO } from './components/SEO';
+import { getCategorySeo, getProductSeo, getSiteStructuredData } from './utils/seoData';
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { SearchModal } from './components/SearchModal';
@@ -80,32 +83,6 @@ export default function App() {
       window.removeEventListener('hashchange', handleLocationChange);
     };
   }, []);
-
-  // Update document title dynamically based on the current page
-  useEffect(() => {
-    switch (currentRoute.page) {
-      case 'home':
-        document.title = 'GolfCrater | Verified Digital Marketplace & Accounts';
-        break;
-      case 'shop':
-        document.title = 'Shop Digital Services & Accounts | GolfCrater';
-        break;
-      case 'category':
-        document.title = `${currentRoute.category} Services | GolfCrater`;
-        break;
-      case 'product': {
-        const p = PRODUCTS.find((prod) => prod.id === currentRoute.productId);
-        document.title = p ? `${p.name} | GolfCrater` : 'Product Details | GolfCrater';
-        break;
-      }
-      case 'contact':
-        document.title = 'Contact Support & Helpdesk | GolfCrater';
-        break;
-      case 'track-order':
-        document.title = 'Track Order Status & Credentials | GolfCrater';
-        break;
-    }
-  }, [currentRoute]);
 
   // Clean Path Navigation handler (e.g. /category/crypto-account)
   const navigateTo = (route: AppRoute) => {
@@ -225,69 +202,135 @@ export default function App() {
     navigateTo({ page: 'track-order' });
   };
 
-  // Render the active page component
+  // Render the active page component with exact SEO metadata
   const renderCurrentPage = () => {
     switch (currentRoute.page) {
       case 'shop':
         return (
-          <ShopPage
-            products={PRODUCTS}
-            onNavigate={navigateTo}
-            onAddToCart={handleAddToCart}
-            onBuyNow={handleBuyNow}
-          />
-        );
-
-      case 'category':
-        return (
-          <CategoryPage
-            category={currentRoute.category}
-            products={PRODUCTS}
-            onNavigate={navigateTo}
-            onAddToCart={handleAddToCart}
-            onBuyNow={handleBuyNow}
-          />
-        );
-
-      case 'product': {
-        const foundProduct = PRODUCTS.find(
-          (p) => p.id === currentRoute.productId || p.slug === currentRoute.productId
-        );
-        if (!foundProduct) {
-          return (
+          <>
+            <SEO
+              title="Shop Digital Services, Verified Accounts & Reviews | GolfCrater"
+              description="Browse our complete catalog of verified digital products, business accounts, crypto exchanges, reputation reviews, and marketing infrastructure."
+              canonicalUrl="/shop"
+              breadcrumbs={[
+                { name: 'Home', url: '/' },
+                { name: 'Shop', url: '/shop' },
+              ]}
+            />
             <ShopPage
               products={PRODUCTS}
               onNavigate={navigateTo}
               onAddToCart={handleAddToCart}
               onBuyNow={handleBuyNow}
             />
-          );
-        }
+          </>
+        );
+
+      case 'category': {
+        const catSeo = getCategorySeo(currentRoute.category);
         return (
-          <ProductPage
-            product={foundProduct}
-            onNavigate={navigateTo}
-            onAddToCart={handleAddToCart}
-            onBuyNow={handleBuyNow}
-          />
+          <>
+            <SEO
+              title={catSeo.title}
+              description={catSeo.description}
+              canonicalUrl={catSeo.canonical}
+              breadcrumbs={[
+                { name: 'Home', url: '/' },
+                { name: currentRoute.category, url: catSeo.canonical },
+              ]}
+            />
+            <CategoryPage
+              category={currentRoute.category}
+              products={PRODUCTS}
+              onNavigate={navigateTo}
+              onAddToCart={handleAddToCart}
+              onBuyNow={handleBuyNow}
+            />
+          </>
+        );
+      }
+
+      case 'product': {
+        const foundProduct = PRODUCTS.find(
+          (p) => p.id === currentRoute.productId || p.slug === currentRoute.productId
+        );
+        if (!foundProduct) {
+          return <NotFoundPage onNavigate={navigateTo} />;
+        }
+        const prodSeo = getProductSeo(foundProduct);
+        return (
+          <>
+            <SEO
+              title={prodSeo.title}
+              description={prodSeo.description}
+              canonicalUrl={prodSeo.canonicalUrl}
+              ogType={prodSeo.ogType}
+              breadcrumbs={prodSeo.breadcrumbs}
+              jsonLd={prodSeo.jsonLd}
+            />
+            <ProductPage
+              product={foundProduct}
+              onNavigate={navigateTo}
+              onAddToCart={handleAddToCart}
+              onBuyNow={handleBuyNow}
+            />
+          </>
         );
       }
 
       case 'contact':
-        return <ContactPage onNavigate={navigateTo} />;
+        return (
+          <>
+            <SEO
+              title="Contact Customer Support & 24/7 Live Desk | GolfCrater"
+              description="Get in touch with GolfCrater customer support for assistance with verified digital accounts, orders, payment verification, and service inquiries."
+              canonicalUrl="/contact"
+              breadcrumbs={[
+                { name: 'Home', url: '/' },
+                { name: 'Contact', url: '/contact' },
+              ]}
+            />
+            <ContactPage onNavigate={navigateTo} />
+          </>
+        );
 
       case 'track-order':
-        return <OrderTrackingPage orders={orders} onNavigate={navigateTo} />;
+        return (
+          <>
+            <SEO
+              title="Track Order Status & Delivery Credentials | GolfCrater"
+              description="Secure live tracking for your GolfCrater order. Check delivery status, fulfillment progress, and retrieve verification documentation."
+              canonicalUrl="/track-order"
+              breadcrumbs={[
+                { name: 'Home', url: '/' },
+                { name: 'Track Order', url: '/track-order' },
+              ]}
+            />
+            <OrderTrackingPage orders={orders} onNavigate={navigateTo} />
+          </>
+        );
+
+      case 'not-found':
+        return <NotFoundPage onNavigate={navigateTo} />;
 
       case 'home':
       default:
         return (
-          <HomePage
-            products={PRODUCTS}
-            onNavigate={navigateTo}
-            onAddToCart={handleAddToCart}
-            onBuyNow={handleBuyNow}
-          />
+          <>
+            <SEO
+              title="GolfCrater | Verified Digital Marketplace & Professional Business Services"
+              description="GolfCrater is the premier verified digital marketplace for business accounts, 5-star reputation reviews, aged Gmails, and SMTP relay services with instant processing."
+              canonicalUrl="/"
+              breadcrumbs={[{ name: 'Home', url: '/' }]}
+              jsonLd={getSiteStructuredData()}
+            />
+            <HomePage
+              products={PRODUCTS}
+              onNavigate={navigateTo}
+              onAddToCart={handleAddToCart}
+              onBuyNow={handleBuyNow}
+            />
+          </>
         );
     }
   };

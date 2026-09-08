@@ -48,9 +48,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       className="group bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-200 flex flex-col overflow-hidden text-left"
     >
       {/* Product Image & Badges */}
-      <div 
-        className="relative h-48 sm:h-52 w-full overflow-hidden cursor-pointer border-b border-slate-100"
-        onClick={() => onViewDetails(product)}
+      <a 
+        href={`/product/${product.id}`}
+        onClick={(e) => {
+          if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+            e.preventDefault();
+            onViewDetails(product);
+          }
+        }}
+        className="relative h-48 sm:h-52 w-full overflow-hidden block border-b border-slate-100"
+        aria-label={`View details for ${product.name}`}
       >
         <ProductLogo
           productId={product.id}
@@ -77,7 +84,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
           <span className="font-semibold text-[10px]">Verified & Guaranteed</span>
         </div>
-      </div>
+      </a>
 
       {/* Product Details Content */}
       <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -99,12 +106,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           {/* Product Name */}
-          <h3 
-            onClick={() => onViewDetails(product)}
-            className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors cursor-pointer leading-snug min-h-[3.25rem] flex items-start"
-            title={product.name}
-          >
-            {product.name}
+          <h3 className="min-h-[3.25rem] flex items-start">
+            <a 
+              href={`/product/${product.id}`}
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onViewDetails(product);
+                }
+              }}
+              className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug"
+              title={product.name}
+            >
+              {product.name}
+            </a>
           </h3>
 
           {/* Short Description */}

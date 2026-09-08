@@ -3,37 +3,44 @@
 
 User-agent: *
 Allow: /
+Allow: /shop
+Allow: /category/
+Allow: /product/
+Allow: /contact
+Allow: /track-order
 Disallow: /api/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /orders
+Disallow: /dashboard
+Disallow: /login
+Disallow: /admin
 
 User-agent: Googlebot
 Allow: /
+Allow: /shop
+Allow: /category/
+Allow: /product/
+Allow: /contact
+Allow: /track-order
+Disallow: /api/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /orders
+Disallow: /dashboard
+Disallow: /login
+Disallow: /admin
 
 User-agent: Googlebot-Image
 Allow: /
+Allow: /assets/
 
 User-agent: Bingbot
 Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-User-agent: facebot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
+Disallow: /api/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /orders
 
 # XML Sitemap
 Sitemap: https://golfcrater.com/sitemap.xml

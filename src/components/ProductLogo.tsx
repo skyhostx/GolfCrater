@@ -449,6 +449,8 @@ export const ProductLogo: React.FC<ProductLogoProps> = ({
   if (size === 'small') {
     return (
       <div
+        role="img"
+        aria-label={`${productName} Service Logo`}
         className={`flex items-center justify-center rounded-xl shrink-0 p-2.5 ${logo.logoBg} ${className}`}
       >
         {logo.icon}
@@ -458,6 +460,8 @@ export const ProductLogo: React.FC<ProductLogoProps> = ({
 
   return (
     <div
+      role="img"
+      aria-label={`${productName} Verified Official Logo & Credentials Badge`}
       className={`relative w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-b ${logo.bgGradient} transition-all duration-300 select-none overflow-hidden ${className}`}
     >
       {/* Subtle decorative background pattern */}

@@ -16,7 +16,7 @@ import {
   Package 
 } from 'lucide-react';
 import { Product } from '../types';
-import { AppRoute } from '../utils/navigation';
+import { AppRoute, routeToPath, categoryToSlug } from '../utils/navigation';
 
 interface NavbarProps {
   products: Product[];
@@ -42,6 +42,18 @@ export const Navbar: React.FC<NavbarProps> = ({
   
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, route: AppRoute, closeMobile = true) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+    e.preventDefault();
+    onNavigate(route);
+    setActiveDropdown(null);
+    if (closeMobile) {
+      setMobileMenuOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -169,12 +181,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center space-x-4">
             <span className="text-slate-400">Save 20% with code: <strong className="text-emerald-400 font-semibold">GOLF20</strong></span>
             <span className="text-slate-600">|</span>
-            <button 
-              onClick={() => onNavigate({ page: 'track-order' })}
-              className="text-slate-300 hover:text-white transition-colors cursor-pointer"
+            <a 
+              href="/track-order"
+              onClick={(e) => handleLinkClick(e, { page: 'track-order' })}
+              className="text-slate-300 hover:text-white transition-colors"
             >
               Track Order Status
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -183,10 +196,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <div className="flex items-center space-x-6 xl:space-x-8">
-            <button 
+            <a 
               id="logo-brand-btn"
-              onClick={() => onNavigate({ page: 'home' })}
-              className="flex items-center space-x-2.5 text-left group cursor-pointer focus:outline-hidden"
+              href="/"
+              onClick={(e) => handleLinkClick(e, { page: 'home' })}
+              className="flex items-center space-x-2.5 text-left group focus:outline-hidden"
+              aria-label="GolfCrater Homepage"
             >
               <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white shadow-xs group-hover:bg-emerald-600 transition-colors">
                 <div className="relative">
@@ -202,7 +217,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   Digital Marketplace
                 </span>
               </div>
-            </button>
+            </a>
 
             {/* Desktop Navigation with Category-wise Product Sub-menus */}
             <nav className="hidden lg:flex items-center space-x-1 relative" aria-label="Main Navigation">
@@ -215,20 +230,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 if (!hasSubmenu) {
                   return (
-                    <button
+                    <a
                       key={link.label}
                       id={`nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                      onClick={() => {
-                        if (link.route) onNavigate(link.route);
+                      href={link.route ? routeToPath(link.route) : '#'}
+                      onClick={(e) => {
+                        if (link.route) handleLinkClick(e, link.route);
                       }}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-normal transition-colors cursor-pointer ${
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-normal transition-colors ${
                         isActive
                           ? 'text-emerald-700 bg-emerald-50 font-bold'
                           : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
                       }`}
                     >
                       {link.label}
-                    </button>
+                    </a>
                   );
                 }
 
@@ -240,13 +256,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onMouseEnter={() => handleMouseEnter(link.category!)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <button
+                    <a
                       id={`nav-cat-btn-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                      onClick={() => {
-                        if (link.route) onNavigate(link.route);
+                      href={`/category/${categoryToSlug(link.category!)}`}
+                      onClick={(e) => {
+                        if (link.route) handleLinkClick(e, link.route);
                         setActiveDropdown(null);
                       }}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-normal transition-colors cursor-pointer flex items-center space-x-1 ${
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-normal transition-colors flex items-center space-x-1 ${
                         isActive || isDropdownOpen
                           ? 'text-emerald-700 bg-emerald-50 font-bold'
                           : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
@@ -260,7 +277,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           isDropdownOpen ? 'transform rotate-180 text-emerald-600' : ''
                         }`} 
                       />
-                    </button>
+                    </a>
 
                     {/* Sub-menu Dropdown */}
                     {isDropdownOpen && (
@@ -271,12 +288,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                       >
                         {/* Submenu Category Header */}
                         <div className="px-4 py-2 border-b border-slate-100 flex items-center justify-between">
-                          <button
-                            onClick={() => {
-                              onNavigate({ page: 'category', category: link.category! });
-                              setActiveDropdown(null);
+                          <a
+                            href={`/category/${categoryToSlug(link.category!)}`}
+                            onClick={(e) => {
+                              handleLinkClick(e, { page: 'category', category: link.category! });
                             }}
-                            className="flex items-center space-x-2 text-left hover:opacity-80 transition-opacity cursor-pointer"
+                            className="flex items-center space-x-2 text-left hover:opacity-80 transition-opacity"
                           >
                             <span className="p-1.5 rounded-lg bg-slate-50 border border-slate-100">
                               {getCategoryIcon(link.category!)}
@@ -285,30 +302,30 @@ export const Navbar: React.FC<NavbarProps> = ({
                               <span className="text-xs font-bold text-slate-900 block">{link.label}</span>
                               <span className="text-[10px] text-slate-500">{catProducts.length} Verified Services</span>
                             </div>
-                          </button>
-                          <button
-                            onClick={() => {
-                              onNavigate({ page: 'category', category: link.category! });
-                              setActiveDropdown(null);
+                          </a>
+                          <a
+                            href={`/category/${categoryToSlug(link.category!)}`}
+                            onClick={(e) => {
+                              handleLinkClick(e, { page: 'category', category: link.category! });
                             }}
-                            className="text-[11px] font-semibold text-emerald-600 hover:text-emerald-700 hover:underline flex items-center space-x-1 cursor-pointer"
+                            className="text-[11px] font-semibold text-emerald-600 hover:text-emerald-700 hover:underline flex items-center space-x-1"
                           >
                             <span>Open Category Page</span>
                             <ChevronRight className="w-3 h-3" />
-                          </button>
+                          </a>
                         </div>
 
                         {/* Category Products List */}
                         <div className="max-h-80 overflow-y-auto px-2 py-1 space-y-0.5">
                           {catProducts.map((product) => (
-                            <button
+                            <a
                               key={product.id}
                               id={`submenu-product-${product.id}`}
-                              onClick={() => {
-                                onNavigate({ page: 'product', productId: product.id });
-                                setActiveDropdown(null);
+                              href={`/product/${product.id}`}
+                              onClick={(e) => {
+                                handleLinkClick(e, { page: 'product', productId: product.id });
                               }}
-                              className="w-full text-left p-2 rounded-xl hover:bg-slate-50/90 group transition-all flex items-center space-x-3 cursor-pointer"
+                              className="w-full text-left p-2 rounded-xl hover:bg-slate-50/90 group transition-all flex items-center space-x-3"
                             >
                               {/* Product Thumbnail */}
                               <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 shrink-0 border border-slate-200/60 relative">
@@ -349,22 +366,22 @@ export const Navbar: React.FC<NavbarProps> = ({
                                   From ${product.startingPrice}
                                 </span>
                               </div>
-                            </button>
+                            </a>
                           ))}
                         </div>
 
                         {/* Submenu Footer Action */}
                         <div className="px-3 pt-2 pb-1 border-t border-slate-100">
-                          <button
-                            onClick={() => {
-                              onNavigate({ page: 'category', category: link.category! });
-                              setActiveDropdown(null);
+                          <a
+                            href={`/category/${categoryToSlug(link.category!)}`}
+                            onClick={(e) => {
+                              handleLinkClick(e, { page: 'category', category: link.category! });
                             }}
-                            className="w-full py-1.5 px-3 rounded-lg bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 text-[11px] font-bold flex items-center justify-between transition-colors cursor-pointer"
+                            className="w-full py-1.5 px-3 rounded-lg bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 text-[11px] font-bold flex items-center justify-between transition-colors"
                           >
                             <span>Browse full {link.label} page</span>
                             <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600" />
-                          </button>
+                          </a>
                         </div>
                       </div>
                     )}
@@ -440,17 +457,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               if (!hasSubmenu) {
                 return (
-                  <button
+                  <a
                     key={link.label}
-                    onClick={() => {
-                      if (link.route) onNavigate(link.route);
-                      setMobileMenuOpen(false);
+                    href={link.route ? routeToPath(link.route) : '#'}
+                    onClick={(e) => {
+                      if (link.route) handleLinkClick(e, link.route);
                     }}
                     className="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-between text-slate-700 hover:bg-slate-50"
                   >
                     <span>{link.label}</span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
-                  </button>
+                  </a>
                 );
               }
 
@@ -458,19 +475,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div key={link.label} className="border-b border-slate-50 last:border-none">
                   {/* Category Accordion Header */}
                   <div className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-50">
-                    <button
-                      onClick={() => {
-                        onNavigate({ page: 'category', category: link.category! });
-                        setMobileMenuOpen(false);
+                    <a
+                      href={`/category/${categoryToSlug(link.category!)}`}
+                      onClick={(e) => {
+                        handleLinkClick(e, { page: 'category', category: link.category! });
                       }}
-                      className="flex items-center space-x-2.5 text-left flex-1 cursor-pointer"
+                      className="flex items-center space-x-2.5 text-left flex-1"
                     >
                       {getCategoryIcon(link.category!)}
                       <span className="text-sm font-semibold text-slate-800">{link.label}</span>
                       <span className="text-[10px] bg-slate-100 text-slate-600 font-bold px-1.5 py-0.5 rounded-full">
                         {catProducts.length}
                       </span>
-                    </button>
+                    </a>
                     
                     <button
                       onClick={() => toggleMobileCategory(link.category!)}
@@ -489,13 +506,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {isExpanded && (
                     <div className="pl-4 pr-1 py-1 space-y-1 bg-slate-50/50 rounded-xl my-1">
                       {catProducts.map((prod) => (
-                        <button
+                        <a
                           key={prod.id}
-                          onClick={() => {
-                            onNavigate({ page: 'product', productId: prod.id });
-                            setMobileMenuOpen(false);
+                          href={`/product/${prod.id}`}
+                          onClick={(e) => {
+                            handleLinkClick(e, { page: 'product', productId: prod.id });
                           }}
-                          className="w-full text-left p-2 rounded-lg hover:bg-white flex items-center space-x-2.5 transition-colors cursor-pointer"
+                          className="w-full text-left p-2 rounded-lg hover:bg-white flex items-center space-x-2.5 transition-colors"
                         >
                           <img 
                             src={prod.image} 
@@ -507,18 +524,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                             <div className="text-[10px] text-emerald-600 font-medium">From ${prod.startingPrice}</div>
                           </div>
                           <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
-                        </button>
+                        </a>
                       ))}
 
-                      <button
-                        onClick={() => {
-                          onNavigate({ page: 'category', category: link.category! });
-                          setMobileMenuOpen(false);
+                      <a
+                        href={`/category/${categoryToSlug(link.category!)}`}
+                        onClick={(e) => {
+                          handleLinkClick(e, { page: 'category', category: link.category! });
                         }}
-                        className="w-full text-center py-2 text-xs font-bold text-emerald-600 hover:text-emerald-700 block mt-1 cursor-pointer"
+                        className="w-full text-center py-2 text-xs font-bold text-emerald-600 hover:text-emerald-700 block mt-1"
                       >
                         Open {link.label} page ({catProducts.length} services) →
-                      </button>
+                      </a>
                     </div>
                   )}
                 </div>

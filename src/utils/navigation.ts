@@ -4,7 +4,8 @@ export type AppRoute =
   | { page: 'category'; category: string }
   | { page: 'product'; productId: string }
   | { page: 'contact' }
-  | { page: 'track-order' };
+  | { page: 'track-order' }
+  | { page: 'not-found' };
 
 export const categoryToSlug = (cat: string): string => {
   const normalized = cat.trim();
@@ -79,6 +80,8 @@ export const routeToPath = (route: AppRoute): string => {
       return `${base}/contact`;
     case 'track-order':
       return `${base}/track-order`;
+    case 'not-found':
+      return `${base}/404`;
     default:
       return base ? `${base}/` : '/';
   }
@@ -101,6 +104,9 @@ const parseRouteSegments = (segmentsString: string): AppRoute => {
   if (clean === 'track-order' || clean === 'orders' || clean === 'track') {
     return { page: 'track-order' };
   }
+  if (clean === '404' || clean === 'not-found') {
+    return { page: 'not-found' };
+  }
 
   const parts = clean.split('/');
   if (parts[0] === 'category') {
@@ -114,7 +120,7 @@ const parseRouteSegments = (segmentsString: string): AppRoute => {
     return { page: 'product', productId: decodedProductId };
   }
 
-  return { page: 'home' };
+  return { page: 'not-found' };
 };
 
 /**

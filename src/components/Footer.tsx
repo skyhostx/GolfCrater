@@ -5,13 +5,21 @@ import {
   Lock, 
   CreditCard
 } from 'lucide-react';
-import { AppRoute } from '../utils/navigation';
+import { AppRoute, categoryToSlug } from '../utils/navigation';
 
 interface FooterProps {
   onNavigate: (route: AppRoute) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, route: AppRoute) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+    e.preventDefault();
+    onNavigate(route);
+  };
+
   return (
     <footer id="footer" className="bg-slate-950 text-slate-400 text-xs border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -19,9 +27,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           
           {/* Col 1: Brand & Positioning */}
           <div className="col-span-2 space-y-4">
-            <button
-              onClick={() => onNavigate({ page: 'home' })}
-              className="flex items-center space-x-2.5 text-left group cursor-pointer"
+            <a
+              href="/"
+              onClick={(e) => handleLinkClick(e, { page: 'home' })}
+              className="flex items-center space-x-2.5 text-left group"
             >
               <div className="w-9 h-9 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center font-bold shadow-xs">
                 <ShieldCheck className="w-5 h-5 text-slate-950" />
@@ -29,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="text-xl font-extrabold text-white tracking-tight">
                 Golf<span className="text-emerald-400">Crater</span>
               </span>
-            </button>
+            </a>
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
               Your trusted marketplace for verified digital assets, high-authority accounts, and online business infrastructure.
@@ -61,52 +70,58 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'category', category: 'Bank Account' })}
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href={`/category/${categoryToSlug('Bank Account')}`}
+                  onClick={(e) => handleLinkClick(e, { page: 'category', category: 'Bank Account' })}
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Bank Account
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'category', category: 'Crypto Account' })}
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href={`/category/${categoryToSlug('Crypto Account')}`}
+                  onClick={(e) => handleLinkClick(e, { page: 'category', category: 'Crypto Account' })}
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Crypto Account
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'category', category: 'Reviews Service' })}
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href={`/category/${categoryToSlug('Reviews Service')}`}
+                  onClick={(e) => handleLinkClick(e, { page: 'category', category: 'Reviews Service' })}
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Reviews Service
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'category', category: 'SMM Account' })}
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href={`/category/${categoryToSlug('SMM Account')}`}
+                  onClick={(e) => handleLinkClick(e, { page: 'category', category: 'SMM Account' })}
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   SMM Account
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'category', category: 'Email Service' })}
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href={`/category/${categoryToSlug('Email Service')}`}
+                  onClick={(e) => handleLinkClick(e, { page: 'category', category: 'Email Service' })}
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Email Service
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'shop' })}
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href="/shop"
+                  onClick={(e) => handleLinkClick(e, { page: 'shop' })}
+                  className="hover:text-emerald-400 transition-colors block font-semibold text-emerald-400/90"
                 >
                   All Products
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -118,46 +133,58 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'home' })} 
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href="/"
+                  onClick={(e) => handleLinkClick(e, { page: 'home' })} 
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   About Us
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'contact' })} 
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href="/contact"
+                  onClick={(e) => handleLinkClick(e, { page: 'contact' })} 
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Contact
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'contact' })} 
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href="/contact"
+                  onClick={(e) => handleLinkClick(e, { page: 'contact' })} 
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Support Helpdesk
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'track-order' })} 
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href="/track-order"
+                  onClick={(e) => handleLinkClick(e, { page: 'track-order' })} 
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Track Order
-                </button>
+                </a>
               </li>
               <li>
-                <span className="hover:text-emerald-400 transition-colors cursor-pointer">
+                <a 
+                  href="/contact"
+                  onClick={(e) => handleLinkClick(e, { page: 'contact' })}
+                  className="hover:text-emerald-400 transition-colors block"
+                >
                   Terms of Service
-                </span>
+                </a>
               </li>
               <li>
-                <span className="hover:text-emerald-400 transition-colors cursor-pointer">
+                <a 
+                  href="/contact"
+                  onClick={(e) => handleLinkClick(e, { page: 'contact' })}
+                  className="hover:text-emerald-400 transition-colors block"
+                >
                   60-Day Replacement Guarantee
-                </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -169,28 +196,31 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'contact' })} 
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href="/contact"
+                  onClick={(e) => handleLinkClick(e, { page: 'contact' })} 
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Help Center
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'track-order' })} 
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href="/track-order"
+                  onClick={(e) => handleLinkClick(e, { page: 'track-order' })} 
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Order Status Lookup
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate({ page: 'contact' })} 
-                  className="hover:text-emerald-400 transition-colors cursor-pointer"
+                <a 
+                  href="/contact"
+                  onClick={(e) => handleLinkClick(e, { page: 'contact' })} 
+                  className="hover:text-emerald-400 transition-colors block"
                 >
                   Contact Support
-                </button>
+                </a>
               </li>
             </ul>
 
