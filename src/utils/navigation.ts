@@ -92,7 +92,7 @@ const parseRouteSegments = (segmentsString: string): AppRoute => {
   if (!clean || clean === 'home') {
     return { page: 'home' };
   }
-  if (clean === 'shop' || clean === 'products') {
+  if (clean === 'shop' || clean === 'products' || clean === 'store') {
     return { page: 'shop' };
   }
   if (clean === 'contact' || clean === 'help' || clean === 'support') {
@@ -103,21 +103,34 @@ const parseRouteSegments = (segmentsString: string): AppRoute => {
   }
 
   const parts = clean.split('/');
-  if (parts[0] === 'category' && parts[1]) {
-    return { page: 'category', category: slugToCategory(parts[1]) };
+  if (parts[0] === 'category') {
+    if (!parts[1]) return { page: 'shop' };
+    const decodedCategory = decodeURIComponent(parts[1]);
+    return { page: 'category', category: slugToCategory(decodedCategory) };
   }
-  if (parts[0] === 'product' && parts[1]) {
-    return { page: 'product', productId: parts[1] };
+  if (parts[0] === 'product') {
+    if (!parts[1]) return { page: 'shop' };
+    const decodedProductId = decodeURIComponent(parts[1]);
+    return { page: 'product', productId: decodedProductId };
   }
 
   return { page: 'home' };
 };
 
 /**
- * Converts current pathname (or hash fallback) into an AppRoute
+ * Converts current pathname (or search/hash fallback) into an AppRoute
  */
 export const pathToRoute = (pathname?: string, hash?: string): AppRoute => {
   if (typeof window === 'undefined') return { page: 'home' };
+
+  // If redirected via GitHub Pages SPA query parameter (e.g., /?/category/crypto-account)
+  if (window.location.search && window.location.search.startsWith('?/')) {
+    const rawSearch = window.location.search.slice(2).split('&')[0];
+    const cleanSearch = decodeURIComponent(rawSearch.replace(/~and~/g, '&'));
+    if (cleanSearch) {
+      return parseRouteSegments(cleanSearch);
+    }
+  }
 
   const currentHash = hash !== undefined ? hash : window.location.hash;
   const currentPath = pathname !== undefined ? pathname : window.location.pathname;
