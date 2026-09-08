@@ -11,6 +11,11 @@ import { ShopPage } from './pages/ShopPage';
 import { ContactPage } from './pages/ContactPage';
 import { OrderTrackingPage } from './pages/OrderTrackingPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { AboutPage } from './pages/AboutPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { PricingPage } from './pages/PricingPage';
+import { BlogPage } from './pages/BlogPage';
+import { FaqPage } from './pages/FaqPage';
 import { SEO } from './components/SEO';
 import { getCategorySeo, getProductSeo, getSiteStructuredData } from './utils/seoData';
 import { CartDrawer } from './components/CartDrawer';
@@ -277,6 +282,21 @@ export default function App() {
           </>
         );
       }
+
+      case 'about':
+        return <AboutPage onNavigate={navigateTo} />;
+
+      case 'services':
+        return <ServicesPage onNavigate={navigateTo} />;
+
+      case 'pricing':
+        return <PricingPage onNavigate={navigateTo} />;
+
+      case 'blog':
+        return <BlogPage onNavigate={navigateTo} />;
+
+      case 'faq':
+        return <FaqPage onNavigate={navigateTo} />;
 
       case 'contact':
         return (

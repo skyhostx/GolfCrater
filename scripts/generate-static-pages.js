@@ -166,6 +166,66 @@ function injectMetadata(html, {
 
 const topPages = [
   {
+    path: 'about',
+    title: 'About GolfCrater | Trusted Digital Marketplace & Verification Standards',
+    description: 'Learn about GolfCrater\'s mission, rigorous verification protocols, buyer protections, 60-day replacement warranty, and enterprise digital solutions.',
+    canonicalUrl: `${BASE_URL}/about`,
+    breadcrumbs: [
+      { name: 'Home', url: BASE_URL },
+      { name: 'About Us', url: `${BASE_URL}/about` },
+    ],
+    bodyH1: 'About GolfCrater — Security, Verification & Trusted Digital Marketplace',
+    bodyContent: '<p class="text-slate-600 mb-4">The premier digital marketplace for verified digital accounts, 5-star reputation management, aged business infrastructure, and secure high-deliverability email systems.</p><ul class="list-disc pl-5 text-sm text-slate-600 space-y-1 mb-6"><li>100% KYC & Pre-Vetted Verification</li><li>60-Day Replacement Warranty on All Packages</li><li>Instant Credential Dispatch & Real-Time Tracking</li><li>Support for BSC, TRX, ETH, SOL, BTC, Skrill, Bank Transfer</li></ul><a href="/services" class="text-emerald-600 font-semibold">Explore Our Services →</a>',
+  },
+  {
+    path: 'services',
+    title: 'Digital Services & Verified Business Accounts | GolfCrater',
+    description: 'Explore GolfCrater\'s comprehensive suite of verified digital services: Reviews management, verified bank accounts, crypto exchange solutions, SMM, and SMTP relays.',
+    canonicalUrl: `${BASE_URL}/services`,
+    breadcrumbs: [
+      { name: 'Home', url: BASE_URL },
+      { name: 'Services', url: `${BASE_URL}/services` },
+    ],
+    bodyH1: 'Our Digital Services & Verified Solutions',
+    bodyContent: '<p class="text-slate-600 mb-4">Every service is engineered for enterprise reliability, high retention, and immediate operational deployment.</p><nav aria-label="Services List"><ul class="grid grid-cols-2 gap-3 mb-6"><li class="p-3 bg-slate-50 rounded"><a href="/category/reviews" class="text-emerald-600 font-semibold">Reviews Management</a></li><li class="p-3 bg-slate-50 rounded"><a href="/category/bank-account" class="text-emerald-600 font-semibold">Bank Accounts</a></li><li class="p-3 bg-slate-50 rounded"><a href="/category/crypto-account" class="text-emerald-600 font-semibold">Crypto Exchanges</a></li><li class="p-3 bg-slate-50 rounded"><a href="/category/email-service" class="text-emerald-600 font-semibold">SMTP & Email</a></li></ul></nav><a href="/pricing" class="text-emerald-600 font-semibold">View Transparent Pricing Plans →</a>',
+  },
+  {
+    path: 'pricing',
+    title: 'Transparent Pricing & Service Packages | GolfCrater',
+    description: 'Compare transparent pricing plans across GolfCrater services. Tiered packages for Google Reviews, Trustpilot, verified bank accounts, crypto exchanges, and SMTP servers.',
+    canonicalUrl: `${BASE_URL}/pricing`,
+    breadcrumbs: [
+      { name: 'Home', url: BASE_URL },
+      { name: 'Pricing', url: `${BASE_URL}/pricing` },
+    ],
+    bodyH1: 'Transparent Pricing & Package Tiers',
+    bodyContent: '<p class="text-slate-600 mb-4">Clear upfront rates with guaranteed 60-day replacement coverage and priority technical support. Use promo code GOLF20 for 20% off your first order.</p><div class="grid grid-cols-2 gap-3 mb-6"><div class="p-3 bg-slate-50 rounded"><div class="font-bold">Reviews Services</div><div class="text-emerald-600 font-semibold text-sm">Starting at $19</div></div><div class="p-3 bg-slate-50 rounded"><div class="font-bold">Bank Accounts</div><div class="text-emerald-600 font-semibold text-sm">Starting at $120</div></div><div class="p-3 bg-slate-50 rounded"><div class="font-bold">Crypto Exchanges</div><div class="text-emerald-600 font-semibold text-sm">Starting at $110</div></div><div class="p-3 bg-slate-50 rounded"><div class="font-bold">Email & SMTP</div><div class="text-emerald-600 font-semibold text-sm">Starting at $15</div></div></div><a href="/shop" class="text-emerald-600 font-semibold">Browse All Packages →</a>',
+  },
+  {
+    path: 'blog',
+    title: 'Digital Marketplace Blog & Compliance Insights | GolfCrater',
+    description: 'Expert guides on local SEO reputation management, Google review algorithms, KYC verification compliance for business bank accounts, and high-deliverability SMTP setups.',
+    canonicalUrl: `${BASE_URL}/blog`,
+    breadcrumbs: [
+      { name: 'Home', url: BASE_URL },
+      { name: 'Blog', url: `${BASE_URL}/blog` },
+    ],
+    bodyH1: 'GolfCrater Insights & Knowledge Base',
+    bodyContent: '<p class="text-slate-600 mb-4">In-depth guides on digital account compliance, reputation algorithms, email deliverability, and safe scaling strategies.</p><ul class="list-disc pl-5 text-sm text-slate-600 space-y-2 mb-6"><li>How 5-Star Google Reviews Drive Local SEO Rankings & Conversions</li><li>A Guide to KYC Compliance & Payment Gateways for Modern E-Commerce</li><li>Maximizing Transactional Email Deliverability with Dedicated SMTP Relays</li><li>High-Velocity Crypto Accounts: Best Practices for Security & Proxy Isolation</li></ul><a href="/faq" class="text-emerald-600 font-semibold">View Frequently Asked Questions →</a>',
+  },
+  {
+    path: 'faq',
+    title: 'Frequently Asked Questions (FAQ) & Support | GolfCrater',
+    description: 'Find answers to frequently asked questions about GolfCrater orders, accepted payment methods (BSC, TRX, ETH, SOL, BTC, Skrill, Bank transfer), delivery times, and replacement warranties.',
+    canonicalUrl: `${BASE_URL}/faq`,
+    breadcrumbs: [
+      { name: 'Home', url: BASE_URL },
+      { name: 'FAQ', url: `${BASE_URL}/faq` },
+    ],
+    bodyH1: 'Frequently Asked Questions (FAQ)',
+    bodyContent: '<p class="text-slate-600 mb-4">Everything you need to know about our services, verification standards, warranties, and multi-currency payment methods.</p><ul class="list-disc pl-5 text-sm text-slate-600 space-y-2 mb-6"><li><strong>Delivery Speed:</strong> Instant/1-3h for tools; 1-3/day drip for organic reviews.</li><li><strong>Payment Gateways:</strong> Crypto (BSC, TRX, ETH, SOL, BTC, LTC, DOGE), Skrill, Bank Transfer (SWIFT & ACH).</li><li><strong>Warranty:</strong> Full 60-day replacement warranty.</li><li><strong>KYC Compliance:</strong> 100% pre-vetted with documentation archives.</li></ul><a href="/contact" class="text-emerald-600 font-semibold">Contact Customer Support →</a>',
+  },
+  {
     path: 'shop',
     title: 'Shop All Verified Digital Services & Business Accounts | GolfCrater',
     description: 'Explore the complete GolfCrater catalog: verified reviews for Google & Trustpilot, aged bank accounts (Cash App, PayPal, Stripe), cryptocurrency exchanges, and SMTP email services.',
@@ -689,6 +749,17 @@ targetDirs.forEach((outDir) => {
   });
 
   ensureDirAndWriteFile(outDir, '404.html', notFoundHtml);
+
+  // 6. Ensure exact robots.txt and valid sitemap.xml are in output directories
+  const robotsPath = path.join(rootDir, 'public', 'robots.txt');
+  if (fs.existsSync(robotsPath)) {
+    ensureDirAndWriteFile(outDir, 'robots.txt', fs.readFileSync(robotsPath, 'utf8'));
+  }
+
+  const sitemapPath = path.join(rootDir, 'public', 'sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    ensureDirAndWriteFile(outDir, 'sitemap.xml', fs.readFileSync(sitemapPath, 'utf8'));
+  }
 });
 
 console.log('Successfully generated all pre-rendered static HTML route entry points in docs/ and dist/!');

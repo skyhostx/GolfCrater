@@ -134,8 +134,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-2 text-xs">
               <li>
                 <a 
-                  href="/"
-                  onClick={(e) => handleLinkClick(e, { page: 'home' })} 
+                  href="/about"
+                  onClick={(e) => handleLinkClick(e, { page: 'about' })} 
                   className="hover:text-emerald-400 transition-colors block"
                 >
                   About Us
@@ -143,11 +143,38 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a 
-                  href="/contact"
-                  onClick={(e) => handleLinkClick(e, { page: 'contact' })} 
+                  href="/services"
+                  onClick={(e) => handleLinkClick(e, { page: 'services' })} 
                   className="hover:text-emerald-400 transition-colors block"
                 >
-                  Contact
+                  Our Services
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/pricing"
+                  onClick={(e) => handleLinkClick(e, { page: 'pricing' })} 
+                  className="hover:text-emerald-400 transition-colors block"
+                >
+                  Pricing Plans
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/blog"
+                  onClick={(e) => handleLinkClick(e, { page: 'blog' })} 
+                  className="hover:text-emerald-400 transition-colors block"
+                >
+                  Insights & Blog
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/faq"
+                  onClick={(e) => handleLinkClick(e, { page: 'faq' })} 
+                  className="hover:text-emerald-400 transition-colors block"
+                >
+                  Frequently Asked Questions
                 </a>
               </li>
               <li>
@@ -156,7 +183,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={(e) => handleLinkClick(e, { page: 'contact' })} 
                   className="hover:text-emerald-400 transition-colors block"
                 >
-                  Support Helpdesk
+                  Contact Support
                 </a>
               </li>
               <li>
@@ -166,24 +193,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="hover:text-emerald-400 transition-colors block"
                 >
                   Track Order
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/contact"
-                  onClick={(e) => handleLinkClick(e, { page: 'contact' })}
-                  className="hover:text-emerald-400 transition-colors block"
-                >
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/contact"
-                  onClick={(e) => handleLinkClick(e, { page: 'contact' })}
-                  className="hover:text-emerald-400 transition-colors block"
-                >
-                  60-Day Replacement Guarantee
                 </a>
               </li>
             </ul>

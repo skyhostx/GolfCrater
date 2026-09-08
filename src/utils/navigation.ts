@@ -1,5 +1,10 @@
 export type AppRoute =
   | { page: 'home' }
+  | { page: 'about' }
+  | { page: 'services' }
+  | { page: 'pricing' }
+  | { page: 'blog' }
+  | { page: 'faq' }
   | { page: 'shop' }
   | { page: 'category'; category: string }
   | { page: 'product'; productId: string }
@@ -70,6 +75,16 @@ export const routeToPath = (route: AppRoute): string => {
   switch (route.page) {
     case 'home':
       return base ? `${base}/` : '/';
+    case 'about':
+      return `${base}/about`;
+    case 'services':
+      return `${base}/services`;
+    case 'pricing':
+      return `${base}/pricing`;
+    case 'blog':
+      return `${base}/blog`;
+    case 'faq':
+      return `${base}/faq`;
     case 'shop':
       return `${base}/shop`;
     case 'category':
@@ -94,6 +109,21 @@ const parseRouteSegments = (segmentsString: string): AppRoute => {
   const clean = segmentsString.replace(/^\/+|\/+$/g, '').trim();
   if (!clean || clean === 'home') {
     return { page: 'home' };
+  }
+  if (clean === 'about' || clean === 'about-us') {
+    return { page: 'about' };
+  }
+  if (clean === 'services' || clean === 'our-services') {
+    return { page: 'services' };
+  }
+  if (clean === 'pricing' || clean === 'plans' || clean === 'packages') {
+    return { page: 'pricing' };
+  }
+  if (clean === 'blog' || clean === 'articles' || clean === 'insights') {
+    return { page: 'blog' };
+  }
+  if (clean === 'faq' || clean === 'faqs' || clean === 'questions') {
+    return { page: 'faq' };
   }
   if (clean === 'shop' || clean === 'products' || clean === 'store') {
     return { page: 'shop' };

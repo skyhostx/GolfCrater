@@ -1,13 +1,6 @@
-# https://golfcrater.com robots.txt
-# Enable full indexing across all major search engines and web crawlers
-
 User-agent: *
 Allow: /
-Allow: /shop
-Allow: /category/
-Allow: /product/
-Allow: /contact
-Allow: /track-order
+
 Disallow: /api/
 Disallow: /checkout
 Disallow: /cart
@@ -16,31 +9,4 @@ Disallow: /dashboard
 Disallow: /login
 Disallow: /admin
 
-User-agent: Googlebot
-Allow: /
-Allow: /shop
-Allow: /category/
-Allow: /product/
-Allow: /contact
-Allow: /track-order
-Disallow: /api/
-Disallow: /checkout
-Disallow: /cart
-Disallow: /orders
-Disallow: /dashboard
-Disallow: /login
-Disallow: /admin
-
-User-agent: Googlebot-Image
-Allow: /
-Allow: /assets/
-
-User-agent: Bingbot
-Allow: /
-Disallow: /api/
-Disallow: /checkout
-Disallow: /cart
-Disallow: /orders
-
-# XML Sitemap
 Sitemap: https://golfcrater.com/sitemap.xml

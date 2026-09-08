@@ -119,6 +119,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'Reviews Service', category: 'Reviews Service', route: { page: 'category', category: 'Reviews Service' } },
     { label: 'SMM Account', category: 'SMM Account', route: { page: 'category', category: 'SMM Account' } },
     { label: 'Email Service', category: 'Email Service', route: { page: 'category', category: 'Email Service' } },
+    { label: 'Pricing', route: { page: 'pricing' } },
+    { label: 'FAQ', route: { page: 'faq' } },
     { label: 'Shop', route: { page: 'shop' } },
     { label: 'Contact', route: { page: 'contact' } },
   ];
