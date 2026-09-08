@@ -52,8 +52,10 @@ export interface Order {
   buyerEmail: string;
   customerEmail?: string;
   contactHandle?: string;
-  paymentMethod: 'card' | 'crypto' | 'paypal' | 'wise';
-  cryptoCurrency?: 'USDT (TRC20)' | 'BTC' | 'ETH';
+  paymentMethod: 'crypto' | 'skrill' | 'bank_transfer' | 'card' | 'paypal' | 'wise';
+  cryptoCurrency?: string;
+  paymentReference?: string;
+  bankAccountType?: string;
   status: 'Processing' | 'Verified' | 'Delivered' | 'Completed';
   deliveryEta: string;
   accessCredentialsOrNotes?: string;

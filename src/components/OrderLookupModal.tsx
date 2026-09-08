@@ -140,7 +140,12 @@ export const OrderLookupModal: React.FC<OrderLookupModalProps> = ({
                     </div>
                     <div className="flex justify-between">
                       <span>Payment Method:</span>
-                      <span className="font-semibold text-slate-800 uppercase">{foundOrder.paymentMethod} {foundOrder.cryptoCurrency || ''}</span>
+                      <span className="font-semibold text-slate-800 uppercase">
+                        {foundOrder.paymentMethod === 'crypto' ? `Crypto (${foundOrder.cryptoCurrency || 'BSC'})` :
+                         foundOrder.paymentMethod === 'skrill' ? 'Skrill E-Wallet' :
+                         foundOrder.paymentMethod === 'bank_transfer' ? `Bank Transfer (${foundOrder.bankAccountType || 'USD / EUR / GBP'})` :
+                         foundOrder.paymentMethod}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Amount Paid:</span>

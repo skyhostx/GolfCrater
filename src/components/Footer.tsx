@@ -47,13 +47,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
 
             {/* Payment Method Badges in footer */}
-            <div className="pt-2 flex flex-wrap items-center gap-2 text-slate-400 text-[10px] font-bold uppercase">
-              <span className="bg-slate-900 border border-slate-800 px-2 py-1 rounded-sm">Visa</span>
-              <span className="bg-slate-900 border border-slate-800 px-2 py-1 rounded-sm">MasterCard</span>
-              <span className="bg-slate-900 border border-slate-800 px-2 py-1 rounded-sm">USDT (TRC20)</span>
-              <span className="bg-slate-900 border border-slate-800 px-2 py-1 rounded-sm">Bitcoin</span>
-              <span className="bg-slate-900 border border-slate-800 px-2 py-1 rounded-sm">PayPal</span>
-              <span className="bg-slate-900 border border-slate-800 px-2 py-1 rounded-sm">Wise</span>
+            <div className="pt-2 flex flex-wrap items-center gap-1.5 text-slate-400 text-[10px] font-bold uppercase">
+              <span className="bg-slate-900 border border-emerald-900/60 text-emerald-400 px-2 py-1 rounded-sm">Crypto Gateways (BSC • TRX • ETH • SOL • BTC • LTC • DOGE)</span>
+              <span className="bg-slate-900 border border-slate-800 text-pink-400 px-2 py-1 rounded-sm">Skrill E-Wallet</span>
+              <span className="bg-slate-900 border border-slate-800 text-blue-400 px-2 py-1 rounded-sm">Bank Transfer (SWIFT / ACH)</span>
             </div>
           </div>
 

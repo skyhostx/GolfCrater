@@ -112,13 +112,16 @@ export const OrderTrackingPage: React.FC<OrderTrackingPageProps> = ({
                 </span>
               </div>
 
-              <div className="flex items-center space-x-3">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span className="capitalize">{matchingOrder.status}</span>
                 </span>
+                <span className="text-xs font-bold text-slate-800 bg-slate-100 px-3 py-1.5 rounded-full">
+                  {matchingOrder.paymentMethod === 'crypto' ? `Crypto (${matchingOrder.cryptoCurrency || 'BSC'})` : matchingOrder.paymentMethod === 'skrill' ? 'Skrill' : matchingOrder.paymentMethod === 'bank_transfer' ? 'Bank Transfer' : matchingOrder.paymentMethod}
+                </span>
                 <span className="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-full">
-                  Total: ${matchingOrder.total}
+                  Total: ${matchingOrder.total}.00
                 </span>
               </div>
             </div>

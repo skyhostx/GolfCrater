@@ -937,7 +937,7 @@ export const FAQS = [
   },
   {
     question: 'What payment methods do you accept?',
-    answer: 'We support all major payment gateways: Credit/Debit Cards (Visa, MasterCard, American Express), Cryptocurrencies with automated confirmation (USDT TRC20/ERC20, Bitcoin, Ethereum), PayPal Instant Checkout, and Wise/International Bank Wire transfers. All transactions are SSL encrypted.',
+    answer: 'We accept 3 official payment gateways: 1st: Crypto Gateways (BSC, TRX, ETH, SOL, BTC, LTC, DOGE) with original high-resolution QR codes; 2nd: Skrill E-Wallet (direct to onlinespay247@gmail.com); and 3rd: Bank Transfer (USD International SWIFT & USA ACH/Wire, EUR SEPA, and GBP UK Faster Payments). All transactions are SSL encrypted.',
   },
   {
     question: 'Are digital products refundable?',
