@@ -5,9 +5,10 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    // Relative base path ensures the app works on GitHub Pages (https://<user>.github.io/<repo>/)
-    // as well as custom domains and local environments without 404 asset errors.
-    base: './',
+    // Absolute root base path ensures all assets (/assets/...) resolve from the domain root
+    // on custom domain (https://golfcrater.com) and local environments, preventing 404 asset errors
+    // when hard-reloading deep routes like /category/email-service or /product/:id.
+    base: '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

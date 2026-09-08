@@ -91,32 +91,25 @@
   </head>
   <body class="bg-white text-slate-900 antialiased font-sans selection:bg-emerald-100 selection:text-emerald-900">
     <div id="root">
-      <!-- Instant clean light app shell: eliminates reload flicker and dark screen flash -->
-      <div style="min-height: 100vh; background-color: #ffffff; color: #0f172a; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-        <!-- Top bar silhouette -->
-        <header style="height: 64px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1280px; margin: 0 auto;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="width: 32px; height: 32px; border-radius: 9px; background: #10b981; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 17px; color: #ffffff;">
-              ✓
-            </div>
-            <span style="font-size: 19px; font-weight: 800; letter-spacing: -0.02em; color: #0f172a;">Golf<span style="color: #10b981;">Crater</span></span>
+      <!-- Clean Light Branded App Shell -->
+      <div style="min-height: 100vh; background-color: #ffffff; color: #0f172a; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: #10b981; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; color: #ffffff; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);">
+            ✓
           </div>
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 140px; height: 36px; background: #f8fafc; border-radius: 9999px; border: 1px solid #e2e8f0;"></div>
-            <div style="width: 36px; height: 36px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0;"></div>
-          </div>
-        </header>
-
-        <!-- Hero silhouette placeholder -->
-        <main style="max-width: 1280px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-          <div style="height: 24px; width: 220px; background: #ecfdf5; border-radius: 9999px; border: 1px solid #a7f3d0; margin-bottom: 20px;"></div>
-          <div style="height: 44px; width: min(90%, 540px); background: #f1f5f9; border-radius: 12px; margin-bottom: 16px;"></div>
-          <div style="height: 20px; width: min(85%, 420px); background: #f8fafc; border-radius: 6px; margin-bottom: 32px;"></div>
-          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-            <div style="height: 44px; width: 140px; background: #10b981; border-radius: 12px;"></div>
-            <div style="height: 44px; width: 140px; background: #f1f5f9; border-radius: 12px; border: 1px solid #e2e8f0;"></div>
-          </div>
-        </main>
+          <span style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #0f172a;">Golf<span style="color: #10b981;">Crater</span></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; animation: gc-pulse 1.2s ease-in-out infinite;"></div>
+          <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; animation: gc-pulse 1.2s ease-in-out 0.2s infinite;"></div>
+          <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; animation: gc-pulse 1.2s ease-in-out 0.4s infinite;"></div>
+        </div>
+        <style>
+          @keyframes gc-pulse {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+          }
+        </style>
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
