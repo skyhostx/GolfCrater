@@ -57,9 +57,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
             {/* Payment Method Badges in footer */}
             <div className="pt-2 flex flex-wrap items-center gap-1.5 text-slate-400 text-[10px] font-bold uppercase">
-              <span className="bg-slate-900 border border-emerald-900/60 text-emerald-400 px-2 py-1 rounded-sm">Crypto Gateways (BSC • TRX • ETH • SOL • BTC • LTC • DOGE)</span>
-              <span className="bg-slate-900 border border-slate-800 text-pink-400 px-2 py-1 rounded-sm">Skrill E-Wallet</span>
-              <span className="bg-slate-900 border border-slate-800 text-blue-400 px-2 py-1 rounded-sm">Bank Transfer (SWIFT / ACH)</span>
+              <span 
+                title="Crypto Gateways: BSC, TRX, ETH, SOL, BTC, LTC, DOGE"
+                className="bg-slate-900 border border-emerald-900/60 text-emerald-400 px-2.5 py-1 rounded-sm"
+              >
+                Crypto
+              </span>
+              <span 
+                title="Skrill E-Wallet"
+                className="bg-slate-900 border border-slate-800 text-pink-400 px-2.5 py-1 rounded-sm"
+              >
+                Skrill
+              </span>
+              <span 
+                title="Bank Transfer (SWIFT / ACH)"
+                className="bg-slate-900 border border-slate-800 text-blue-400 px-2.5 py-1 rounded-sm"
+              >
+                Bank Transfer
+              </span>
             </div>
           </div>
 
@@ -156,7 +171,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={(e) => handleLinkClick(e, { page: 'pricing' })} 
                   className="hover:text-emerald-400 transition-colors block"
                 >
-                  Pricing Plans
+                  Pricing
                 </a>
               </li>
               <li>
@@ -174,7 +189,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={(e) => handleLinkClick(e, { page: 'faq' })} 
                   className="hover:text-emerald-400 transition-colors block"
                 >
-                  Frequently Asked Questions
+                  FAQ
                 </a>
               </li>
               <li>
