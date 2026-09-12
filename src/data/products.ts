@@ -668,40 +668,7 @@ MoonPay allows users to purchase Bitcoin, Ethereum, and hundreds of altcoins dir
     `,
   },
 
-  // ===================== SMM & EMAIL SERVICES =====================
-  {
-    id: 'buy-verified-smm-accounts',
-    name: 'Verified SMM Business & Creator Accounts',
-    slug: 'buy-verified-smm-accounts',
-    category: 'SMM Account',
-    shortDescription: 'Aged social media marketing accounts across Instagram, X (Twitter), and TikTok with organic audience history and phone verification.',
-    priceRange: '$99 - $899',
-    startingPrice: 99,
-    rating: 4.9,
-    reviewCount: 260,
-    image: PRODUCT_LOGOS['buy-verified-smm-accounts'],
-    badge: 'Marketing',
-    tags: ['Instagram', 'Twitter / X', 'TikTok Creator', 'Aged Accounts', 'Meta Verified Ready', 'High Authority'],
-    metaDescription: 'Buy aged and verified SMM creator and business accounts at GolfCrater. Jumpstart social authority and brand reach.',
-    specifications: {
-      deliveryTime: '1 - 3 Hours',
-      guaranteePeriod: '45 Days Warranty',
-      verificationLevel: 'Phone + Email + 2FA Protected',
-      supportAvailable: 'SMM Campaign Advisor',
-      documentsIncluded: 'Full Login Credentials, Original Creation Email, Backup Codes',
-      supportedRegions: 'Worldwide',
-    },
-    variants: [
-      { id: 'smm-ig', name: '01 Aged Instagram Creator Account (5k-10k Followers)', price: 149 },
-      { id: 'smm-x', name: '01 Aged X (Twitter) Account with Organic History', price: 129 },
-      { id: 'smm-tt', name: '01 TikTok Creator Marketplace Ready Account', price: 189, popular: true },
-      { id: 'smm-bundle', name: 'Complete Omnichannel SMM Brand Kit (IG + X + TikTok)', price: 429 },
-    ],
-    fullDescription: `
-### Jumpstart Your Social Media Presence Without Starting from Zero
-Building social media momentum from an empty profile in 2026 is an uphill battle against algorithmic saturation. GolfCrater provides aged, well-maintained creator and business profiles on Instagram, X (formerly Twitter), and TikTok.
-    `,
-  },
+  // ===================== EMAIL SERVICES =====================
   {
     id: 'buy-gmail-accounts',
     name: 'Buy Gmail Accounts',

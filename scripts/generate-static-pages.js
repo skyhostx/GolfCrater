@@ -561,16 +561,6 @@ const products = [
     description: 'Buy verified MoonPay accounts for instant debit/credit card to crypto conversion with high weekly velocity limits.',
   },
   {
-    id: 'buy-verified-smm-accounts',
-    name: 'Buy Verified SMM Accounts',
-    category: 'SMM Account',
-    categorySlug: 'smm-account',
-    startingPrice: '60',
-    rating: '4.8',
-    reviewCount: '275',
-    description: 'Buy aged social media marketing accounts across Instagram, Twitter/X, TikTok, and YouTube with genuine engagement history.',
-  },
-  {
     id: 'buy-gmail-accounts',
     name: 'Buy Aged Gmail Accounts (PVA)',
     category: 'Email Service',

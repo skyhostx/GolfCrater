@@ -28,7 +28,6 @@ const VALID_PRODUCT_IDS = new Set([
   'buy-verified-coinbase-account',
   'buy-verified-kraken-accounts',
   'buy-moonpay-account',
-  'buy-verified-smm-accounts',
   'buy-gmail-accounts',
   'buy-smtp-mailgun-accounts',
   'buy-smtp-brevo-accounts',

@@ -213,29 +213,6 @@ export const PRODUCT_LOGOS: Record<string, string> = {
     </svg>
   `),
 
-  // 19. SMM Accounts (Authentic Instagram, Telegram, TikTok, X cluster)
-  'buy-verified-smm-accounts': svgToDataUri(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
-      <defs>
-        <linearGradient id="smmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#833AB4"/>
-          <stop offset="50%" stop-color="#FD1D1D"/>
-          <stop offset="100%" stop-color="#FCB045"/>
-        </linearGradient>
-      </defs>
-      <rect width="200" height="200" rx="44" fill="url(#smmGrad)"/>
-      <g transform="translate(45, 42) scale(1.6)" fill="none" stroke="#ffffff" stroke-width="2.2">
-        <rect x="2" y="2" width="20" height="20" rx="6"/>
-        <circle cx="12" cy="12" r="4.5"/>
-        <circle cx="17.5" cy="6.5" r="0.8" fill="#ffffff"/>
-      </g>
-      <g transform="translate(108, 42) scale(1.6)" fill="#ffffff">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.6 7.6c-.12.56-.45.7-.92.44l-2.5-1.84-1.2 1.16c-.14.14-.25.26-.5.26l.18-2.54 4.62-4.18c.2-.18-.04-.28-.32-.1L8.6 13.2l-2.48-.78c-.54-.16-.56-.54.12-.8l9.66-3.72c.44-.16.84.1.74.9z"/>
-      </g>
-      <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">SMM NETWORK</text>
-    </svg>
-  `),
-
   // 20. Buy Gmail Accounts (Official Google Gmail 4-Color M)
   'buy-gmail-accounts': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
