@@ -13,10 +13,12 @@ import {
   Smartphone, 
   Mail, 
   ArrowRight, 
-  Package 
+  Package,
+  Layers
 } from 'lucide-react';
 import { Product } from '../types';
 import { AppRoute, routeToPath, categoryToSlug } from '../utils/navigation';
+import { getProductLogoUrl } from '../data/productLogos';
 
 interface NavbarProps {
   products: Product[];
@@ -97,16 +99,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const getCategoryIcon = (cat: string) => {
     switch (cat) {
+      case 'Account':
+        return <ShieldCheck className="w-4 h-4 text-emerald-600" />;
       case 'Bank Account':
         return <Landmark className="w-4 h-4 text-emerald-600" />;
       case 'Crypto Account':
         return <Coins className="w-4 h-4 text-blue-600" />;
       case 'Reviews Service':
+      case 'Reviews':
         return <Star className="w-4 h-4 text-amber-500 fill-amber-500" />;
       case 'SMM Account':
         return <Smartphone className="w-4 h-4 text-indigo-600" />;
       case 'Email Service':
         return <Mail className="w-4 h-4 text-teal-600" />;
+      case 'Other':
+        return <Layers className="w-4 h-4 text-amber-600" />;
       default:
         return <Package className="w-4 h-4 text-slate-500" />;
     }
@@ -114,11 +121,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks: { label: string; route?: AppRoute; category?: string }[] = [
     { label: 'Home', route: { page: 'home' } },
+    { label: 'Account', category: 'Account', route: { page: 'category', category: 'Account' } },
     { label: 'Bank Account', category: 'Bank Account', route: { page: 'category', category: 'Bank Account' } },
     { label: 'Crypto Account', category: 'Crypto Account', route: { page: 'category', category: 'Crypto Account' } },
     { label: 'Reviews Service', category: 'Reviews Service', route: { page: 'category', category: 'Reviews Service' } },
     { label: 'SMM Account', category: 'SMM Account', route: { page: 'category', category: 'SMM Account' } },
     { label: 'Email Service', category: 'Email Service', route: { page: 'category', category: 'Email Service' } },
+    { label: 'Other', category: 'Other', route: { page: 'category', category: 'Other' } },
     { label: 'Shop', route: { page: 'shop' } },
     { label: 'Contact', route: { page: 'contact' } },
   ];
@@ -220,7 +229,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </a>
 
             {/* Desktop Navigation with Category-wise Product Sub-menus */}
-            <nav className="hidden lg:flex items-center space-x-1 relative" aria-label="Main Navigation">
+            <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 relative" aria-label="Main Navigation">
               {navLinks.map((link) => {
                 const isCategory = !!link.category;
                 const catProducts = isCategory ? getCategoryProducts(link.category!) : [];
@@ -237,7 +246,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       onClick={(e) => {
                         if (link.route) handleLinkClick(e, link.route);
                       }}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-normal transition-colors ${
+                      className={`px-2 xl:px-2.5 py-1.5 rounded-lg text-xs font-semibold tracking-normal transition-colors whitespace-nowrap ${
                         isActive
                           ? 'text-emerald-700 bg-emerald-50 font-bold'
                           : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
@@ -263,7 +272,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         if (link.route) handleLinkClick(e, link.route);
                         setActiveDropdown(null);
                       }}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-normal transition-colors flex items-center space-x-1 ${
+                      className={`px-2 xl:px-2.5 py-1.5 rounded-lg text-xs font-semibold tracking-normal transition-colors flex items-center space-x-0.5 xl:space-x-1 whitespace-nowrap ${
                         isActive || isDropdownOpen
                           ? 'text-emerald-700 bg-emerald-50 font-bold'
                           : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
@@ -327,19 +336,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                               }}
                               className="w-full text-left p-2 rounded-xl hover:bg-slate-50/90 group transition-all flex items-center space-x-3"
                             >
-                              {/* Product Thumbnail */}
-                              <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 shrink-0 border border-slate-200/60 relative">
+                              {/* Product Thumbnail - Original Logo */}
+                              <div className="w-10 h-10 rounded-xl overflow-hidden bg-slate-50 shrink-0 border border-slate-200/80 shadow-2xs p-0.5 flex items-center justify-center">
                                 <img 
-                                  src={product.image} 
+                                  src={getProductLogoUrl(product.id, product.name)} 
                                   alt={product.name} 
-                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 rounded-lg" 
                                   loading="lazy"
                                 />
-                                {product.badge && (
-                                  <span className="absolute bottom-0 inset-x-0 bg-slate-900/80 text-white text-[8px] font-semibold text-center py-0.5 truncate px-0.5">
-                                    {product.badge}
-                                  </span>
-                                )}
                               </div>
 
                               {/* Title & Micro specs */}
@@ -515,9 +519,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                           className="w-full text-left p-2 rounded-lg hover:bg-white flex items-center space-x-2.5 transition-colors"
                         >
                           <img 
-                            src={prod.image} 
+                            src={getProductLogoUrl(prod.id, prod.name)} 
                             alt={prod.name} 
-                            className="w-8 h-8 rounded-md object-cover border border-slate-200 shrink-0" 
+                            className="w-8 h-8 rounded-lg object-contain border border-slate-200/80 bg-white p-0.5 shrink-0" 
                           />
                           <div className="flex-1 min-w-0">
                             <div className="text-xs font-semibold text-slate-800 truncate">{prod.name}</div>

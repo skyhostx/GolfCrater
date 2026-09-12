@@ -289,6 +289,373 @@ export const PRODUCT_LOGOS: Record<string, string> = {
       <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">SMTP RELAY</text>
     </svg>
   `),
+
+  // 24. Buy Amazon Account (Buyer & Seller)
+  'buy-amazon-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#131921"/>
+      <text x="100" y="96" text-anchor="middle" fill="#FFFFFF" font-size="62" font-weight="900" font-family="Arial, sans-serif" letter-spacing="-1">amazon</text>
+      <path d="M42 122 C78 148 126 148 158 122" stroke="#FF9900" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path d="M152 114 L164 122 L150 131 Z" fill="#FF9900"/>
+      <rect x="46" y="152" width="108" height="24" rx="12" fill="#232F3E" stroke="#FF9900" stroke-width="1"/>
+      <text x="100" y="168" text-anchor="middle" fill="#FF9900" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="1.5">BUYER &amp; SELLER</text>
+    </svg>
+  `),
+
+  // 25. Buy Apple Developer Account
+  'buy-apple-developer-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#1D1D1F"/>
+      <!-- Apple Leaf & Body -->
+      <path fill="#F5F5F7" d="M113.8 45.4c4.6-5.8 7.8-13.8 6.9-21.8-6.9.3-15.1 4.7-20 10.5-4.4 5.1-8.2 13.3-7.2 21.1 7.7.6 15.5-4 20.3-9.8zm17 38c-8.2-.1-15.2 5.1-19.2 5.1-4 0-9.8-4.8-16.1-4.7-8.3.1-16 4.9-20.3 12.4-8.7 15.1-2.2 37.4 6.1 49.6 4.1 6 9 12.6 15.4 12.4 6.2-.3 8.6-4 16.1-4 7.5 0 9.6 4 16.2 3.9 6.7-.1 10.9-6.1 15-12.1 4.7-6.9 6.7-13.6 6.8-13.9-.1-.2-13.1-5.1-13.3-20.1-.1-12.6 10.2-18.6 10.7-18.9-5.9-8.6-15-9.6-17.4-9.7z"/>
+      <text x="100" y="174" text-anchor="middle" fill="#A1A1A6" font-size="14" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">DEVELOPER</text>
+    </svg>
+  `),
+
+  // 26. Buy Google Play Console Account
+  'buy-google-play-console-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#0B1A24"/>
+      <g transform="translate(68, 38) scale(2.8)">
+        <path fill="#00C3FF" d="M3.6 2.3 C3.2 2.7 3 3.4 3 4.2 L3 20.8 C3 21.6 3.2 22.3 3.6 22.7 L3.7 22.8 L13 13.5 L13 13.3 L3.7 2.2 Z"/>
+        <path fill="#FFD400" d="M16.1 16.4 L13 13.3 L13 13.1 L16.1 10.1 L16.2 10.1 L19.8 12.2 C20.9 12.8 20.9 13.7 19.8 14.3 L16.2 16.4 Z"/>
+        <path fill="#FF3A44" d="M16.2 16.4 L13 13.2 L3.6 22.6 C4 23 4.7 23.1 5.5 22.6 L16.2 16.4 Z"/>
+        <path fill="#00E676" d="M16.2 10.1 L5.5 3.9 C4.7 3.4 4 3.5 3.6 3.9 L13 13.3 L16.2 10.1 Z"/>
+      </g>
+      <text x="100" y="146" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">GOOGLE PLAY</text>
+      <text x="100" y="168" text-anchor="middle" fill="#00E676" font-size="12" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">CONSOLE</text>
+    </svg>
+  `),
+
+  // 27. Buy Facebook Ads Accounts
+  'buy-facebook-ads-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#0866FF"/>
+      <g transform="translate(62, 38)">
+        <circle cx="38" cy="38" r="38" fill="#FFFFFF" opacity="0.15"/>
+        <path fill="#FFFFFF" d="M48 24h-7.6c-4.9 0-8.1 3.2-8.1 8.3v5.7h-6.3v8h6.3v20h8.3v-20h6.9l1.1-8h-8v-4.8c0-2.3 1.1-3.5 3.6-3.5h4.4V24z"/>
+      </g>
+      <g transform="translate(35, 126)">
+        <rect width="130" height="42" rx="10" fill="#0047AB" stroke="#60A5FA" stroke-width="1.5"/>
+        <text x="65" y="26" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1.5">ADS MANAGER</text>
+      </g>
+    </svg>
+  `),
+
+  // 28. Buy GitHub Accounts
+  'buy-github-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#181717"/>
+      <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M100 32C62.4 32 32 62.4 32 100c0 30.1 19.5 55.6 46.6 64.6 3.4.6 4.6-1.5 4.6-3.3 0-1.6-.1-7.1-.1-13-18.9 4.1-22.9-8-22.9-8-3.1-7.9-7.6-10-7.6-10-6.2-4.2.5-4.1.5-4.1 6.8.5 10.4 7 10.4 7 6.1 10.4 15.9 7.4 19.8 5.7 0.6-4.4 2.4-7.4 4.3-9.1-15.1-1.7-31-7.5-31-33.6 0-7.4 2.6-13.5 7-18.2-.7-1.7-3-8.6.7-18 0 0 5.7-1.8 18.7 7 5.4-1.5 11.3-2.3 17.1-2.3 5.8 0 11.6.8 17.1 2.3 12.9-8.8 18.6-7 18.6-7 3.8 9.3 1.4 16.3.7 18 4.4 4.8 7 10.8 7 18.2 0 26.2-15.9 31.8-31.1 33.5 2.5 2.1 4.7 6.3 4.7 12.8 0 9.2-.1 16.6-.1 18.9 0 1.8 1.2 3.9 4.7 3.3 27-9 46.5-34.5 46.5-64.6 0-37.6-30.4-68-68-68z"/>
+      <text x="100" y="180" text-anchor="middle" fill="#58A6FF" font-size="12" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">GITHUB ACCOUNT</text>
+    </svg>
+  `),
+
+  // 29. Buy Google Ads Account
+  'buy-google-ads-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+      <g transform="translate(48, 36) scale(2.6)">
+        <path fill="#FBBC04" d="M7.4 33.6L19.8 4.1C20.6 2.2 22.9 1.2 24.8 2.0C26.7 2.8 27.7 5.1 26.9 7.0L14.5 36.5C13.7 38.4 11.4 39.4 9.5 38.6C7.6 37.8 6.6 35.5 7.4 33.6Z"/>
+        <path fill="#4285F4" d="M26.9 7.0L14.5 36.5C13.7 38.4 11.4 39.4 9.5 38.6L2.3 35.6C0.4 34.8 -0.6 32.5 0.2 30.6L12.6 1.1C13.4 -0.8 15.7 -1.8 17.6 -1.0L24.8 2.0C26.7 2.8 27.7 5.1 26.9 7.0Z"/>
+        <circle cx="9.5" cy="35.6" r="6" fill="#34A853"/>
+      </g>
+      <text x="100" y="162" text-anchor="middle" fill="#1E293B" font-size="16" font-weight="900" font-family="Arial, sans-serif">Google Ads</text>
+      <text x="100" y="180" text-anchor="middle" fill="#2563EB" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="1">SPENDABLE ACCOUNTS</text>
+    </svg>
+  `),
+
+  // 30. Buy Google Voice Accounts
+  'buy-google-voice-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#34A853"/>
+      <g transform="translate(52, 42) scale(4)">
+        <path fill="#FFFFFF" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3.5 11.5c-1.2 0-2.4-.2-3.6-.6-.4-.1-.8 0-1.1.3l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1.1-.4-1.1-.6-2.3-.6-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 7.2 5.8 13 13 13 .6 0 1-.4 1-1v-2.5c0-.6-.4-1-1-1z"/>
+      </g>
+      <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">GOOGLE VOICE</text>
+    </svg>
+  `),
+
+  // 31. Buy Instagram Account
+  'buy-instagram-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <defs>
+        <radialGradient id="ig-grad" cx="20%" cy="110%" r="130%">
+          <stop offset="0%" stop-color="#FFDD55"/>
+          <stop offset="25%" stop-color="#FF5D3B"/>
+          <stop offset="60%" stop-color="#D62976"/>
+          <stop offset="85%" stop-color="#962FBF"/>
+          <stop offset="100%" stop-color="#4F5BD5"/>
+        </radialGradient>
+      </defs>
+      <rect width="200" height="200" rx="44" fill="url(#ig-grad)"/>
+      <g transform="translate(50, 42)" fill="none" stroke="#FFFFFF" stroke-width="9">
+        <rect x="5" y="5" width="90" height="90" rx="26"/>
+        <circle cx="50" cy="50" r="22"/>
+        <circle cx="76" cy="24" r="3.5" fill="#FFFFFF"/>
+      </g>
+      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">INSTAGRAM PVA</text>
+    </svg>
+  `),
+
+  // 32. Buy LinkedIn Accounts
+  'buy-linkedin-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#0A66C2"/>
+      <g transform="translate(48, 42)">
+        <circle cx="20" cy="18" r="14" fill="#FFFFFF"/>
+        <rect x="6" y="44" width="28" height="66" rx="4" fill="#FFFFFF"/>
+        <path fill="#FFFFFF" d="M52 44h26v10.5c3.8-6.2 12.8-12.5 25.5-12.5 24 0 31.5 15.5 31.5 39.5V110H107V74c0-8.5-3.5-15-13.5-15-8.5 0-14.5 6-14.5 15.5V110H52V44z"/>
+      </g>
+      <text x="100" y="176" text-anchor="middle" fill="#E0F2FE" font-size="13" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">LINKEDIN NETWORK</text>
+    </svg>
+  `),
+
+  // 33. Buy Facebook Accounts
+  'buy-facebook-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#1877F2"/>
+      <path fill="#FFFFFF" d="M125 106h-21v68H76v-68H60V82h16V62c0-14 8.5-22 21.5-22 6.2 0 12.5 1.1 12.5 1.1v14.2h-7.1c-7 0-9.2 4.4-9.2 8.9V82h16l-2.7 24z"/>
+      <rect x="45" y="148" width="110" height="28" rx="14" fill="#0D5BC6" stroke="#93C5FD" stroke-width="1"/>
+      <text x="100" y="167" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">AGED PROFILES</text>
+    </svg>
+  `),
+
+  // 34. Buy SSN Number
+  'buy-ssn-number': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#0F172A"/>
+      <g transform="translate(56, 32)">
+        <!-- Security Badge Shield -->
+        <path d="M44 4 L80 18 C80 56 44 76 44 76 C44 76 8 56 8 18 Z" fill="#1E293B" stroke="#F59E0B" stroke-width="4"/>
+        <path d="M44 14 L70 24 C70 50 44 66 44 66 C44 66 18 50 18 24 Z" fill="#0F172A"/>
+        <!-- Verified Checkmark in shield -->
+        <path d="M32 38 L40 46 L58 28" stroke="#10B981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </g>
+      <text x="100" y="142" text-anchor="middle" fill="#F59E0B" font-size="20" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">SSN &amp; DL</text>
+      <text x="100" y="168" text-anchor="middle" fill="#94A3B8" font-size="12" font-weight="700" font-family="Arial, sans-serif" letter-spacing="1.5">KYC VERIFICATION</text>
+    </svg>
+  `),
+
+  // 35. Buy TextNow Accounts
+  'buy-textnow-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#6930C3"/>
+      <g transform="translate(50, 40) scale(4)">
+        <path fill="#FFFFFF" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+      </g>
+      <text x="100" y="166" text-anchor="middle" fill="#A5F3FC" font-size="18" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1.5">TEXTNOW</text>
+    </svg>
+  `),
+
+  // 36. Buy Ticketmaster Accounts
+  'buy-ticketmaster-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#026CDF"/>
+      <g transform="translate(68, 38)">
+        <path fill="#FFFFFF" d="M0 24h64v16H38v64H22V40H0V24z"/>
+        <circle cx="54" cy="94" r="8" fill="#67E8F9"/>
+      </g>
+      <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">TICKETMASTER</text>
+    </svg>
+  `),
+
+  // 37. Buy Tinder Account
+  'buy-tinder-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <defs>
+        <linearGradient id="tinder-flame" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF655B"/>
+          <stop offset="100%" stop-color="#FF5864"/>
+        </linearGradient>
+      </defs>
+      <rect width="200" height="200" rx="44" fill="#18181B"/>
+      <g transform="translate(60, 36) scale(3.5)">
+        <path fill="url(#tinder-flame)" d="M12.7 1.5c.3 1.8-.3 3.6-1.5 5-1.5 1.7-2.3 3.9-2.3 6.1 0 5 4 9 9 9s9-4 9-9c0-3.8-2.4-7.2-6-8.5-.2 2.1-1.3 4-3.1 5-1.7 1-2.9 2.7-3.3 4.6.9-.5 1.9-.8 3-.8 2.6 0 4.8 2.1 4.8 4.7 0 3-2.4 5.3-5.3 5.3s-5.3-2.4-5.3-5.3c0-3.9 2.4-7.4 6-8.9.3-2.5-1.2-5-3.6-6.2-1.1-.5-1.7-1.7-1.4-2.9z"/>
+      </g>
+      <text x="100" y="170" text-anchor="middle" fill="#FF655B" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1.5">TINDER PVA</text>
+    </svg>
+  `),
+
+  // 38. Buy Twitter Accounts
+  'buy-twitter-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#000000"/>
+      <g transform="translate(60, 46) scale(3.4)">
+        <path fill="#FFFFFF" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </g>
+      <text x="100" y="170" text-anchor="middle" fill="#38BDF8" font-size="14" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1.5">TWITTER / X</text>
+    </svg>
+  `),
+
+  // 39. Buy Verified Airbnb Accounts
+  'buy-verified-airbnb-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#FF5A5F"/>
+      <g transform="translate(66, 32) scale(2.8)">
+        <path fill="#FFFFFF" d="M12 2C6.5 2 2 6.5 2 12c0 3.3 1.6 6.2 4.1 8 0 0 .2.1.3.2 1.4 1 3.1 1.7 4.9 1.8h1.4c1.8-.1 3.5-.8 4.9-1.8.1-.1.3-.2.3-.2 2.5-1.8 4.1-4.7 4.1-8 0-5.5-4.5-10-10-10zm0 18.2c-1.5 0-3-.5-4.2-1.3l.1-.1c1.9-1.6 3.1-3.9 3.1-6.5 0-.6-.1-1.2-.2-1.8.8.4 1.7.6 2.6.6s1.8-.2 2.6-.6c-.1.6-.2 1.2-.2 1.8 0 2.6 1.2 4.9 3.1 6.5l.1.1c-1.2.8-2.7 1.3-4.2 1.3zm3.5-9.7c-.5.4-1.2.7-1.9.8.1-.4.2-.8.2-1.3 0-1-.8-1.8-1.8-1.8s-1.8.8-1.8 1.8c0 .5.1.9.2 1.3-.7-.1-1.4-.4-1.9-.8-.4-.3-.6-.7-.6-1.2 0-.8.6-1.5 1.5-1.5.3 0 .7.1 1 .3.4.3.9.5 1.4.5.5 0 1-.2 1.4-.5.3-.2.7-.3 1-.3.9 0 1.5.7 1.5 1.5 0 .5-.2.9-.6 1.2z"/>
+      </g>
+      <text x="100" y="164" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">AIRBNB</text>
+      <text x="100" y="180" text-anchor="middle" fill="#FFE4E6" font-size="10" font-weight="800" font-family="Arial, sans-serif" letter-spacing="1">HOST &amp; PERSONAL</text>
+    </svg>
+  `),
+
+  // 40. Buy Verified ByBiT Accounts
+  'buy-verified-bybit-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#121214"/>
+      <g transform="translate(62, 38)">
+        <rect x="0" y="0" width="30" height="76" rx="6" fill="#F7A600"/>
+        <path d="M40 0 H58 C70 0 78 8 78 18 C78 26 72 32 64 34 C74 36 80 44 80 54 C80 66 70 76 56 76 H40 V0 Z M56 30 C62 30 66 26 66 20 C66 14 62 11 56 11 H50 V30 H56 Z M56 65 C64 65 68 60 68 53 C68 46 64 41 56 41 H50 V65 H56 Z" fill="#FFFFFF"/>
+      </g>
+      <text x="100" y="152" text-anchor="middle" fill="#F7A600" font-size="20" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">BYBIT</text>
+      <text x="100" y="174" text-anchor="middle" fill="#94A3B8" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">VERIFIED LEVEL 2</text>
+    </svg>
+  `),
+
+  // 41. Buy Taboola Ads Account
+  'buy-taboola-ads-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#0A192F"/>
+      <g transform="translate(45, 38)">
+        <circle cx="28" cy="28" r="24" fill="#00A3E0"/>
+        <circle cx="82" cy="28" r="16" fill="#FFFFFF" opacity="0.9"/>
+        <path d="M48 28 H62" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+      </g>
+      <text x="100" y="142" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">taboola</text>
+      <text x="100" y="168" text-anchor="middle" fill="#00A3E0" font-size="12" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">ADS MANAGER</text>
+    </svg>
+  `),
+
+  // 42. Buy Bing Ads Accounts (Microsoft Advertising)
+  'buy-bing-ads-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#00809D"/>
+      <g transform="translate(68, 32)">
+        <rect x="0" y="0" width="30" height="30" fill="#F25022"/>
+        <rect x="34" y="0" width="30" height="30" fill="#7FBA00"/>
+        <rect x="0" y="34" width="30" height="30" fill="#00A4EF"/>
+        <rect x="34" y="34" width="30" height="30" fill="#FFB900"/>
+      </g>
+      <text x="100" y="142" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1.5">MICROSOFT</text>
+      <text x="100" y="168" text-anchor="middle" fill="#E0F2FE" font-size="13" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">BING ADS</text>
+    </svg>
+  `),
+
+  // 43. Buy TikTok Ads Account
+  'buy-tiktok-ads-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#000000"/>
+      <g transform="translate(72, 28) scale(1.1)">
+        {/* TikTok cyan shadow */}
+        <path d="M38 0 H28 V52 C28 62 20 70 10 70 C0 70 -8 62 -8 52 C-8 42 0 34 10 34 V22 C-6 22 -20 36 -20 52 C-20 68 -6 82 10 82 C26 82 40 68 40 52 V24 C48 30 58 34 68 34 V22 C56 22 46 12 46 0 H38 Z" fill="#25F4EE" transform="translate(-3, 0)"/>
+        {/* TikTok magenta shadow */}
+        <path d="M38 0 H28 V52 C28 62 20 70 10 70 C0 70 -8 62 -8 52 C-8 42 0 34 10 34 V22 C-6 22 -20 36 -20 52 C-20 68 -6 82 10 82 C26 82 40 68 40 52 V24 C48 30 58 34 68 34 V22 C56 22 46 12 46 0 H38 Z" fill="#FE2C55" transform="translate(3, 0)"/>
+        {/* TikTok white center */}
+        <path d="M38 0 H28 V52 C28 62 20 70 10 70 C0 70 -8 62 -8 52 C-8 42 0 34 10 34 V22 C-6 22 -20 36 -20 52 C-20 68 -6 82 10 82 C26 82 40 68 40 52 V24 C48 30 58 34 68 34 V22 C56 22 46 12 46 0 H38 Z" fill="#FFFFFF"/>
+      </g>
+      <text x="100" y="148" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1.5">TikTok</text>
+      <text x="100" y="172" text-anchor="middle" fill="#25F4EE" font-size="12" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">ADS MANAGER</text>
+    </svg>
+  `),
+
+  // 44. Buy Snapchat Ads Account
+  'buy-snapchat-ads-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#FFFC00"/>
+      <g transform="translate(68, 28) scale(2.6)">
+        <path d="M12 2C7.58 2 4 5.58 4 10c0 2.22.88 4.09 2.06 5.44-.06.25-.34.62-.84.88-.31.16-.41.53-.24.84.16.31.53.41.84.24 1.13-.59 1.78-1.28 1.94-1.53.72.31 1.48.5 2.24.5.76 0 1.52-.19 2.24-.5.16.25.81.94 1.94 1.53.31.17.68.07.84-.24.17-.31.07-.68-.24-.84-.5-.26-.78-.63-.84-.88C19.12 14.09 20 12.22 20 10c0-4.42-3.58-8-8-8z" fill="#000000"/>
+        <path d="M12 3.5C8.41 3.5 5.5 6.41 5.5 10c0 1.83.74 3.39 1.75 4.5.09.1.15.23.12.36-.08.38-.41.88-1 1.25.84-.31 1.48-.84 1.77-1.15.11-.12.28-.16.42-.1.76.35 1.58.54 2.44.54s1.68-.19 2.44-.54c.14-.06.31-.02.42.1.29.31.93.84 1.77 1.15-.59-.37-.92-.87-1-1.25-.03-.13.03-.26.12-.36 1.01-1.11 1.75-2.67 1.75-4.5 0-3.59-2.91-6.5-6.5-6.5z" fill="#FFFFFF"/>
+      </g>
+      <text x="100" y="148" text-anchor="middle" fill="#000000" font-size="17" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">SNAPCHAT</text>
+      <text x="100" y="172" text-anchor="middle" fill="#1E293B" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">BUSINESS ADS</text>
+    </svg>
+  `),
+
+  // 45. Buy Twitter Ads Accounts
+  'buy-twitter-ads-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#000000"/>
+      <g transform="translate(68, 30) scale(2.7)">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#FFFFFF"/>
+      </g>
+      <text x="100" y="146" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">X (TWITTER)</text>
+      <text x="100" y="170" text-anchor="middle" fill="#38BDF8" font-size="12" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">ADS MANAGER</text>
+    </svg>
+  `),
+
+  // 46. Buy Outbrain Ads Account
+  'buy-outbrain-ads-account': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#EA5B0C"/>
+      <g transform="translate(68, 32)">
+        <circle cx="32" cy="32" r="30" fill="#FFFFFF"/>
+        <circle cx="32" cy="32" r="18" fill="#EA5B0C"/>
+        <circle cx="32" cy="32" r="8" fill="#FFFFFF"/>
+      </g>
+      <text x="100" y="142" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">outbrain</text>
+      <text x="100" y="168" text-anchor="middle" fill="#FED7AA" font-size="12" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">NATIVE ADS</text>
+    </svg>
+  `),
+
+  // 47. Buy Driving License
+  'buy-driving-license': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#1E293B"/>
+      <g transform="translate(36, 32)">
+        <rect x="0" y="0" width="128" height="76" rx="8" fill="#334155" stroke="#475569" stroke-width="2"/>
+        <circle cx="32" cy="34" r="16" fill="#94A3B8"/>
+        <rect x="58" y="18" width="56" height="6" rx="3" fill="#38BDF8"/>
+        <rect x="58" y="30" width="44" height="4" rx="2" fill="#94A3B8"/>
+        <rect x="58" y="38" width="50" height="4" rx="2" fill="#64748B"/>
+        <rect x="12" y="58" width="104" height="8" rx="2" fill="#0F172A"/>
+      </g>
+      <text x="100" y="148" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">DRIVER LICENSE</text>
+      <text x="100" y="172" text-anchor="middle" fill="#38BDF8" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">USA • UK • EU</text>
+    </svg>
+  `),
+
+  // 48. Buy Old Gmail Accounts
+  'buy-old-gmail-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="3"/>
+      <g transform="translate(56, 26) scale(3.6)">
+        <path fill="#4285F4" d="M1.5 6.25v11.5a1.25 1.25 0 001.25 1.25h3.5V9.67L1.5 6.25z"/>
+        <path fill="#34A853" d="M18.75 6.25l-4.75 3.42V19h3.5a1.25 1.25 0 001.25-1.25V6.25z"/>
+        <path fill="#EA4335" d="M14 9.67l4.75-3.42a1.25 1.25 0 00-1.95-1.03L12 8.7 7.2 5.22a1.25 1.25 0 00-1.95 1.03L10 9.67l2 1.45 2-1.45z"/>
+        <path fill="#FBBC04" d="M6.25 19v-9.33L10 12.5l-3.75 6.5z"/>
+      </g>
+      <text x="100" y="148" text-anchor="middle" fill="#1E293B" font-size="17" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">AGED GMAIL</text>
+      <text x="100" y="172" text-anchor="middle" fill="#EA4335" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">2014-2023 PVA</text>
+    </svg>
+  `),
+
+  // Aliases for matching alternate IDs
+  'buy-google-ads-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+      <g transform="translate(65, 30)">
+        <polygon points="12,65 38,15 62,65" fill="#FBBC04"/>
+        <polygon points="62,65 42,65 24,30" fill="#4285F4"/>
+        <circle cx="14" cy="62" r="10" fill="#34A853"/>
+      </g>
+      <text x="100" y="144" text-anchor="middle" fill="#1E293B" font-size="18" font-weight="900" font-family="Arial, sans-serif">Google Ads</text>
+      <text x="100" y="168" text-anchor="middle" fill="#4285F4" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">VERIFIED SPEND</text>
+    </svg>
+  `),
+  'buy-verified-ssn-number': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#0F172A"/>
+      <g transform="translate(38, 30)">
+        <rect x="0" y="0" width="124" height="74" rx="8" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+        <rect x="14" y="16" width="96" height="8" rx="2" fill="#38BDF8"/>
+        <rect x="24" y="32" width="76" height="12" rx="3" fill="#0F172A"/>
+        <text x="62" y="42" text-anchor="middle" fill="#F8FAFC" font-size="10" font-weight="900" font-family="monospace">***-**-6789</text>
+      </g>
+      <text x="100" y="148" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">VERIFIED SSN</text>
+      <text x="100" y="172" text-anchor="middle" fill="#38BDF8" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">USA IDENTITY</text>
+    </svg>
+  `),
 };
 
 export const getProductLogoUrl = (productId: string, fallbackName?: string): string => {

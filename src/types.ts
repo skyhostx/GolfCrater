@@ -10,7 +10,7 @@ export interface Product {
   id: string;
   name: string;
   slug: string;
-  category: 'Reviews' | 'Reviews Service' | 'Bank Account' | 'Crypto Account' | 'SMM Account' | 'Email Service';
+  category: 'Reviews' | 'Reviews Service' | 'Bank Account' | 'Crypto Account' | 'SMM Account' | 'Email Service' | 'Account' | 'Other' | 'Digital Tools';
   shortDescription: string;
   priceRange: string;
   startingPrice: number;

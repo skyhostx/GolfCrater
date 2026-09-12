@@ -21,6 +21,8 @@ export const categoryToSlug = (cat: string): string => {
     'Reviews Service': 'reviews',
     'SMM Account': 'smm-account',
     'Email Service': 'email-service',
+    'Account': 'account',
+    'Other': 'other',
     'Digital Tools': 'digital-tools',
   };
   if (map[normalized]) return map[normalized];
@@ -40,6 +42,10 @@ export const slugToCategory = (slug: string): string => {
     'smm': 'SMM Account',
     'email-service': 'Email Service',
     'email': 'Email Service',
+    'account': 'Account',
+    'accounts': 'Account',
+    'other': 'Other',
+    'others': 'Other',
     'digital-tools': 'Digital Tools',
   };
   return map[slug.toLowerCase()] || 'All';

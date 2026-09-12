@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
 import { ProductLogo } from '../components/ProductLogo';
+import { getProductLogoUrl } from '../data/productLogos';
 
 interface ProductPageProps {
   product: Product;
@@ -117,7 +118,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             {/* Left Column: Image, Trust Badges, Specifications */}
             <div className="lg:col-span-5 space-y-6">
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm group">
-                <div className="w-full h-72 sm:h-96">
+                <div className="w-full h-80 sm:h-96 md:h-[420px]">
                   <ProductLogo
                     productId={product.id}
                     productName={product.name}
@@ -209,9 +210,16 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   <span className="text-xs text-slate-400 font-medium">•</span>
                   <span className="text-xs font-semibold text-slate-500">Verified Service ID: {product.id}</span>
                 </div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-2 leading-tight">
-                  {product.name}
-                </h1>
+                <div className="flex items-center space-x-3.5 mt-2.5">
+                  <img
+                    src={getProductLogoUrl(product.id, product.name)}
+                    alt={`${product.name} Official Logo`}
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-contain border border-slate-200/90 bg-white p-1 shadow-xs shrink-0"
+                  />
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    {product.name}
+                  </h1>
+                </div>
                 
                 {/* Rating and Reviews */}
                 <div className="flex items-center space-x-3 mt-3">

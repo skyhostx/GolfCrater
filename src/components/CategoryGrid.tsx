@@ -7,7 +7,8 @@ import {
   Mail, 
   Wrench, 
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  Layers
 } from 'lucide-react';
 import { categoryToSlug } from '../utils/navigation';
 
@@ -21,6 +22,16 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
   activeCategory,
 }) => {
   const categories = [
+    {
+      id: 'Account',
+      title: 'Account',
+      icon: ShieldCheck,
+      description: 'Verified developer, ad networks, and e-commerce marketplace accounts. Apple Developer, Google Play, Amazon, and GitHub.',
+      actionText: 'Explore Developer & Ad Accounts',
+      bgClass: 'hover:border-emerald-400 group-hover:bg-emerald-50/50',
+      iconClass: 'text-emerald-700 bg-emerald-100/70',
+      badge: 'Enterprise & Dev',
+    },
     {
       id: 'Bank Account',
       title: 'Bank Account',
@@ -70,6 +81,16 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
       bgClass: 'hover:border-teal-400 group-hover:bg-teal-50/50',
       iconClass: 'text-teal-700 bg-teal-100/70',
       badge: 'Warm IP Pools',
+    },
+    {
+      id: 'Other',
+      title: 'Other',
+      icon: Layers,
+      description: 'Specialized identity verification assets, SSN numbers, driving license records, and virtual VoIP accounts.',
+      actionText: 'Explore Identity & VoIP Assets',
+      bgClass: 'hover:border-amber-400 group-hover:bg-amber-50/50',
+      iconClass: 'text-amber-700 bg-amber-100/70',
+      badge: 'KYC & VoIP',
     },
     {
       id: 'Digital Tools',

@@ -109,7 +109,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           {/* Category Filter Tabs */}
           <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto pb-3 mb-6 no-scrollbar border-b border-slate-100">
-            {['All', 'Reviews Service', 'Bank Account', 'Crypto Account', 'SMM Account', 'Email Service'].map((cat) => {
+            {['All', 'Account', 'Bank Account', 'Crypto Account', 'Reviews Service', 'SMM Account', 'Email Service', 'Other'].map((cat) => {
               const isSelected = selectedCategory === cat;
               return (
                 <button

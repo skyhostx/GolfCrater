@@ -50,6 +50,18 @@ export const getCategorySeo = (categoryName: string): { title: string; descripti
         description: 'High-inbox delivery email infrastructure, aged phone-verified Gmail accounts, Mailgun SMTP, and Brevo relay servers for reliable transactional outreach.',
         canonical,
       };
+    case 'Account':
+      return {
+        title: 'Buy Verified Developer, Marketplace & Ad Accounts | GolfCrater',
+        description: 'Verified Apple Developer, Google Play Console, Amazon Seller & Buyer, Facebook Ads, and GitHub accounts with full credentials and fast delivery.',
+        canonical,
+      };
+    case 'Other':
+      return {
+        title: 'Buy Verified Identity Assets, SSN & Google Voice Accounts | GolfCrater',
+        description: 'Verified identity documentation, real US SSN number records, state driving licenses, Google Voice VoIP numbers, and TextNow accounts with 24/7 support.',
+        canonical,
+      };
     default:
       return {
         title: `Buy Verified ${categoryName} Services & Digital Accounts | GolfCrater`,

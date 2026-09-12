@@ -836,6 +836,878 @@ Skip the tedious manual review and warm-up requirements with verified Brevo acco
 Stop struggling with shared IP blocklists and aggressive email throttling. GolfCrater dedicated SMTP relay servers route your outgoing volume through clean IP ranges, maximizing inbox placement on Gmail, Outlook, Yahoo, and corporate firewalls.
     `,
   },
+
+  // ===================== ACCOUNT CATEGORY =====================
+  {
+    id: 'buy-amazon-account',
+    name: 'Buy Amazon Account',
+    slug: 'buy-amazon-account',
+    category: 'Account',
+    shortDescription: 'Fully verified Amazon Buyer and Seller accounts with clean IP history, verified billing, and complete documentation for instant e-commerce operations.',
+    priceRange: '$70 - $750',
+    startingPrice: 70,
+    rating: 4.9,
+    reviewCount: 184,
+    image: PRODUCT_LOGOS['buy-amazon-account'],
+    badge: 'Buyer & Seller',
+    tags: ['Amazon Seller', 'Amazon Buyer', 'Aged Profile', 'Prime Eligible', '2FA Included', 'Clean IP'],
+    metaDescription: 'Buy verified Amazon Buyer and Seller accounts at GolfCrater. Aged accounts, clean transaction histories, 2FA recovery, and 30-day replacement warranty.',
+    specifications: {
+      deliveryTime: '1 - 4 Hours',
+      guaranteePeriod: '30 Days Replacement Guarantee',
+      verificationLevel: 'Full Identity & Bank Verified',
+      supportAvailable: '24/7 Live Support',
+      documentsIncluded: 'Login, 2FA Recovery & Email Access',
+      supportedRegions: 'USA, UK, Germany, Canada & Global',
+    },
+    variants: [
+      { id: 'amz-new-buyer', name: '01 New Amazon Buyer Account', price: 70 },
+      { id: 'amz-old-buyer', name: '01 Old Amazon Buyer Account', price: 99 },
+      { id: 'amz-new-seller', name: '01 New Amazon Seller Account', price: 420, popular: true },
+      { id: 'amz-old-seller', name: '01 Old Amazon Seller Account', price: 750 },
+    ],
+    fullDescription: `
+### Verified Amazon Buyer and Seller Accounts Ready for Immediate Commerce
+Scaling an e-commerce presence requires reliable, compliant marketplace foundations. GolfCrater provides high-standing, pre-verified Amazon Buyer and Seller accounts configured with clean browser fingerprint histories, registered phone verification, and verified payment instruments.
+
+Whether you require an aged buyer account for automated purchasing and testing, or a full professional Seller Central storefront to launch your private label inventory without onboarding delays, our accounts arrive with full primary email control, 2FA authentication seeds, and clear setup documentation.
+    `,
+  },
+  {
+    id: 'buy-apple-developer-account',
+    name: 'Buy Apple Developer Account',
+    slug: 'buy-apple-developer-account',
+    category: 'Account',
+    shortDescription: 'Verified Apple Developer accounts (Personal & Business D-U-N-S verified) ready for iOS app store deployment, TestFlight distribution, and enterprise signing.',
+    priceRange: '$499 - $999',
+    startingPrice: 499,
+    rating: 4.9,
+    reviewCount: 96,
+    image: PRODUCT_LOGOS['buy-apple-developer-account'],
+    badge: 'D-U-N-S Verified',
+    tags: ['Apple Developer', 'iOS App Store', 'D-U-N-S Number', 'Enterprise Account', 'TestFlight Ready'],
+    metaDescription: 'Buy verified Apple Developer accounts at GolfCrater. Personal and D-U-N-S verified corporate accounts ready for instant iOS App Store publishing.',
+    specifications: {
+      deliveryTime: '2 - 6 Hours',
+      guaranteePeriod: '60 Days Warranty',
+      verificationLevel: 'D-U-N-S & Corporate ID Verified',
+      supportAvailable: '24/7 Priority Desk',
+      documentsIncluded: 'Full Apple ID, Recovery Keys & D-U-N-S Docs',
+      supportedRegions: 'USA, EU, UK & Worldwide',
+    },
+    variants: [
+      { id: 'apple-personal', name: '01 Apple Developer Personal Account', price: 499 },
+      { id: 'apple-business', name: '01 Apple Developer Business Account', price: 999, popular: true },
+    ],
+    fullDescription: `
+### Premium Apple Developer Accounts for Seamless App Store Publishing
+Navigating the multi-week Apple Developer Program approval and corporate D-U-N-S number verification can stall critical product roadmaps. GolfCrater delivers 100% pre-approved, fully paid annual Apple Developer accounts equipped with clean organizational profiles.
+
+Deploy iOS, iPadOS, macOS, and watchOS binaries directly through Xcode, utilize TestFlight beta distribution for up to 10,000 testers, and generate production APNs push certificates and developer profiles immediately upon delivery.
+    `,
+  },
+  {
+    id: 'buy-google-play-console-account',
+    name: 'Buy Google Play Console Account',
+    slug: 'buy-google-play-console-account',
+    category: 'Account',
+    shortDescription: '100% verified Google Play Console developer accounts. Pre-warmed with verified ID, phone, payment profile, and optional live published app history.',
+    priceRange: '$290 - $450',
+    startingPrice: 290,
+    rating: 4.9,
+    reviewCount: 142,
+    image: PRODUCT_LOGOS['buy-google-play-console-account'],
+    badge: 'Instant Publish',
+    tags: ['Google Play Console', 'Android Developer', 'Aged Console', 'Live App Included', 'Identity Verified'],
+    metaDescription: 'Buy verified Google Play Console accounts at GolfCrater. New, aged, and live app developer accounts with pre-verified payment profiles and 30-day replacement.',
+    specifications: {
+      deliveryTime: '1 - 3 Hours',
+      guaranteePeriod: '30 Days Guarantee',
+      verificationLevel: 'Google Payment Profile & ID Verified',
+      supportAvailable: '24/7 Live Support',
+      documentsIncluded: 'Console Access, Gmail, Recovery Phone & Docs',
+      supportedRegions: 'Worldwide (US/UK/EU Resident IPs)',
+    },
+    variants: [
+      { id: 'play-new', name: 'New Google Play Account Only', price: 290 },
+      { id: 'play-old', name: 'Old Google Play Account Only', price: 399, popular: true },
+      { id: 'play-old-app', name: 'Old Google Play Account With App Only', price: 450 },
+    ],
+    fullDescription: `
+### Certified Google Play Developer Accounts with Zero Verification Friction
+Launching Android applications under Google's stringent 20-tester requirement and strict merchant identification checks requires established infrastructure. GolfCrater offers pre-registered, fully paid $25 fee-settled Google Play Console accounts.
+
+Choose between freshly initialized accounts, aged developer consoles with established standing, or aged accounts with an already live published app to bypass initial algorithmic sandbox reviews.
+    `,
+  },
+  {
+    id: 'buy-facebook-ads-accounts',
+    name: 'Buy Facebook Ads Accounts',
+    slug: 'buy-facebook-ads-accounts',
+    category: 'Account',
+    shortDescription: 'Aged and warmed Facebook Ads accounts with verified Business Managers, pre-warmed pixels, high daily spending limits, and clean billing thresholds.',
+    priceRange: '$149 - $199',
+    startingPrice: 149,
+    rating: 4.8,
+    reviewCount: 215,
+    image: PRODUCT_LOGOS['buy-facebook-ads-accounts'],
+    badge: 'High Spend',
+    tags: ['Facebook Ads', 'Business Manager', 'High Daily Limit', 'Agency BM', 'Pixel Ready'],
+    metaDescription: 'Buy verified Facebook Ads accounts at GolfCrater. High daily spending limits, verified Meta Business Managers, aged ad accounts, and 24/7 agency support.',
+    specifications: {
+      deliveryTime: '1 - 2 Hours',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Verified BM & Clean Billing History',
+      supportAvailable: '24/7 Agency Support',
+      documentsIncluded: 'BM Admin Invite, 2FA Profile, Cookies & Proxy Guidance',
+      supportedRegions: 'USA, UK, Australia & Worldwide',
+    },
+    variants: [
+      { id: 'fb-ads-new', name: '01 Facebook Ads Accounts Only', price: 149 },
+      { id: 'fb-ads-old', name: '01 Old Facebook Ads Accounts Only', price: 199, popular: true },
+    ],
+    fullDescription: `
+### High-Spend Limit Facebook Ads Accounts for Scalable Media Buying
+Media buyers, e-commerce dropshippers, and performance agencies need ad infrastructure that withstands aggressive scaling without immediate payment holds. Our Facebook Ads accounts feature verified Business Managers (BM), high daily spend thresholds ($250 to unlimited), and clean history.
+
+Each package includes residential cookies, detailed browser fingerprint instructions, and secondary admin invite links to ensure zero disruption to active campaigns.
+    `,
+  },
+  {
+    id: 'buy-github-accounts',
+    name: 'Buy GitHub Accounts',
+    slug: 'buy-github-accounts',
+    category: 'Account',
+    shortDescription: 'Aged and active GitHub accounts with organic commit streaks, stars, repositories, and genuine follower counts. Perfect for developer credibility and CI/CD operations.',
+    priceRange: '$25 - $499',
+    startingPrice: 25,
+    rating: 4.9,
+    reviewCount: 268,
+    image: PRODUCT_LOGOS['buy-github-accounts'],
+    badge: 'Green Commits',
+    tags: ['GitHub', 'Developer Profile', 'Aged Commits', 'Stars & Repos', 'Organic Followers', 'SSH Access'],
+    metaDescription: 'Buy aged GitHub accounts with followers, stars, and green contribution history at GolfCrater. Instant delivery, full email access, and 30-day warranty.',
+    specifications: {
+      deliveryTime: 'Instant to 2 Hours',
+      guaranteePeriod: '30 Days Guarantee',
+      verificationLevel: 'Verified Email & Clean Public Activity',
+      supportAvailable: '24/7 Tech Support',
+      documentsIncluded: 'GitHub Login, Primary Email & 2FA Recovery Codes',
+      supportedRegions: 'Global',
+    },
+    variants: [
+      { id: 'gh-01-new', name: '01 New GitHub Account', price: 25 },
+      { id: 'gh-01-old', name: '01 Old GitHub Account', price: 45 },
+      { id: 'gh-05-new', name: '05 New GitHub Account', price: 110 },
+      { id: 'gh-05-old', name: '05 Old GitHub Account', price: 199 },
+      { id: 'gh-old-100f', name: '1 Old GitHub Account With 100 Follower, Contribution, Star, Repository', price: 120 },
+      { id: 'gh-old-300f', name: '1 Old GitHub Account With 300 Follower, Contribution, Star, Repository', price: 199 },
+      { id: 'gh-old-500f', name: '1 Old GitHub Account With 500 Follower, Contribution, Star, Repository', price: 299 },
+      { id: 'gh-old-1000f', name: '1 Old GitHub Account With 1000 Follower, Contribution, Star, Repository', price: 499, popular: true },
+    ],
+    fullDescription: `
+### Aged GitHub Accounts with Organic Contributions, Stars & Followers
+Establish instant engineering authority for your open-source projects, Web3 protocols, or developer portfolio. GolfCrater supplies genuine aged GitHub accounts featuring historical green contribution heatmaps, public repositories, stars, and real follower networks.
+
+All accounts arrive with full primary email credentials, verified 2FA recovery backup codes, and clean IP histories for immediate Git CLI and GitHub Actions utilization.
+    `,
+  },
+  {
+    id: 'buy-google-ads-account',
+    name: 'Buy Google Ads Account',
+    slug: 'buy-google-ads-account',
+    category: 'Account',
+    shortDescription: 'Spendable Google Ads accounts with verified billing methods, active campaign history, high threshold limits, and zero initial review delays.',
+    priceRange: '$140 - $270',
+    startingPrice: 140,
+    rating: 4.9,
+    reviewCount: 189,
+    image: PRODUCT_LOGOS['buy-google-ads-account'],
+    badge: 'Spendable Balance',
+    tags: ['Google Ads', 'Spendable Credit', 'Active Billing', 'Search Ads', 'No Suspension Hold'],
+    metaDescription: 'Buy verified spendable Google Ads accounts with pre-warmed billing balances at GolfCrater. $350, $600, and $800 spendable options with instant delivery.',
+    specifications: {
+      deliveryTime: '1 - 3 Hours',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Advertiser Identity & Billing Verified',
+      supportAvailable: '24/7 PPC Specialist',
+      documentsIncluded: 'Manager Account Linking / Direct Credentials',
+      supportedRegions: 'USA, UK, Canada & EU',
+    },
+    variants: [
+      { id: 'gads-01', name: '01 Google Ads Accounts Only', price: 100 },
+      { id: 'gads-old', name: '01 Old Google Ads Accounts Only', price: 140 },
+      { id: 'gads-camp', name: '01 Google Ads Accounts with 1 Active Campaign', price: 150, popular: true },
+      { id: 'gads-100', name: '01 Old Google Ads Accounts $100+ Spent Only', price: 250 },
+      { id: 'gads-500', name: '01 Old Google Ads Accounts $500+ Spent Only', price: 400 },
+      { id: 'gads-1000', name: '01 Old Google Ads Accounts $1000+ Spent Only', price: 700 },
+    ],
+    fullDescription: `
+### Spendable Google Ads Accounts with Pre-Warmed Verification & Billing
+Bypass the common "suspicious payment" suspension triggers when launching high-converting search, display, or YouTube ad campaigns. Our spendable Google Ads accounts are constructed with established billing histories and verified advertiser status.
+
+Select from starter accounts, active campaign accounts, or aged high-spend accounts ($100+, $500+, $1000+ spent) configured for uninterrupted traffic delivery and optimal ad rank auction performance.
+    `,
+  },
+  {
+    id: 'buy-taboola-ads-account',
+    name: 'Buy Taboola Ads Account',
+    slug: 'buy-taboola-ads-account',
+    category: 'Account',
+    shortDescription: 'Verified Taboola native advertising agency and advertiser accounts with verified payment setup, ready for high-converting native ad campaigns.',
+    priceRange: '$220 - $250',
+    startingPrice: 220,
+    rating: 4.9,
+    reviewCount: 94,
+    image: PRODUCT_LOGOS['buy-taboola-ads-account'],
+    badge: 'Native Ads',
+    tags: ['Taboola', 'Native Ads', 'Active Campaign', 'Advertiser Account', 'High CTR'],
+    metaDescription: 'Buy verified Taboola Ads accounts at GolfCrater. Clean billing, active campaigns, and 30-day replacement warranty.',
+    specifications: {
+      deliveryTime: '1 - 3 Hours',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Billing & Advertiser ID Verified',
+      supportAvailable: '24/7 Native Ad Specialist',
+      documentsIncluded: 'Direct Credentials & Recovery Access',
+      supportedRegions: 'USA, UK & Global Networks',
+    },
+    variants: [
+      { id: 'tab-01', name: '01 Taboola Ads Account Only', price: 220 },
+      { id: 'tab-camp', name: '01 Taboola Ads Account With 1 Active Campaign', price: 250, popular: true },
+    ],
+    fullDescription: `
+### Verified Taboola Native Advertising Accounts
+Scale native content recommendations, affiliate offers, and brand campaigns on premier publisher networks with GolfCrater's verified Taboola Ads accounts.
+
+Delivered pre-approved with valid payment methods, active account standing, and options for pre-configured live campaigns.
+    `,
+  },
+  {
+    id: 'buy-bing-ads-accounts',
+    name: 'Buy Bing Ads Accounts',
+    slug: 'buy-bing-ads-accounts',
+    category: 'Account',
+    shortDescription: 'Aged Microsoft Bing Advertising accounts with pre-spent history ($500+ and $1000+ spend tiers) and verified credit/debit billing methods.',
+    priceRange: '$100 - $499',
+    startingPrice: 100,
+    rating: 4.8,
+    reviewCount: 168,
+    image: PRODUCT_LOGOS['buy-bing-ads-accounts'],
+    badge: 'Pre-Spent',
+    tags: ['Bing Ads', 'Microsoft Advertising', 'Search Ads', 'Aged Billing', 'Spent History'],
+    metaDescription: 'Buy aged Microsoft Bing Ads accounts with verified spend history up to $1000+ at GolfCrater. Clean accounts, instant delivery, 30-day warranty.',
+    specifications: {
+      deliveryTime: '1 - 2 Hours',
+      guaranteePeriod: '30 Days Guarantee',
+      verificationLevel: 'Microsoft ID & Credit Card Verified',
+      supportAvailable: '24/7 PPC Support',
+      documentsIncluded: 'Microsoft Account Credentials & 2FA Codes',
+      supportedRegions: 'USA, UK, Canada & Global',
+    },
+    variants: [
+      { id: 'bing-01', name: '01 Bing Ads Accounts Only', price: 100 },
+      { id: 'bing-old', name: '01 Old Bing Ads Accounts Only', price: 150 },
+      { id: 'bing-500', name: '01 Old Bing Ads Accounts $500+ Spent Only', price: 290, popular: true },
+      { id: 'bing-1000', name: '01 Old Bing Ads Accounts $1000+ Spent Only', price: 499 },
+    ],
+    fullDescription: `
+### Aged Microsoft Advertising (Bing Ads) with Verified Spend Standing
+Capture high-income desktop searchers on Bing, Yahoo, and MSN. Our Bing Ads accounts have established historical spend, validated payment links, and aged trustworthiness.
+    `,
+  },
+  {
+    id: 'buy-tiktok-ads-account',
+    name: 'Buy TikTok Ads Account',
+    slug: 'buy-tiktok-ads-account',
+    category: 'Account',
+    shortDescription: 'Verified TikTok Ads Agency accounts, USA/UK targeting accounts, and verified Business Center (BC) profiles with no spend caps.',
+    priceRange: '$140 - $290',
+    startingPrice: 140,
+    rating: 4.9,
+    reviewCount: 215,
+    image: PRODUCT_LOGOS['buy-tiktok-ads-account'],
+    badge: 'Agency Verified',
+    tags: ['TikTok Ads', 'Agency Account', 'Verified BC', 'Worldwide Targeting', 'No Spend Limit'],
+    metaDescription: 'Buy verified TikTok Ads Agency accounts and Business Centers with worldwide targeting at GolfCrater. Uncapped spend and instant delivery.',
+    specifications: {
+      deliveryTime: '1 - 2 Hours',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'TikTok Business Center KYC Verified',
+      supportAvailable: '24/7 Ad Specialist',
+      documentsIncluded: 'Business Center Admin Invite & Dedicated Login',
+      supportedRegions: 'Worldwide Targeting (USA, UK, EU)',
+    },
+    variants: [
+      { id: 'tt-agency', name: '01 TikTok Ads Account (Agency) Only', price: 140 },
+      { id: 'tt-usauk', name: '01 TikTok Ads Account (USA/UK) Only', price: 199, popular: true },
+      { id: 'tt-bc', name: '01 TikTok Ads Account (Verified BC) Only', price: 290 },
+    ],
+    fullDescription: `
+### Premium TikTok Agency & Business Center Ads Accounts
+Run viral TikTok conversions without geo-blocks or sudden account restrictions. Target Tier 1 countries directly with pre-verified Business Centers and Agency privileges.
+    `,
+  },
+  {
+    id: 'buy-snapchat-ads-account',
+    name: 'Buy Snapchat Ads Account',
+    slug: 'buy-snapchat-ads-account',
+    category: 'Account',
+    shortDescription: 'Verified Snapchat Ads Manager accounts and verified Business Manager (BM) profiles for mobile app installs and e-commerce campaigns.',
+    priceRange: '$140 - $290',
+    startingPrice: 140,
+    rating: 4.8,
+    reviewCount: 132,
+    image: PRODUCT_LOGOS['buy-snapchat-ads-account'],
+    badge: 'Verified BM',
+    tags: ['Snapchat Ads', 'Business Manager', 'Mobile Ads', 'Gen Z Reach', 'Instant Approval'],
+    metaDescription: 'Buy verified Snapchat Ads accounts and Business Managers at GolfCrater. Pre-warmed billing, instant approval, and 30-day guarantee.',
+    specifications: {
+      deliveryTime: '1 - 3 Hours',
+      guaranteePeriod: '30 Days Warranty',
+      verificationLevel: 'Business Verified & Active Card',
+      supportAvailable: '24/7 Help Desk',
+      documentsIncluded: 'Business Manager Access & Credentials',
+      supportedRegions: 'USA, UK, Europe, Australia',
+    },
+    variants: [
+      { id: 'snap-01', name: '01 Snapchat Ads Account Only', price: 140 },
+      { id: 'snap-old', name: '01 Old Snapchat Ads Account Only', price: 199 },
+      { id: 'snap-bm', name: '01 Snapchat Ads Account (Verified BM) Only', price: 290, popular: true },
+    ],
+    fullDescription: `
+### High-Trust Snapchat Ads Manager Accounts
+Reach active, engaged audiences across Snapchat with pre-warmed Business Managers. Bypass automated payment flagging and start running Story, Collection, and Spotlight ads instantly.
+    `,
+  },
+  {
+    id: 'buy-twitter-ads-accounts',
+    name: 'Buy Twitter Ads Accounts',
+    slug: 'buy-twitter-ads-accounts',
+    category: 'Account',
+    shortDescription: 'Verified X (Twitter) Ads Manager accounts including aged profiles and official Gold Organization verification badge accounts.',
+    priceRange: '$180 - $850',
+    startingPrice: 180,
+    rating: 4.9,
+    reviewCount: 178,
+    image: PRODUCT_LOGOS['buy-twitter-ads-accounts'],
+    badge: 'Gold Badge Opt',
+    tags: ['Twitter Ads', 'X Ads', 'Gold Badge', 'Verified Org', 'High Spend Limit'],
+    metaDescription: 'Buy verified Twitter Ads accounts with optional Gold badge organization verification at GolfCrater. Uncapped reach, instant delivery, 30-day warranty.',
+    specifications: {
+      deliveryTime: '1 - 4 Hours',
+      guaranteePeriod: '30 Days Guarantee',
+      verificationLevel: 'Identity & Organization Verified',
+      supportAvailable: '24/7 Social Ads Expert',
+      documentsIncluded: 'X Account, Email Credentials & Ads Access',
+      supportedRegions: 'Global Reach',
+    },
+    variants: [
+      { id: 'tw-ads-01', name: '01 Twitter Ads Accounts Only', price: 180 },
+      { id: 'tw-ads-old', name: '01 Old Twitter Ads Accounts Only', price: 250, popular: true },
+      { id: 'tw-ads-gold', name: '01 Twitter Ads Accounts with Gold Badge Only', price: 850 },
+    ],
+    fullDescription: `
+### Verified X (Twitter) Ads Accounts & Gold Organization Badges
+Promote posts, amplify brand narratives, and drive app conversions on X. Choose between standard verified ads accounts or elite Gold Badge verified organizational profiles with maximum organic algorithmic trust.
+    `,
+  },
+  {
+    id: 'buy-outbrain-ads-account',
+    name: 'Buy Outbrain Ads Account',
+    slug: 'buy-outbrain-ads-account',
+    category: 'Account',
+    shortDescription: 'Verified Outbrain advertiser accounts with pre-approved publisher whitelisting and active campaigns for immediate native traffic acquisition.',
+    priceRange: '$210 - $260',
+    startingPrice: 210,
+    rating: 4.8,
+    reviewCount: 88,
+    image: PRODUCT_LOGOS['buy-outbrain-ads-account'],
+    badge: 'Native Feed',
+    tags: ['Outbrain', 'Native Advertising', 'Publisher Whitelist', 'Active Campaign', 'Clean Billing'],
+    metaDescription: 'Buy verified Outbrain Ads accounts at GolfCrater. Fast approvals, active native campaigns, and 30-day warranty.',
+    specifications: {
+      deliveryTime: '1 - 3 Hours',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Advertiser Identity & Billing Verified',
+      supportAvailable: '24/7 Native Ads Desk',
+      documentsIncluded: 'Account Login, Billing Profile & Support Guide',
+      supportedRegions: 'USA, Europe, Asia-Pacific',
+    },
+    variants: [
+      { id: 'out-01', name: '01 Outbrain Ads Account Only', price: 210 },
+      { id: 'out-camp', name: '01 Outbrain Ads Account with 1 Active Campaign', price: 260, popular: true },
+    ],
+    fullDescription: `
+### Outbrain Verified Advertiser Accounts for High-Volume Native Traffic
+Distribute editorial content, lead gen funnels, and e-commerce landers across top editorial news sites worldwide. Pre-vetted by Outbrain's compliance network for zero startup delay.
+    `,
+  },
+  {
+    id: 'buy-google-voice-accounts',
+    name: 'Buy Google Voice Accounts',
+    slug: 'buy-google-voice-accounts',
+    category: 'Other',
+    shortDescription: 'Aged US Google Voice accounts with dedicated permanent US phone numbers for SMS verification, call forwarding, and two-factor authentication.',
+    priceRange: '$25 - $210',
+    startingPrice: 25,
+    rating: 4.8,
+    reviewCount: 312,
+    image: PRODUCT_LOGOS['buy-google-voice-accounts'],
+    badge: 'Permanent Number',
+    tags: ['Google Voice', 'US Phone Number', 'SMS Verification', '2FA OTP', 'Aged VoIP'],
+    metaDescription: 'Buy aged Google Voice accounts with real US phone numbers at GolfCrater. Receive SMS, OTP codes, and calls worldwide with full email access.',
+    specifications: {
+      deliveryTime: 'Instant to 1 Hour',
+      guaranteePeriod: '30 Days Guarantee',
+      verificationLevel: 'Carrier Line Verified',
+      supportAvailable: '24/7 Live Chat',
+      documentsIncluded: 'Gmail, Password, Recovery Email & Phone Number',
+      supportedRegions: 'USA Area Codes',
+    },
+    variants: [
+      { id: 'gv-01', name: '01 Google Voice Account Only', price: 25 },
+      { id: 'gv-05', name: '05 Google Voice Accounts Only', price: 115, popular: true },
+      { id: 'gv-10', name: '10 Google Voice Accounts Only', price: 210 },
+    ],
+    fullDescription: `
+### Authentic Aged Google Voice Accounts with Permanent US Phone Numbers
+GolfCrater provides reliable, aged Google Voice accounts linked to real US carrier numbers. These accounts allow seamless receipt of inbound SMS verification codes, OTP tokens, and VoIP calls from anywhere globally.
+
+Each account includes dedicated Gmail login credentials, password, recovery email address, and clear browser connection recommendations to preserve account longevity.
+    `,
+  },
+
+  // ===================== SMM ACCOUNT PRODUCTS =====================
+  {
+    id: 'buy-instagram-account',
+    name: 'Buy Instagram Account',
+    slug: 'buy-instagram-account',
+    category: 'SMM Account',
+    shortDescription: 'Phone-verified (PVA) Instagram accounts ranging from starter profiles to established 100k+ follower creator pages with real engagement and organic history.',
+    priceRange: '$29 - $1,999',
+    startingPrice: 29,
+    rating: 4.9,
+    reviewCount: 420,
+    image: PRODUCT_LOGOS['buy-instagram-account'],
+    badge: 'Real Followers',
+    tags: ['Instagram PVA', 'Creator Profile', 'Niche Followers', 'Organic Engagement', 'Clean Standing'],
+    metaDescription: 'Buy verified Instagram PVA accounts and creator profiles with up to 100k+ organic followers at GolfCrater. Instant delivery and 30-day warranty.',
+    specifications: {
+      deliveryTime: '1 - 4 Hours',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Phone Verified (PVA) & Aged Activity',
+      supportAvailable: '24/7 SMM Support',
+      documentsIncluded: 'Account Handle, Password & Original Email (OGE)',
+      supportedRegions: 'USA, UK, Worldwide',
+    },
+    variants: [
+      { id: 'ig-01-pva', name: '01 PVA Instagram Accounts Only', price: 29 },
+      { id: 'ig-500f', name: 'PVA Instagram Accounts with 500+ Followers Only', price: 49 },
+      { id: 'ig-1kf', name: 'PVA Instagram Accounts with 1k+ Followers Only', price: 59 },
+      { id: 'ig-5kf', name: 'PVA Instagram Accounts with 5k+ Followers Only', price: 69 },
+      { id: 'ig-10kf', name: 'PVA Instagram Accounts with 10k+ Followers Only', price: 99, popular: true },
+      { id: 'ig-05-pva', name: '05 PVA Instagram Accounts Only', price: 139 },
+      { id: 'ig-50kf', name: 'PVA Instagram Accounts with 50k+ Followers Only', price: 899 },
+      { id: 'ig-100kf', name: 'PVA Instagram Accounts with 100k+ Followers Only', price: 1999 },
+    ],
+    fullDescription: `
+### Aged & High-Follower Instagram Accounts for Brands, Creators & Influencers
+Launch your brand on Instagram with immediate social proof. GolfCrater supplies verified Phone-Verified (PVA) Instagram profiles ranging from clean starter accounts up to massive 100k+ follower creator pages in lifestyle, tech, fitness, and e-commerce niches.
+
+All high-tier accounts include original creation email (OGE) access, genuine historical posts, organic engagement rates, and clean shadowban-free profile statuses.
+    `,
+  },
+  {
+    id: 'buy-linkedin-accounts',
+    name: 'Buy LinkedIn Accounts',
+    slug: 'buy-linkedin-accounts',
+    category: 'SMM Account',
+    shortDescription: 'Aged LinkedIn accounts with genuine connection networks (200 to 1,000+ connections), complete professional resumes, and warm inbox delivery for B2B outreach.',
+    priceRange: '$29 - $769',
+    startingPrice: 29,
+    rating: 4.9,
+    reviewCount: 310,
+    image: PRODUCT_LOGOS['buy-linkedin-accounts'],
+    badge: '500+ Network',
+    tags: ['LinkedIn', 'B2B Leads', 'Aged Profile', '1000+ Connections', 'Sales Navigator Ready'],
+    metaDescription: 'Buy aged LinkedIn accounts with up to 1000+ connections at GolfCrater. Perfect for B2B lead generation, recruiter outreach, and Sales Navigator.',
+    specifications: {
+      deliveryTime: '1 - 3 Hours',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Phone & Email Verified Profile',
+      supportAvailable: '24/7 B2B Specialist',
+      documentsIncluded: 'Full Login, Cookies & Linked Business History',
+      supportedRegions: 'USA, UK, Germany, Canada & Global',
+    },
+    variants: [
+      { id: 'li-01', name: '01 LinkedIn Accounts Only', price: 29 },
+      { id: 'li-01-200c', name: '01 LinkedIn Accounts With 200 Connection Only', price: 49 },
+      { id: 'li-03', name: '03 LinkedIn Accounts Only', price: 85 },
+      { id: 'li-03-600c', name: '03 LinkedIn Accounts With 600 Connection Only', price: 139 },
+      { id: 'li-05', name: '05 LinkedIn Accounts Only', price: 139 },
+      { id: 'li-05-1000c', name: '05 LinkedIn Accounts With 1000 Connection Only', price: 229, popular: true },
+      { id: 'li-10', name: '10 LinkedIn Accounts Only', price: 269 },
+      { id: 'li-30', name: '30 LinkedIn Accounts Only', price: 769 },
+    ],
+    fullDescription: `
+### Verified LinkedIn Accounts with Established 1st-Degree Connection Networks
+B2B prospecting and cold outreach require high SSI (Social Selling Index) scores to avoid LinkedIn connection request throttles. Our aged LinkedIn accounts come with realistic corporate profile histories, professional headshots, skills endorsements, and 200 to 1,000+ first-degree connections.
+
+Ready for immediate pairing with automation suites (Expandi, Waalaxy, Dripify) and Sales Navigator subscriptions.
+    `,
+  },
+  {
+    id: 'buy-facebook-accounts',
+    name: 'Buy Facebook Accounts',
+    slug: 'buy-facebook-accounts',
+    category: 'SMM Account',
+    shortDescription: 'High-trust phone-verified Facebook personal profiles with profile photos, aged activity timelines, friends, and 2FA authentication recovery keys.',
+    priceRange: '$29 - $139',
+    startingPrice: 29,
+    rating: 4.8,
+    reviewCount: 388,
+    image: PRODUCT_LOGOS['buy-facebook-accounts'],
+    badge: 'Aged & PVA',
+    tags: ['Facebook Personal', 'Aged 2015-2022', 'Marketplace Active', '2FA Enabled', 'Real Friends'],
+    metaDescription: 'Buy aged Facebook PVA accounts with friends and marketplace access at GolfCrater. 2FA secret key included, clean IP histories, and replacement guarantee.',
+    specifications: {
+      deliveryTime: 'Instant to 2 Hours',
+      guaranteePeriod: '30 Days Warranty',
+      verificationLevel: 'SMS & Email Phone Verified',
+      supportAvailable: '24/7 Live Chat',
+      documentsIncluded: 'Credentials, 2FA Secret Key & Session Cookies',
+      supportedRegions: 'USA, UK, Europe & Worldwide',
+    },
+    variants: [
+      { id: 'fb-01-old', name: '01 Old Facebook Accounts Only', price: 29 },
+      { id: 'fb-02-new', name: '02 New Facebook Accounts Only', price: 29 },
+      { id: 'fb-02-old', name: '02 Old Facebook Accounts Only', price: 54 },
+      { id: 'fb-05-new', name: '05 New Facebook Accounts Only', price: 69 },
+      { id: 'fb-05-old', name: '05 Old Facebook Accounts Only', price: 139, popular: true },
+    ],
+    fullDescription: `
+### Authentic Aged Facebook Accounts for Social Marketing & Marketplace
+Whether managing community groups, launching Facebook Marketplace listings, or setting up agency advertising assets, having verified, aged personal profiles is essential.
+
+GolfCrater supplies accounts with registered creation years (2015-2023), organic timeline interactions, active friends, and integrated 2FA security codes to prevent unexpected checkpoint locks.
+    `,
+  },
+  {
+    id: 'buy-ticketmaster-accounts',
+    name: 'Buy Ticketmaster Accounts',
+    slug: 'buy-ticketmaster-accounts',
+    category: 'SMM Account',
+    shortDescription: 'Phone-verified, pre-warmed Ticketmaster accounts with clean IP profiles and verified payment history. Ready for high-demand ticket drops and presale queues.',
+    priceRange: '$19 - $739',
+    startingPrice: 19,
+    rating: 4.9,
+    reviewCount: 230,
+    image: PRODUCT_LOGOS['buy-ticketmaster-accounts'],
+    badge: 'Queue Ready',
+    tags: ['Ticketmaster', 'Queue Bypassed', 'Concert Drops', 'PVA Verified', 'Clean IP Profile'],
+    metaDescription: 'Buy verified Ticketmaster accounts at GolfCrater. Phone verified, queue ready, aged accounts for high-demand concert ticket presales and festivals.',
+    specifications: {
+      deliveryTime: '1 - 2 Hours',
+      guaranteePeriod: '30 Days Guarantee',
+      verificationLevel: 'Phone Verified & Clean Queue Score',
+      supportAvailable: '24/7 Drop Assistance',
+      documentsIncluded: 'Email Access, Password & Recovery Credentials',
+      supportedRegions: 'USA, UK, Canada & Global',
+    },
+    variants: [
+      { id: 'tm-01', name: '01 Ticketmaster Accounts Only', price: 19 },
+      { id: 'tm-03', name: '03 Ticketmaster Accounts Only', price: 54 },
+      { id: 'tm-05', name: '05 Ticketmaster Accounts Only', price: 89, popular: true },
+      { id: 'tm-10', name: '10 Ticketmaster Accounts Only', price: 159 },
+      { id: 'tm-20', name: '20 Ticketmaster Accounts Only', price: 299 },
+      { id: 'tm-50', name: '50 Ticketmaster Accounts Only', price: 739 },
+    ],
+    fullDescription: `
+### Pre-Verified Ticketmaster Accounts for High-Demand Concert Queues
+Avoid phone verification hurdles and automated bot-queue rejections during stadium tour and festival drops. GolfCrater delivers aged Ticketmaster accounts pre-verified with genuine mobile numbers and authentic browser histories.
+
+Ideal for ticketing professionals and music fans seeking rapid queue processing and smooth checkout transitions.
+    `,
+  },
+  {
+    id: 'buy-tinder-account',
+    name: 'Buy Tinder Account',
+    slug: 'buy-tinder-account',
+    category: 'SMM Account',
+    shortDescription: 'Photo-verified and phone-verified (PVA) Tinder accounts with authentic photo sets, aged registration dates, and blue verification checkmarks.',
+    priceRange: '$13 - $110',
+    startingPrice: 13,
+    rating: 4.8,
+    reviewCount: 195,
+    image: PRODUCT_LOGOS['buy-tinder-account'],
+    badge: 'Blue Check',
+    tags: ['Tinder Verified', 'Blue Badge', 'Selfie Photo Verified', 'Aged Profile', 'High Match Rate'],
+    metaDescription: 'Buy photo-verified Tinder accounts with blue checkmarks at GolfCrater. New and aged PVA Tinder accounts with clean standings and fast delivery.',
+    specifications: {
+      deliveryTime: '1 - 3 Hours',
+      guaranteePeriod: '30 Days Warranty',
+      verificationLevel: 'Photo & SMS Phone Verified',
+      supportAvailable: '24/7 Live Chat',
+      documentsIncluded: 'Full Account Details & Recovery Phone Pool',
+      supportedRegions: 'USA, UK, EU, Australia & Global',
+    },
+    variants: [
+      { id: 'tinder-01', name: '01 Tinder Accounts Only', price: 13 },
+      { id: 'tinder-05', name: '05 Tinder Accounts Only', price: 60 },
+      { id: 'tinder-ver-new', name: '01 Verifide New Tinder Accounts Only', price: 65, popular: true },
+      { id: 'tinder-ver-old', name: '01 Verifide Old Tinder Accounts Only', price: 110 },
+    ],
+    fullDescription: `
+### Verified Tinder Accounts with Selfie Checkmarks & Aged Standing
+Acquire established Tinder accounts verified with real telephone numbers and selfie biometric confirmation (blue checkmark). These accounts avoid new-profile shadowbans and deliver superior profile visibility and match velocity.
+
+Choose between budget multi-packs or premium photo-verified accounts with aged registration records.
+    `,
+  },
+  {
+    id: 'buy-twitter-accounts',
+    name: 'Buy Twitter Accounts',
+    slug: 'buy-twitter-accounts',
+    category: 'SMM Account',
+    shortDescription: 'Aged Twitter/X accounts with phone verification, real bio setups, established creation years (2012-2023), and clean API access history.',
+    priceRange: '$9 - $900',
+    startingPrice: 9,
+    rating: 4.9,
+    reviewCount: 540,
+    image: PRODUCT_LOGOS['buy-twitter-accounts'],
+    badge: 'Aged 2012+',
+    tags: ['Twitter X', 'Aged Handles', 'Crypto Twitter', 'Phone Verified', 'API Whitelisted', 'Organic Followers'],
+    metaDescription: 'Buy aged Twitter / X accounts with phone verification at GolfCrater. 2012-2023 aged profiles, crypto community ready, with instant automated delivery.',
+    specifications: {
+      deliveryTime: 'Instant to 2 Hours',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Phone & Email PVA Verified',
+      supportAvailable: '24/7 SMM Desk',
+      documentsIncluded: 'Handle, Password, Email Access & 2FA Auth Token',
+      supportedRegions: 'Worldwide',
+    },
+    variants: [
+      { id: 'tw-01-new', name: '01 New Twitter Accounts Only', price: 9 },
+      { id: 'tw-02-new', name: '02 New Twitter Accounts Only', price: 17 },
+      { id: 'tw-01-old', name: '01 Old Twitter Accounts Only', price: 20 },
+      { id: 'tw-02-old', name: '02 Old Twitter Accounts Only', price: 38 },
+      { id: 'tw-05-new', name: '05 New Twitter Accounts Only', price: 40 },
+      { id: 'tw-10-new', name: '10 New Twitter Accounts Only', price: 75 },
+      { id: 'tw-05-old', name: '05 Old Twitter Accounts Only', price: 95 },
+      { id: 'tw-10-old', name: '10 Old Twitter Accounts Only', price: 180, popular: true },
+      { id: 'tw-30-new', name: '30 New Twitter Accounts Only', price: 220 },
+      { id: 'tw-30-old', name: '30 Old Twitter Accounts Only', price: 540 },
+      { id: 'tw-50-old', name: '50 Old Twitter Accounts Only', price: 900 },
+    ],
+    fullDescription: `
+### High-Trust Aged Twitter / X Accounts for Crypto, Growth & Marketing
+Twitter/X's rate limiting and spam filters heavily penalize fresh accounts. GolfCrater provides phone-verified, aged Twitter accounts dating back to 2012–2022 with real follower activity, established profile history, and clean IP records.
+
+Ideal for crypto communities, Web3 airdrops, marketing bot fleets, and brand announcement channels.
+    `,
+  },
+
+  // ===================== OTHER CATEGORY PRODUCTS =====================
+  {
+    id: 'buy-ssn-number',
+    name: 'Buy SSN Number',
+    slug: 'buy-ssn-number',
+    category: 'Other',
+    shortDescription: 'Legitimate identity verification resources, SSN records, and matching driver license documentation for authorized business compliance and KYC verification.',
+    priceRange: '$100 - $450',
+    startingPrice: 100,
+    rating: 4.9,
+    reviewCount: 245,
+    image: PRODUCT_LOGOS['buy-ssn-number'],
+    badge: 'KYC Document',
+    tags: ['SSN Verification', 'Driver License', 'KYC Compliance', 'Same Name Pair', 'Instant Document'],
+    metaDescription: 'Buy verified SSN records and matching driver license documents at GolfCrater. High resolution scans, same-name pairings, and instant secure delivery.',
+    specifications: {
+      deliveryTime: 'Instant to 1 Hour',
+      guaranteePeriod: 'Full Validity Replacement',
+      verificationLevel: 'State Record Verified',
+      supportAvailable: '24/7 Verification Desk',
+      documentsIncluded: 'SSN Record, High-Res Front/Back DL Scans',
+      supportedRegions: 'All 50 US States',
+    },
+    variants: [
+      { id: 'ssn-01', name: '01 Verified SSN Number Only', price: 100 },
+      { id: 'ssn-03', name: '03 Verified SSN Number Only', price: 280, popular: true },
+      { id: 'ssn-05', name: '05 Verified SSN Number Only', price: 450 },
+    ],
+    fullDescription: `
+### Verified Identity Records and Supporting Documentation for Compliance
+Satisfy identity onboarding, merchant risk assessments, and compliance verification checks with GolfCrater's verified US SSN records and matching driver license documentation.
+
+Our packs include clean state-formatted files, high-resolution front and back documentation, and optional paired same-name credentials guaranteed to match verification databases.
+    `,
+  },
+  {
+    id: 'buy-textnow-accounts',
+    name: 'Buy TextNow Accounts',
+    slug: 'buy-textnow-accounts',
+    category: 'Other',
+    shortDescription: 'Aged TextNow accounts with pre-allocated US/Canada virtual phone numbers for instant SMS OTP verification, inbound calling, and anonymous communications.',
+    priceRange: '$15 - $130',
+    startingPrice: 15,
+    rating: 4.8,
+    reviewCount: 176,
+    image: PRODUCT_LOGOS['buy-textnow-accounts'],
+    badge: 'Instant SMS',
+    tags: ['TextNow', 'Virtual VoIP', 'SMS Inbound', 'US Phone Number', 'Instant Activation'],
+    metaDescription: 'Buy aged TextNow accounts with permanent US phone numbers at GolfCrater. Instant SMS reception, call forwarding, and 30-day replacement warranty.',
+    specifications: {
+      deliveryTime: 'Instant (15 - 30 Mins)',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Verified Email & Active SIM Pool',
+      supportAvailable: '24/7 Live Support',
+      documentsIncluded: 'Account Username, Password & Phone Number',
+      supportedRegions: 'USA & Canada',
+    },
+    variants: [
+      { id: 'tn-01', name: '01 TextNow Accounts Only', price: 15 },
+      { id: 'tn-05', name: '05 TextNow Accounts Only', price: 70, popular: true },
+      { id: 'tn-10', name: '10 TextNow Accounts Only', price: 130 },
+    ],
+    fullDescription: `
+### Pre-Warmed TextNow Accounts for Inbound OTPs & Anonymous Calling
+TextNow accounts offer immediate access to active US and Canadian phone numbers. Receive SMS verification codes, manage customer support callbacks, or run communication workflows without purchasing dedicated physical SIM cards.
+
+All accounts arrive with confirmed email logins, active phone allocations, and instructions for retaining number ownership indefinitely.
+    `,
+  },
+  {
+    id: 'buy-driving-license',
+    name: 'Buy Driving License',
+    slug: 'buy-driving-license',
+    category: 'Other',
+    shortDescription: 'High-resolution authentic driving license documentation (US, UK, EU) with front and back scans, barcode data, and clean KYC validity.',
+    priceRange: '$120 - $140',
+    startingPrice: 120,
+    rating: 4.9,
+    reviewCount: 142,
+    image: PRODUCT_LOGOS['buy-driving-license'],
+    badge: 'High-Res Scans',
+    tags: ['Driving License', 'DL Front Back', 'KYC Documentation', 'USA DL', 'UK EU License'],
+    metaDescription: 'Buy high-resolution US and UK/EU Driving License documentation at GolfCrater. Perfect for identity verification and compliance audits.',
+    specifications: {
+      deliveryTime: 'Instant to 1 Hour',
+      guaranteePeriod: '30 Days Guarantee',
+      verificationLevel: 'Verified Identity Format',
+      supportAvailable: '24/7 Live Support',
+      documentsIncluded: 'High-Res 300 DPI Front & Back Scans + Selfie Holder',
+      supportedRegions: 'USA (All States), UK, EU Member States',
+    },
+    variants: [
+      { id: 'dl-us', name: '01 US Driving License Front & Back Only', price: 120, popular: true },
+      { id: 'dl-ukeu', name: '01 UK/EU Driving License Only', price: 140 },
+    ],
+    fullDescription: `
+### Official Driving License Documentation for Identity Verification
+Pass automated biometric and document verification checks with ease. GolfCrater supplies verified, clean, high-resolution (300 DPI) front and back driving license scans matching official state and national formats.
+    `,
+  },
+  {
+    id: 'buy-old-gmail-accounts',
+    name: 'Buy Old Gmail Accounts',
+    slug: 'buy-old-gmail-accounts',
+    category: 'Other',
+    shortDescription: 'Aged PVA Gmail accounts registered between 2014 and 2018 with authentic historical activity, recovery emails, and zero spam flags.',
+    priceRange: '$20 - $170',
+    startingPrice: 20,
+    rating: 4.9,
+    reviewCount: 264,
+    image: PRODUCT_LOGOS['buy-old-gmail-accounts'],
+    badge: 'Aged 2014-2018',
+    tags: ['Old Gmail', 'Aged PVA', '2014-2018', 'Warm Inbox', 'High Trust Score'],
+    metaDescription: 'Buy aged Gmail accounts (2014-2018) with phone verification and clean standing at GolfCrater. Instant delivery and 30-day warranty.',
+    specifications: {
+      deliveryTime: 'Instant (15 Mins)',
+      guaranteePeriod: '30 Days Replacement',
+      verificationLevel: 'Phone Verified & Clean IP History',
+      supportAvailable: '24/7 Email Specialist',
+      documentsIncluded: 'Email, Password, Recovery Email & Creation Year',
+      supportedRegions: 'Worldwide (US/UK IPs)',
+    },
+    variants: [
+      { id: 'ogm-01', name: '01 Old Gmail Account (2014-2018) Only', price: 20 },
+      { id: 'ogm-05', name: '05 Old Gmail Accounts Only', price: 90, popular: true },
+      { id: 'ogm-10', name: '10 Old Gmail Accounts Only', price: 170 },
+    ],
+    fullDescription: `
+### Aged Google Accounts (2014-2018) with Natural Trust Scores
+Avoid new-account limitations, immediate CAPTCHA challenges, and aggressive security checkpoints. Our aged Gmail accounts were registered between 2014 and 2018, pre-warmed, and maintained with clean activity profiles.
+    `,
+  },
+
+  // ===================== CRYPTO ACCOUNT ADDITIONS =====================
+  {
+    id: 'buy-verified-airbnb-accounts',
+    name: 'Buy Verified Airbnb Accounts',
+    slug: 'buy-verified-airbnb-accounts',
+    category: 'Crypto Account',
+    shortDescription: 'Fully ID-verified Airbnb personal and host accounts with verified government ID, clean review history, and instant booking capabilities.',
+    priceRange: '$130 - $250',
+    startingPrice: 130,
+    rating: 4.9,
+    reviewCount: 118,
+    image: PRODUCT_LOGOS['buy-verified-airbnb-accounts'],
+    badge: 'ID Verified',
+    tags: ['Airbnb Host', 'Airbnb Guest', 'Government ID Verified', 'Instant Book', 'Superhost Eligible'],
+    metaDescription: 'Buy verified Airbnb accounts (Personal & Host) at GolfCrater. Government ID verified, clean review standing, and instant booking enabled.',
+    specifications: {
+      deliveryTime: '1 - 4 Hours',
+      guaranteePeriod: '30 Days Guarantee',
+      verificationLevel: 'Government Passport & Phone Verified',
+      supportAvailable: '24/7 Dedicated Support',
+      documentsIncluded: 'Airbnb Account Credentials, Email & ID Documents',
+      supportedRegions: 'USA, UK, Europe, Canada',
+    },
+    variants: [
+      { id: 'abnb-personal', name: '01 Personal Airbnb Accounts Only', price: 130 },
+      { id: 'abnb-host', name: '01 Airbnb Host Accounts Only', price: 250, popular: true },
+    ],
+    fullDescription: `
+### Verified Airbnb Host & Personal Accounts Ready for Instant Reservations
+Avoid lengthy identity verification queues and instant booking denials on Airbnb. GolfCrater supplies verified personal traveler accounts and host accounts with confirmed government IDs, phone numbers, and clean historical profiles.
+
+Ready for listing creation, co-hosting setups, and friction-free worldwide travel bookings.
+    `,
+  },
+  {
+    id: 'buy-verified-bybit-accounts',
+    name: 'Buy Verified ByBiT Accounts',
+    slug: 'buy-verified-bybit-accounts',
+    category: 'Crypto Account',
+    shortDescription: 'KYC Level 1 & Level 2 verified Bybit cryptocurrency exchange accounts with high withdrawal limits, full document sets, and 2FA security credentials.',
+    priceRange: '$229 - $449',
+    startingPrice: 229,
+    rating: 4.9,
+    reviewCount: 165,
+    image: PRODUCT_LOGOS['buy-verified-bybit-accounts'],
+    badge: 'Level 2 KYC',
+    tags: ['Bybit Verified', 'Crypto Derivatives', 'High Withdrawal Limit', 'P2P Trading', 'Full DM Docs'],
+    metaDescription: 'Buy Level 2 verified Bybit accounts at GolfCrater. High crypto withdrawal limits, P2P access, full documents (DM), and 60-day warranty.',
+    specifications: {
+      deliveryTime: '1 - 3 Hours',
+      guaranteePeriod: '60 Days Warranty',
+      verificationLevel: 'KYC Level 2 Advanced & Selfie Verified',
+      supportAvailable: '24/7 Crypto Specialist',
+      documentsIncluded: 'Bybit Login, Email, 2FA Secret Key & Verification Document Pack',
+      supportedRegions: 'Worldwide Compliant Jurisdictions',
+    },
+    variants: [
+      { id: 'bybit-new', name: '01 New Verified ByBit Accounts Only', price: 229 },
+      { id: 'bybit-old', name: '01 Old Verified ByBit Accounts Only', price: 349, popular: true },
+      { id: 'bybit-dm', name: '01 Verified ByBit Accounts With Full DM Only', price: 449 },
+    ],
+    fullDescription: `
+### Level 2 Verified Bybit Accounts with High Daily Withdrawal Allowances
+Trade derivatives, access Bybit P2P fiat ramps, and execute copy-trading without geographic restriction friction. Our Bybit accounts come with complete KYC Level 2 verification, proof of address, selfie confirmation, and full document (DM) archives.
+
+Delivered with dedicated proton/gmail email access, 2FA backup codes, and high daily withdrawal capacity (up to $2,000,000 equivalent in USDT/BTC).
+    `,
+  },
 ];
 
 export const CATEGORIES = [
@@ -873,6 +1745,20 @@ export const CATEGORIES = [
     icon: 'Mail',
     description: 'Business email management, Google Workspace, and high-deliverability SMTP infrastructure.',
     color: 'teal',
+  },
+  {
+    id: 'Account',
+    name: 'Account',
+    icon: 'ShieldCheck',
+    description: 'Verified developer, advertising, and e-commerce marketplace accounts including Apple Developer, Google Play, Amazon, and GitHub.',
+    color: 'emerald',
+  },
+  {
+    id: 'Other',
+    name: 'Other',
+    icon: 'Layers',
+    description: 'Specialized identity verification assets, SSN numbers, driving license records, and virtual VoIP accounts.',
+    color: 'amber',
   },
   {
     id: 'Digital Tools',

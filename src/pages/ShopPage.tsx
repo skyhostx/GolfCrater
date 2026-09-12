@@ -22,15 +22,18 @@ export const ShopPage: React.FC<ShopPageProps> = ({
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
   const [activeTag, setActiveTag] = useState<string>('All');
 
-  const categories = ['All', 'Reviews Service', 'Bank Account', 'Crypto Account', 'SMM Account', 'Email Service'];
+  const categories = ['All', 'Account', 'Bank Account', 'Crypto Account', 'Reviews Service', 'SMM Account', 'Email Service', 'Other'];
   const allTags = ['All', 'Verified', 'Google Maps', 'TrustScore 4.8+', 'Cash App', 'Stripe Gateway', 'Binance Plus', 'B2B SaaS'];
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
       // Category filter
       if (selectedCategory !== 'All') {
-        if (selectedCategory === 'Reviews Service' && p.category !== 'Reviews') return false;
-        if (selectedCategory !== 'Reviews Service' && p.category !== selectedCategory) return false;
+        if (selectedCategory === 'Reviews Service') {
+          if (p.category !== 'Reviews' && (p.category as string) !== 'Reviews Service') return false;
+        } else if (p.category !== selectedCategory) {
+          return false;
+        }
       }
       // Tag filter
       if (activeTag !== 'All' && !p.tags.includes(activeTag)) {

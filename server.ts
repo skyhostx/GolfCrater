@@ -33,6 +33,35 @@ const VALID_PRODUCT_IDS = new Set([
   'buy-smtp-mailgun-accounts',
   'buy-smtp-brevo-accounts',
   'buy-smtp-relay-services-account',
+  // Account category products
+  'buy-amazon-account',
+  'buy-apple-developer-account',
+  'buy-google-play-console-account',
+  'buy-facebook-ads-accounts',
+  'buy-github-accounts',
+  'buy-google-ads-account',
+  'buy-google-ads-accounts',
+  'buy-taboola-ads-account',
+  'buy-bing-ads-accounts',
+  'buy-tiktok-ads-account',
+  'buy-snapchat-ads-account',
+  'buy-twitter-ads-accounts',
+  'buy-twitter-accounts',
+  'buy-outbrain-ads-account',
+  'buy-instagram-account',
+  'buy-linkedin-accounts',
+  'buy-facebook-accounts',
+  'buy-ticketmaster-accounts',
+  'buy-tinder-account',
+  'buy-verified-airbnb-accounts',
+  'buy-verified-bybit-accounts',
+  // Other category products
+  'buy-ssn-number',
+  'buy-verified-ssn-number',
+  'buy-driving-license',
+  'buy-textnow-accounts',
+  'buy-old-gmail-accounts',
+  'buy-google-voice-accounts',
 ]);
 
 // List of all valid category slugs
@@ -44,6 +73,8 @@ const VALID_CATEGORY_SLUGS = new Set([
   'smm-account',
   'email-service',
   'digital-tools',
+  'account',
+  'other',
 ]);
 
 // Top level known pages

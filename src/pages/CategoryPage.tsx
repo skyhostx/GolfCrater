@@ -16,7 +16,8 @@ import {
   Filter, 
   Lock,
   ArrowRight,
-  HelpCircle
+  HelpCircle,
+  Layers
 } from 'lucide-react';
 
 interface CategoryPageProps {
@@ -74,6 +75,8 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
 
   const getCategoryIcon = (cat: string) => {
     switch (cat) {
+      case 'Account':
+        return <ShieldCheck className="w-8 h-8 text-emerald-600" />;
       case 'Bank Account':
         return <Landmark className="w-8 h-8 text-emerald-600" />;
       case 'Crypto Account':
@@ -85,6 +88,8 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
         return <Smartphone className="w-8 h-8 text-indigo-600" />;
       case 'Email Service':
         return <Mail className="w-8 h-8 text-teal-600" />;
+      case 'Other':
+        return <Layers className="w-8 h-8 text-amber-600" />;
       default:
         return <Package className="w-8 h-8 text-slate-500" />;
     }
