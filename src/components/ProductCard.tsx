@@ -25,10 +25,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   onAddToCart,
   onBuyNow,
 }) => {
-  // Default to popular variant or first variant
-  const initialVariant = product.variants.find(v => v.popular) || product.variants[0];
-  const [selectedVariant, setSelectedVariant] = useState<ProductVariant>(initialVariant);
+  // Default to first variant (starting price) so displayed price matches catalog sorting
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant>(product.variants[0]);
   const [addedAnimation, setAddedAnimation] = useState(false);
+
+  React.useEffect(() => {
+    setSelectedVariant(product.variants[0]);
+  }, [product.id]);
 
   const handleAddToCartClick = (e: React.MouseEvent) => {
     e.stopPropagation();

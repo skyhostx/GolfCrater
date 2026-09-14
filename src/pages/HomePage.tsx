@@ -28,9 +28,14 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
-  const [activeTag, setActiveTag] = useState<string>('All');
 
-  const allTags = ['All', 'Verified', 'Google Maps', 'TrustScore 4.8+', 'Cash App', 'Stripe Gateway', 'Binance Plus', 'B2B SaaS'];
+  const getProductPrice = (p: Product) => {
+    if (typeof p.startingPrice === 'number' && !isNaN(p.startingPrice)) {
+      return p.startingPrice;
+    }
+    const prices = p.variants.map((v) => v.price).filter((pr) => typeof pr === 'number' && !isNaN(pr));
+    return prices.length > 0 ? Math.min(...prices) : 0;
+  };
 
   // Filtered & sorted products for popular showcase
   const filteredProducts = products.filter((p) => {
@@ -38,14 +43,23 @@ export const HomePage: React.FC<HomePageProps> = ({
       if (selectedCategory === 'Reviews Service' && p.category !== 'Reviews') return false;
       if (selectedCategory !== 'Reviews Service' && p.category !== selectedCategory) return false;
     }
-    if (activeTag !== 'All' && !p.tags.includes(activeTag)) {
-      return false;
-    }
     return true;
   }).sort((a, b) => {
-    if (sortBy === 'price-low') return a.startingPrice - b.startingPrice;
-    if (sortBy === 'price-high') return b.startingPrice - a.startingPrice;
-    if (sortBy === 'rating') return b.rating - a.rating;
+    if (sortBy === 'price-low') {
+      const diff = getProductPrice(a) - getProductPrice(b);
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
+    if (sortBy === 'price-high') {
+      const diff = getProductPrice(b) - getProductPrice(a);
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
+    if (sortBy === 'rating') {
+      const diff = b.rating - a.rating;
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
     return b.reviewCount - a.reviewCount;
   });
 
@@ -114,10 +128,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               return (
                 <button
                   key={cat}
-                  onClick={() => {
-                    setSelectedCategory(cat);
-                    setActiveTag('All');
-                  }}
+                  onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-slate-900 text-white shadow-xs'
@@ -130,38 +141,15 @@ export const HomePage: React.FC<HomePageProps> = ({
             })}
           </div>
 
-          {/* Tag Sub-filters */}
-          <div className="flex items-center gap-1.5 flex-wrap mb-8">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">
-              Filter tag:
-            </span>
-            {allTags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setActiveTag(tag)}
-                className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-colors cursor-pointer ${
-                  activeTag === tag
-                    ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200'
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-
           {/* Products Grid */}
           {filteredProducts.length === 0 ? (
             <div className="text-center py-16 bg-slate-50 rounded-2xl border border-slate-200">
-              <p className="text-base font-bold text-slate-800">No products match your selected filter.</p>
+              <p className="text-base font-bold text-slate-800">No products match this category.</p>
               <button
-                onClick={() => {
-                  setSelectedCategory('All');
-                  setActiveTag('All');
-                }}
-                className="mt-3 px-4 py-2 bg-emerald-400 text-slate-950 font-bold text-xs rounded-lg"
+                onClick={() => setSelectedCategory('All')}
+                className="mt-3 px-4 py-2 bg-emerald-400 text-slate-950 font-bold text-xs rounded-lg cursor-pointer"
               >
-                Reset All Filters
+                View All Products
               </button>
             </div>
           ) : (

@@ -13,7 +13,6 @@ import {
   Smartphone, 
   Mail, 
   Package, 
-  Filter, 
   Lock,
   ArrowRight,
   HelpCircle,
@@ -36,7 +35,6 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
   onBuyNow,
 }) => {
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
-  const [activeTag, setActiveTag] = useState<string>('All');
 
   // Filter products for this category
   const categoryProducts = products.filter((p) => {
@@ -49,17 +47,31 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
     return p.category === category;
   });
 
-  // Collect all unique tags for this category
-  const categoryTags = ['All', ...Array.from(new Set(categoryProducts.flatMap((p) => p.tags)))];
+  const getProductPrice = (p: Product) => {
+    if (typeof p.startingPrice === 'number' && !isNaN(p.startingPrice)) {
+      return p.startingPrice;
+    }
+    const prices = p.variants.map((v) => v.price).filter((pr) => typeof pr === 'number' && !isNaN(pr));
+    return prices.length > 0 ? Math.min(...prices) : 0;
+  };
 
-  // Apply sorting and tag filters
-  const displayedProducts = categoryProducts.filter((p) => {
-    if (activeTag !== 'All' && !p.tags.includes(activeTag)) return false;
-    return true;
-  }).sort((a, b) => {
-    if (sortBy === 'price-low') return a.startingPrice - b.startingPrice;
-    if (sortBy === 'price-high') return b.startingPrice - a.startingPrice;
-    if (sortBy === 'rating') return b.rating - a.rating;
+  // Apply sorting
+  const displayedProducts = [...categoryProducts].sort((a, b) => {
+    if (sortBy === 'price-low') {
+      const diff = getProductPrice(a) - getProductPrice(b);
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
+    if (sortBy === 'price-high') {
+      const diff = getProductPrice(b) - getProductPrice(a);
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
+    if (sortBy === 'rating') {
+      const diff = b.rating - a.rating;
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
     return b.reviewCount - a.reviewCount;
   });
 
@@ -177,32 +189,14 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
       {/* Main Content Area: Filters + Product Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
         
-        {/* Controls Bar: Sort + Tags */}
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
-          
-          {/* Tag filter pills */}
-          <div className="flex items-center space-x-1.5 overflow-x-auto no-scrollbar pb-1 md:pb-0">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider shrink-0 mr-1 flex items-center">
-              <Filter className="w-3.5 h-3.5 mr-1" />
-              Filter:
-            </span>
-            {categoryTags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setActiveTag(tag)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                  activeTag === tag
-                    ? 'bg-emerald-600 text-white shadow-xs'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
+        {/* Controls Bar: Sort */}
+        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between gap-4">
+          <div className="text-xs font-semibold text-slate-600">
+            <span>Showing <strong className="text-slate-900">{displayedProducts.length}</strong> verified digital services in {categoryMeta.name}</span>
           </div>
 
           {/* Sort Dropdown */}
-          <div className="flex items-center space-x-2 shrink-0 self-end md:self-auto">
+          <div className="flex items-center space-x-2 shrink-0">
             <span className="text-xs text-slate-500 font-medium">Sort by:</span>
             <select
               value={sortBy}
@@ -221,13 +215,13 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
         {displayedProducts.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-3xl border border-slate-200 shadow-xs">
             <Package className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <h3 className="text-lg font-bold text-slate-800">No services found for selected filter</h3>
-            <p className="text-xs text-slate-500 mt-1">Try resetting the tag filter to see all services in this category.</p>
+            <h3 className="text-lg font-bold text-slate-800">No services found in this category</h3>
+            <p className="text-xs text-slate-500 mt-1">Check back soon or explore our other verified marketplace categories.</p>
             <button
-              onClick={() => setActiveTag('All')}
+              onClick={() => onNavigate({ page: 'shop' })}
               className="mt-4 px-4 py-2 bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold text-xs rounded-xl shadow-xs cursor-pointer"
             >
-              Reset Tag Filter
+              Explore All Services
             </button>
           </div>
         ) : (

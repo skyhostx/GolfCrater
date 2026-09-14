@@ -22,16 +22,22 @@ export const ShopPage: React.FC<ShopPageProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
-  const [activeTag, setActiveTag] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const categories = ['All', 'Account', 'Bank Account', 'Crypto Account', 'Reviews Service', 'SMM Account', 'Email Service', 'Other'];
-  const allTags = ['All', 'Verified', 'Google Maps', 'TrustScore 4.8+', 'Cash App', 'Stripe Gateway', 'Binance Plus', 'B2B SaaS'];
 
-  // Reset to first page when any filter, search, or sort criterion changes
+  // Reset to first page when category, search, or sort criterion changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, activeTag, searchQuery, sortBy]);
+  }, [selectedCategory, searchQuery, sortBy]);
+
+  const getProductPrice = (p: Product) => {
+    if (typeof p.startingPrice === 'number' && !isNaN(p.startingPrice)) {
+      return p.startingPrice;
+    }
+    const prices = p.variants.map((v) => v.price).filter((pr) => typeof pr === 'number' && !isNaN(pr));
+    return prices.length > 0 ? Math.min(...prices) : 0;
+  };
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
@@ -42,10 +48,6 @@ export const ShopPage: React.FC<ShopPageProps> = ({
         } else if (p.category !== selectedCategory) {
           return false;
         }
-      }
-      // Tag filter
-      if (activeTag !== 'All' && !p.tags.includes(activeTag)) {
-        return false;
       }
       // Search query
       if (searchQuery.trim()) {
@@ -60,12 +62,24 @@ export const ShopPage: React.FC<ShopPageProps> = ({
       }
       return true;
     }).sort((a, b) => {
-      if (sortBy === 'price-low') return a.startingPrice - b.startingPrice;
-      if (sortBy === 'price-high') return b.startingPrice - a.startingPrice;
-      if (sortBy === 'rating') return b.rating - a.rating;
+      if (sortBy === 'price-low') {
+        const diff = getProductPrice(a) - getProductPrice(b);
+        if (diff !== 0) return diff;
+        return b.reviewCount - a.reviewCount;
+      }
+      if (sortBy === 'price-high') {
+        const diff = getProductPrice(b) - getProductPrice(a);
+        if (diff !== 0) return diff;
+        return b.reviewCount - a.reviewCount;
+      }
+      if (sortBy === 'rating') {
+        const diff = b.rating - a.rating;
+        if (diff !== 0) return diff;
+        return b.reviewCount - a.reviewCount;
+      }
       return b.reviewCount - a.reviewCount;
     });
-  }, [products, selectedCategory, activeTag, searchQuery, sortBy]);
+  }, [products, selectedCategory, searchQuery, sortBy]);
 
   const totalProducts = filteredProducts.length;
   const totalPages = Math.ceil(totalProducts / PRODUCTS_PER_PAGE) || 1;
@@ -167,28 +181,13 @@ export const ShopPage: React.FC<ShopPageProps> = ({
           })}
         </div>
 
-        {/* Controls row: Tag filters + Sort Dropdown */}
-        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center space-x-1.5 overflow-x-auto no-scrollbar pb-1 md:pb-0">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider shrink-0 mr-1">
-              Filter:
-            </span>
-            {allTags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setActiveTag(tag)}
-                className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-colors cursor-pointer ${
-                  activeTag === tag
-                    ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200'
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
+        {/* Controls row: Count + Sort Dropdown */}
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between gap-4">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-600">
+            <span>Showing <strong className="text-slate-900">{totalProducts}</strong> verified digital services</span>
           </div>
 
-          <div className="flex items-center space-x-2 shrink-0 self-end md:self-auto">
+          <div className="flex items-center space-x-2 shrink-0">
             <span className="text-xs text-slate-500 font-medium">Sort by:</span>
             <select
               value={sortBy}
@@ -206,16 +205,15 @@ export const ShopPage: React.FC<ShopPageProps> = ({
         {/* Products Grid */}
         {filteredProducts.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-3xl border border-slate-200 shadow-xs">
-            <p className="text-base font-bold text-slate-800">No services match your current filters.</p>
+            <p className="text-base font-bold text-slate-800">No services match your search criteria.</p>
             <button
               onClick={() => {
                 setSelectedCategory('All');
-                setActiveTag('All');
                 setSearchQuery('');
               }}
               className="mt-3 px-4 py-2 bg-emerald-400 text-slate-950 font-bold text-xs rounded-xl shadow-xs cursor-pointer"
             >
-              Reset All Filters
+              Reset Search & Category
             </button>
           </div>
         ) : (

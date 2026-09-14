@@ -293,7 +293,14 @@ export default function App() {
         return <PricingPage onNavigate={navigateTo} />;
 
       case 'blog':
-        return <BlogPage onNavigate={navigateTo} />;
+        return (
+          <BlogPage
+            products={PRODUCTS}
+            onNavigate={navigateTo}
+            onAddToCart={handleAddToCart}
+            onBuyNow={handleBuyNow}
+          />
+        );
 
       case 'faq':
         return <FaqPage onNavigate={navigateTo} />;
