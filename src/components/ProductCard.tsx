@@ -56,7 +56,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             onViewDetails(product);
           }
         }}
-        className="relative h-48 sm:h-52 w-full overflow-hidden block border-b border-slate-100"
+        className="relative h-56 sm:h-60 w-full overflow-hidden block border-b border-slate-100"
         aria-label={`View details for ${product.name}`}
       >
         <ProductLogo

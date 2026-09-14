@@ -120,7 +120,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   const navLinks: { label: string; route?: AppRoute; category?: string }[] = [
-    { label: 'Home', route: { page: 'home' } },
     { label: 'Account', category: 'Account', route: { page: 'category', category: 'Account' } },
     { label: 'Bank Account', category: 'Bank Account', route: { page: 'category', category: 'Bank Account' } },
     { label: 'Crypto Account', category: 'Crypto Account', route: { page: 'category', category: 'Crypto Account' } },
@@ -412,7 +411,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="cart-header-trigger"
               onClick={onOpenCart}
-              className="relative p-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer flex items-center space-x-1.5"
+              className="relative p-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer flex items-center justify-center"
               aria-label="View Shopping Cart"
             >
               <div className="relative">
@@ -423,7 +422,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </span>
                 )}
               </div>
-              <span className="hidden md:inline text-xs font-semibold text-slate-800">Cart</span>
             </button>
 
             {/* Mobile Hamburger Toggle */}

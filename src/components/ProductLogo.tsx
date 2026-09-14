@@ -26,7 +26,7 @@ export const ProductLogo: React.FC<ProductLogoProps> = ({
         <img
           src={logoUrl}
           alt={`${productName} Logo`}
-          className="w-8 h-8 object-contain rounded-lg"
+          className="w-full h-full object-contain rounded-lg"
           loading="lazy"
         />
       </div>
@@ -38,13 +38,13 @@ export const ProductLogo: React.FC<ProductLogoProps> = ({
       <div
         role="img"
         aria-label={`${productName} Verified Official Logo`}
-        className={`relative w-full h-full flex flex-col items-center justify-center p-4 bg-linear-to-b from-slate-50/90 via-white to-slate-100/50 transition-all duration-300 select-none overflow-hidden ${className}`}
+        className={`relative w-full h-full flex flex-col items-center justify-center p-3 sm:p-4 bg-linear-to-b from-slate-50/90 via-white to-slate-100/50 transition-all duration-300 select-none overflow-hidden ${className}`}
       >
         {/* Subtle decorative background pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] opacity-40 pointer-events-none" />
 
-        {/* Centered official brand logo */}
-        <div className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+        {/* Centered official brand logo - larger display */}
+        <div className="relative z-10 w-36 h-36 sm:w-40 sm:h-40 max-w-[88%] max-h-[88%] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
           <img
             src={logoUrl}
             alt={`${productName} Official Logo`}
@@ -67,7 +67,7 @@ export const ProductLogo: React.FC<ProductLogoProps> = ({
       <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1.2px,transparent_1.2px)] [background-size:20px_20px] opacity-45 pointer-events-none" />
 
       {/* Big Official Brand Logo */}
-      <div className="relative z-10 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+      <div className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 max-w-[92%] max-h-[92%] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
         <img
           src={logoUrl}
           alt={`${productName} Official Large Brand Logo`}
@@ -77,8 +77,8 @@ export const ProductLogo: React.FC<ProductLogoProps> = ({
       </div>
 
       {/* Brand Verified Tag */}
-      <div className="relative z-10 mt-3 text-center">
-        <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold tracking-wide border border-slate-200/90 bg-white/95 text-slate-700 shadow-2xs uppercase">
+      <div className="relative z-10 mt-4 text-center">
+        <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold tracking-wide border border-slate-200/90 bg-white/95 text-slate-700 shadow-2xs uppercase">
           Verified Official Asset
         </span>
       </div>

@@ -40,8 +40,18 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   // 3. Facebook Reviews
   'buy-facebook-reviews': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
-      <rect width="200" height="200" rx="44" fill="#0866FF"/>
-      <path fill="#ffffff" d="M142 104h-24v78H86v-78H70V76h16V56c0-15.5 9.5-24 23.4-24 6.7 0 13.8 1.2 13.8 1.2v15.2h-7.8c-7.7 0-10.1 4.8-10.1 9.7V76h17.2l-2.7 28z"/>
+      <rect width="200" height="200" rx="44" fill="#1877F2"/>
+      <!-- Official Facebook 'f' -->
+      <path fill="#ffffff" d="M126 96h-22v80H74V96H58V72h16V52c0-16.5 10-26 25.5-26 7.4 0 15 1.3 15 1.3v16.5H87c-8.2 0-10.8 5.2-10.8 10.4V72h18.6l-2.8 24z"/>
+      <!-- Official 5-Star Reviews Badge -->
+      <g transform="translate(42, 148) scale(1.18)" fill="#FFD700">
+        <polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/>
+        <g transform="translate(18, 0)"><polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/></g>
+        <g transform="translate(36, 0)"><polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/></g>
+        <g transform="translate(54, 0)"><polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/></g>
+        <g transform="translate(72, 0)"><polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/></g>
+      </g>
+      <text x="100" y="184" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">PAGE REVIEWS</text>
     </svg>
   `),
 
@@ -49,9 +59,21 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-amazon-reviews': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#131921"/>
-      <text x="100" y="105" text-anchor="middle" fill="#FFFFFF" font-size="75" font-weight="900" font-family="Arial, sans-serif">a</text>
-      <path d="M48 132 C78 152 122 152 152 132" stroke="#FF9900" stroke-width="10" stroke-linecap="round" fill="none"/>
-      <path d="M145 125 L158 132 L144 140 Z" fill="#FF9900"/>
+      <!-- Official Amazon wordmark & smile -->
+      <g transform="translate(100, 84)">
+        <text x="0" y="0" text-anchor="middle" fill="#FFFFFF" font-size="44" font-weight="900" font-family="Arial, sans-serif" letter-spacing="-1.5">amazon</text>
+        <path d="M-62 14 C-25 36 30 36 60 14" stroke="#FF9900" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+        <path d="M52 8 L65 15 L50 22 C53 17 53 13 52 8 Z" fill="#FF9900"/>
+      </g>
+      <!-- 5-Star Reviews Badge -->
+      <g transform="translate(42, 142) scale(1.18)" fill="#FF9900">
+        <polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/>
+        <g transform="translate(18, 0)"><polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/></g>
+        <g transform="translate(36, 0)"><polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/></g>
+        <g transform="translate(54, 0)"><polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/></g>
+        <g transform="translate(72, 0)"><polygon points="10,1 12.5,6.5 18.5,7.5 14,12 15.5,18 10,15 4.5,18 6,12 1.5,7.5 7.5,6.5"/></g>
+      </g>
+      <text x="100" y="178" text-anchor="middle" fill="#94A3B8" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">VERIFIED REVIEWS</text>
     </svg>
   `),
 
@@ -59,14 +81,15 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-yelp-reviews': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#D32323"/>
-      <g transform="translate(100, 92) scale(1.45)">
+      <!-- Authentic Yelp 5-Point Burst Symbol -->
+      <g transform="translate(100, 82) scale(1.65)">
         <path fill="#ffffff" d="M0 -34 c-4.5 0 -8 3.5 -8 8 l0 20 c0 4.5 3.5 8 8 8 c4.5 0 8 -3.5 8 -8 l0 -20 c0 -4.5 -3.5 -8 -8 -8 z"/>
         <path fill="#ffffff" d="M-30 -10 c-3.5 -3.5 -9 -2 -11 2 l-10 16 c-2 4 0 9 4 11 c3.5 3.5 9 2 11 -2 l10 -16 c2 -4 0 -9 -4 -11 z"/>
         <path fill="#ffffff" d="M-18 28 c-2 4.5 1 9.5 5.5 11 l18 6 c4.5 1.5 9.5 -1 11 -5.5 c1.5 -4.5 -1 -9.5 -5.5 -11 l-18 -6 c-4.5 -1.5 -9.5 1 -11 5.5 z"/>
         <path fill="#ffffff" d="M18 28 c2 4.5 -1 9.5 -5.5 11 l-18 6 c-4.5 1.5 -9.5 -1 -11 -5.5 c-1.5 -4.5 1 -9.5 5.5 -11 l18 -6 c4.5 -1.5 9.5 1 11 5.5 z"/>
         <path fill="#ffffff" d="M30 -10 c3.5 -3.5 9 -2 11 2 l10 16 c2 4 0 9 -4 11 c-3.5 3.5 -9 2 -11 -2 l-10 -16 c-2 -4 0 -9 4 -11 z"/>
       </g>
-      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">yelp</text>
+      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="28" font-weight="900" font-family="Arial, sans-serif" letter-spacing="0.5">yelp</text>
     </svg>
   `),
 
@@ -96,10 +119,13 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-glassdoor-reviews': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#0CAA41"/>
-      <g transform="translate(60, 42)">
-        <path d="M0 0 H80 V24 H26 V92 H80 V116 H0 V0 Z" fill="#FFFFFF"/>
+      <!-- Authentic Glassdoor Open Door Perspective Frame -->
+      <g transform="translate(56, 32)">
+        <path d="M0 0 H88 V22 H24 V96 H88 V118 H0 V0 Z" fill="#FFFFFF"/>
+        <rect x="36" y="30" width="48" height="58" rx="4" fill="#FFFFFF" opacity="0.9"/>
+        <circle cx="48" cy="59" r="4.5" fill="#0CAA41"/>
       </g>
-      <text x="100" y="178" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800" font-family="Arial, sans-serif" letter-spacing="1">GLASSDOOR</text>
+      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="21" font-weight="900" font-family="Arial, sans-serif" letter-spacing="0.5">glassdoor</text>
     </svg>
   `),
 
@@ -114,16 +140,17 @@ export const PRODUCT_LOGOS: Record<string, string> = {
     </svg>
   `),
 
-  // 10. PayPal Account (Official Overlapping P's)
+  // 10. PayPal Account (Official Overlapping Monogram & Brand)
   'buy-verified-paypal-account': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
-      <rect width="200" height="200" rx="44" fill="#003087"/>
-      <g transform="translate(42, 36) scale(1.15)">
-        <path d="M22 110 L33 40 L65 40 C83 40 96 49 92 68 C88 86 73 95 56 95 L40 95 L34 134 L18 134 L22 110 Z" fill="#003087"/>
-        <path d="M18 124 L29 46 L58 46 C77 46 90 55 86 74 C82 92 68 101 50 101 L36 101 L32 124 Z" fill="#00457C"/>
-        <path d="M34 116 L45 36 L75 36 C93 36 106 45 102 64 C98 82 84 92 66 92 L50 92 L42 144 L29 144 L34 116 Z" fill="#0079C1"/>
-        <path d="M50 92 L54 68 C58 56 68 49 80 48 C76 56 70 62 64 68 L50 92 Z" fill="#002447" opacity="0.35"/>
+      <rect width="200" height="200" rx="44" fill="#001C6B"/>
+      <!-- Official PayPal Double-P Overlap -->
+      <g transform="translate(48, 26) scale(1.35)">
+        <path fill="#003087" d="M18.8 98.4l11.6-73.6c.7-4.6 4.7-8 9.4-8h29.5c18.5 0 31.7 8.8 28.5 28.9-3 19-17.8 27.6-35.4 27.6H46.8l-8.6 54.5c-.5 3.2-3.2 5.5-6.4 5.5H18.8c-1.8 0-3.1-1.7-2.7-3.4l2.7-11.5z"/>
+        <path fill="#0079C1" d="M36.2 82.5l11.6-73.6c.7-4.6 4.7-8 9.4-8h29.5c18.5 0 31.7 8.8 28.5 28.9-3.2 20.3-18.7 29.5-37.3 29.5H62.5l-8.6 54.5c-.5 3.2-3.2 5.5-6.4 5.5H34.5c-1.8 0-3.1-1.7-2.7-3.4l4.4-23.4z"/>
+        <path fill="#002447" opacity="0.45" d="M47.8 82.5l3.8-24.1c.5-3.2 3.2-5.5 6.4-5.5h15.4c18.6 0 34.1-9.2 37.3-29.5.3-2.1.4-4.1.2-6-3.8 17.6-17.5 25.1-34.9 25.1H57.2l-9.4 40z"/>
       </g>
+      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="900" font-family="Arial, sans-serif" letter-spacing="0.5">PayPal</text>
     </svg>
   `),
 
@@ -131,7 +158,12 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-verified-wise-account': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#9FE870"/>
-      <path d="M46 154 L92 46 L130 46 L104 110 L132 110 L166 46 L144 46 L118 96 L98 96 L124 46 L76 46 L46 154 Z" fill="#163300"/>
+      <!-- Official Wise Fast-Flag 'W' Glyph -->
+      <g transform="translate(100, 78) scale(1.15)" fill="#163300">
+        <path d="M-52 -34 L-24 40 L4 40 L-14 -12 L6 -12 L30 -34 L12 -34 L-2 4 L-16 -34 Z"/>
+        <polygon points="6,-12 30,-34 46,-34 16,40 -4,40"/>
+      </g>
+      <text x="100" y="164" text-anchor="middle" fill="#163300" font-size="34" font-weight="900" font-family="Arial, sans-serif" letter-spacing="-1">wise</text>
     </svg>
   `),
 
@@ -155,9 +187,11 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-verified-stripe-account': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#635BFF"/>
-      <g transform="translate(30, 80) scale(2.3)">
+      <!-- Official Stripe S Icon & Wordmark scaled large -->
+      <g transform="translate(16, 70) scale(2.8)" fill="#ffffff">
         <path d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v2.85c-1.2.62-2.82.96-4.66.96-4.14 0-6.8-2.6-6.8-6.9 0-4.06 2.52-6.93 6.42-6.93 3.96 0 5.94 2.87 5.94 6.64 0 .6-.05 1.3-.09 1.78zm-4.03-2.67c-.08-1.5-.95-2.4-2.22-2.4-1.28 0-2.25.9-2.44 2.4h4.66zM37.3 5.86c1.1-.55 2.52-.87 3.86-.87 1.83 0 3.27.75 3.27 2.97v11.53h-3.95v-1.8c-.89 1.25-2.3 2.05-3.87 2.05-2.73 0-4.6-1.9-4.6-4.57 0-3.92 3.87-4.65 8.16-4.65v-.43c0-1.16-.6-1.83-2-1.83-1.15 0-2.23.36-3.14.94L37.3 5.86zm3.44 7.73c-2.14 0-4.09.28-4.09 2.03 0 1.13.78 1.83 1.88 1.83 1.4 0 2.21-.92 2.21-2.1v-1.76zm-12.72-7.5v2.89h1.94v2.79H28.02v5.7c0 .94.34 1.3 1.24 1.3.4 0 .74-.03 1.05-.1v2.74c-.58.17-1.34.27-2.23.27-2.6 0-4.02-1.3-4.02-3.83V11.77h-1.92V8.98h1.92V6.1l3.96-.01zm-7.65-3.82c1.33 0 2.37 1.04 2.37 2.38 0 1.33-1.04 2.37-2.37 2.37-1.34 0-2.38-1.04-2.38-2.37 0-1.34 1.04-2.38 2.38-2.38zm-1.98 6.94h3.96v10.51h-3.96V9.21zM7.74 5.99c2.32 0 4.19.82 5.25 1.8l-1.96 2.53c-.8-.74-2.02-1.3-3.29-1.3-1.46 0-2.36.7-2.36 1.7 0 .99.8 1.48 2.68 1.99 3.03.82 4.7 2.02 4.7 4.67 0 3.09-2.52 4.88-5.96 4.88-2.5 0-4.71-.85-5.8-1.93l1.8-2.64c.94.88 2.4 1.5 3.97 1.5 1.58 0 2.42-.72 2.42-1.74 0-1.08-.88-1.57-2.83-2.1C3.49 14.59 2 13.3 2 10.74c0-2.89 2.45-4.75 5.74-4.75z" fill="#ffffff"/>
       </g>
+      <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">PAYMENTS PLATFORM</text>
     </svg>
   `),
 
@@ -217,26 +251,29 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-gmail-accounts': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
-      <g transform="translate(38, 44) scale(6.2)">
+      <!-- Official Google 4-Color 'M' Envelope -->
+      <g transform="translate(30, 32) scale(7.2)">
         <path fill="#4285F4" d="M1.5 6.25v11.5a1.25 1.25 0 001.25 1.25h3.5V9.67L1.5 6.25z"/>
         <path fill="#34A853" d="M18.75 6.25l-4.75 3.42V19h3.5a1.25 1.25 0 001.25-1.25V6.25z"/>
         <path fill="#EA4335" d="M14 9.67l4.75-3.42a1.25 1.25 0 00-1.95-1.03L12 8.7 7.2 5.22a1.25 1.25 0 00-1.95 1.03L10 9.67l2 1.45 2-1.45z"/>
         <path fill="#FBBC04" d="M6.25 19v-9.33L10 12.5l-3.75 6.5z"/>
       </g>
-      <text x="100" y="174" text-anchor="middle" fill="#3c4043" font-size="20" font-weight="700" font-family="Arial, sans-serif" letter-spacing="0.5">Gmail</text>
+      <text x="100" y="174" text-anchor="middle" fill="#3c4043" font-size="22" font-weight="700" font-family="Arial, sans-serif" letter-spacing="0.5">Gmail</text>
     </svg>
   `),
 
   // 21. Buy SMTP Mailgun Accounts (Official Mailgun Origami Heron)
   'buy-smtp-mailgun-accounts': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
-      <rect width="200" height="200" rx="44" fill="#F43F5E"/>
-      <g transform="translate(100, 85) scale(3.5)" fill="#FFFFFF">
-        <path d="M0 -12 L10 6 L0 12 L-10 6 Z" opacity="0.95"/>
-        <path d="M0 -12 L14 -4 L0 0 Z" opacity="0.8"/>
-        <path d="M0 -12 L-14 -4 L0 0 Z" opacity="0.8"/>
+      <rect width="200" height="200" rx="44" fill="#E01A22"/>
+      <!-- Official Mailgun Supersonic Origami Falcon/Envelope -->
+      <g transform="translate(100, 78) scale(4.4)" fill="#FFFFFF">
+        <path d="M0 -14 L12 8 L0 14 L-12 8 Z" opacity="0.95"/>
+        <path d="M0 -14 L16 -3 L0 2 Z" opacity="0.82"/>
+        <path d="M0 -14 L-16 -3 L0 2 Z" opacity="0.82"/>
       </g>
-      <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">MAILGUN</text>
+      <text x="100" y="164" text-anchor="middle" fill="#FFFFFF" font-size="24" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">mailgun</text>
+      <text x="100" y="182" text-anchor="middle" fill="#FECDD3" font-size="10" font-weight="800" font-family="Arial, sans-serif" letter-spacing="1.5">TRANSACTIONAL EMAIL</text>
     </svg>
   `),
 
@@ -244,10 +281,12 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-smtp-brevo-accounts': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#0B996F"/>
-      <g transform="translate(68, 45)">
-        <path d="M0 0 H36 C54 0 68 11 68 28 C68 39 60 48 48 52 C64 56 72 66 72 82 C72 100 56 112 36 112 H0 V0 Z M22 44 H34 C44 44 48 38 48 28 C48 18 44 14 34 14 H22 V44 Z M22 98 H36 C46 98 50 92 50 80 C50 68 46 62 36 62 H22 V98 Z" fill="#FFFFFF"/>
+      <!-- Official Brevo Ribbon Monogram Loop -->
+      <g transform="translate(52, 34) scale(1.4)">
+        <path d="M14 12 C6 12 0 18 0 26 C0 35 7 42 16 42 C28 42 42 22 52 22 C59 22 64 26 64 32 C64 40 57 48 48 48 C38 48 24 68 14 68 C5 68 0 62 0 54" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
-      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">BREVO</text>
+      <text x="100" y="166" text-anchor="middle" fill="#FFFFFF" font-size="26" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">brevo</text>
+      <text x="100" y="184" text-anchor="middle" fill="#A7F3D0" font-size="10" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">SMTP SERVICE</text>
     </svg>
   `),
 
@@ -255,15 +294,17 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-smtp-relay-services-account': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#0284C7"/>
-      <g transform="translate(45, 42) scale(4.5)" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="3" width="20" height="6" rx="1.5"/>
-        <rect x="2" y="13" width="20" height="6" rx="1.5"/>
-        <line x1="6" y1="6" x2="6.01" y2="6"/>
-        <line x1="6" y1="16" x2="6.01" y2="16"/>
-        <path d="M16 9v4"/>
-        <path d="M13 11l3 2 3-2"/>
+      <!-- High Speed SMTP Server Stack & Lightning Relay -->
+      <g transform="translate(50, 30) scale(4.8)" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="17" height="5" rx="1.5"/>
+        <rect x="2" y="10" width="17" height="5" rx="1.5"/>
+        <line x1="5" y1="4.5" x2="5.01" y2="4.5"/>
+        <line x1="5" y1="12.5" x2="5.01" y2="12.5"/>
+        <path d="M12 7.5l2.5 2.5 4.5-4.5"/>
+        <path d="M15 2.5h4v4"/>
       </g>
-      <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">SMTP RELAY</text>
+      <text x="100" y="162" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1.5">SMTP RELAY</text>
+      <text x="100" y="180" text-anchor="middle" fill="#BAE6FD" font-size="10" font-weight="800" font-family="Arial, sans-serif" letter-spacing="1.5">HIGH INBOX VELOCITY</text>
     </svg>
   `),
 
@@ -346,10 +387,11 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-google-voice-accounts': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#34A853"/>
-      <g transform="translate(52, 42) scale(4)">
+      <!-- Official Google Voice Speech Bubble with Handset -->
+      <g transform="translate(42, 28) scale(4.8)">
         <path fill="#FFFFFF" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3.5 11.5c-1.2 0-2.4-.2-3.6-.6-.4-.1-.8 0-1.1.3l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1.1-.4-1.1-.6-2.3-.6-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 7.2 5.8 13 13 13 .6 0 1-.4 1-1v-2.5c0-.6-.4-1-1-1z"/>
       </g>
-      <text x="100" y="168" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">GOOGLE VOICE</text>
+      <text x="100" y="172" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">Google Voice</text>
     </svg>
   `),
 
@@ -392,9 +434,9 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-facebook-accounts': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <rect width="200" height="200" rx="44" fill="#1877F2"/>
-      <path fill="#FFFFFF" d="M125 106h-21v68H76v-68H60V82h16V62c0-14 8.5-22 21.5-22 6.2 0 12.5 1.1 12.5 1.1v14.2h-7.1c-7 0-9.2 4.4-9.2 8.9V82h16l-2.7 24z"/>
-      <rect x="45" y="148" width="110" height="28" rx="14" fill="#0D5BC6" stroke="#93C5FD" stroke-width="1"/>
-      <text x="100" y="167" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">AGED PROFILES</text>
+      <!-- Official Facebook 'f' Logo -->
+      <path fill="#FFFFFF" d="M136 112h-25v76H80v-76H62V84h18V60c0-18.5 11.2-28 27.5-28 7.8 0 16 1.4 16 1.4v17.5h-9c-9.2 0-12 5.6-12 11.5V84h21.5l-3.5 28z"/>
+      <text x="100" y="182" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">FACEBOOK PVA</text>
     </svg>
   `),
 
@@ -441,16 +483,18 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   'buy-tinder-account': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
       <defs>
-        <linearGradient id="tinder-flame" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#FF655B"/>
-          <stop offset="100%" stop-color="#FF5864"/>
+        <linearGradient id="tinderFlameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FD297B"/>
+          <stop offset="50%" stop-color="#FF5864"/>
+          <stop offset="100%" stop-color="#FF655B"/>
         </linearGradient>
       </defs>
-      <rect width="200" height="200" rx="44" fill="#18181B"/>
-      <g transform="translate(60, 36) scale(3.5)">
-        <path fill="url(#tinder-flame)" d="M12.7 1.5c.3 1.8-.3 3.6-1.5 5-1.5 1.7-2.3 3.9-2.3 6.1 0 5 4 9 9 9s9-4 9-9c0-3.8-2.4-7.2-6-8.5-.2 2.1-1.3 4-3.1 5-1.7 1-2.9 2.7-3.3 4.6.9-.5 1.9-.8 3-.8 2.6 0 4.8 2.1 4.8 4.7 0 3-2.4 5.3-5.3 5.3s-5.3-2.4-5.3-5.3c0-3.9 2.4-7.4 6-8.9.3-2.5-1.2-5-3.6-6.2-1.1-.5-1.7-1.7-1.4-2.9z"/>
+      <rect width="200" height="200" rx="44" fill="#111418"/>
+      <!-- Official Tinder Flame Shape scaled large and centered -->
+      <g transform="translate(48, 26) scale(4.4)">
+        <path fill="url(#tinderFlameGrad)" d="M12.7 1.5c.3 1.8-.3 3.6-1.5 5-1.5 1.7-2.3 3.9-2.3 6.1 0 5 4 9 9 9s9-4 9-9c0-3.8-2.4-7.2-6-8.5-.2 2.1-1.3 4-3.1 5-1.7 1-2.9 2.7-3.3 4.6.9-.5 1.9-.8 3-.8 2.6 0 4.8 2.1 4.8 4.7 0 3-2.4 5.3-5.3 5.3s-5.3-2.4-5.3-5.3c0-3.9 2.4-7.4 6-8.9.3-2.5-1.2-5-3.6-6.2-1.1-.5-1.7-1.7-1.4-2.9z"/>
       </g>
-      <text x="100" y="170" text-anchor="middle" fill="#FF655B" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1.5">TINDER PVA</text>
+      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">tinder</text>
     </svg>
   `),
 
@@ -468,12 +512,10 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   // 39. Buy Verified Airbnb Accounts
   'buy-verified-airbnb-accounts': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
-      <rect width="200" height="200" rx="44" fill="#FF5A5F"/>
-      <g transform="translate(66, 32) scale(2.8)">
-        <path fill="#FFFFFF" d="M12 2C6.5 2 2 6.5 2 12c0 3.3 1.6 6.2 4.1 8 0 0 .2.1.3.2 1.4 1 3.1 1.7 4.9 1.8h1.4c1.8-.1 3.5-.8 4.9-1.8.1-.1.3-.2.3-.2 2.5-1.8 4.1-4.7 4.1-8 0-5.5-4.5-10-10-10zm0 18.2c-1.5 0-3-.5-4.2-1.3l.1-.1c1.9-1.6 3.1-3.9 3.1-6.5 0-.6-.1-1.2-.2-1.8.8.4 1.7.6 2.6.6s1.8-.2 2.6-.6c-.1.6-.2 1.2-.2 1.8 0 2.6 1.2 4.9 3.1 6.5l.1.1c-1.2.8-2.7 1.3-4.2 1.3zm3.5-9.7c-.5.4-1.2.7-1.9.8.1-.4.2-.8.2-1.3 0-1-.8-1.8-1.8-1.8s-1.8.8-1.8 1.8c0 .5.1.9.2 1.3-.7-.1-1.4-.4-1.9-.8-.4-.3-.6-.7-.6-1.2 0-.8.6-1.5 1.5-1.5.3 0 .7.1 1 .3.4.3.9.5 1.4.5.5 0 1-.2 1.4-.5.3-.2.7-.3 1-.3.9 0 1.5.7 1.5 1.5 0 .5-.2.9-.6 1.2z"/>
-      </g>
-      <text x="100" y="164" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="2">AIRBNB</text>
-      <text x="100" y="180" text-anchor="middle" fill="#FFE4E6" font-size="10" font-weight="800" font-family="Arial, sans-serif" letter-spacing="1">HOST &amp; PERSONAL</text>
+      <rect width="200" height="200" rx="44" fill="#FF385C"/>
+      <!-- Official Airbnb Bélo Ribbon Logo -->
+      <path fill="#FFFFFF" d="M100 28c-19.6 0-33.8 12.8-37.4 33.2-3.4 19.3 4.2 39.6 20.8 59.5 7.4 8.9 14.2 15.8 16.6 18.3 2.4-2.5 9.2-9.4 16.6-18.3 16.6-19.9 24.2-40.2 20.8-59.5C133.8 40.8 119.6 28 100 28zm0 19.5c10.4 0 18.2 7.3 20.4 19.6 2 11.2-2.4 24.6-12.8 38.8-3.8 5.2-7.8 9.9-10.6 13.1-2.8-3.2-6.8-7.9-10.6-13.1-10.4-14.2-14.8-27.6-12.8-38.8 2.2-12.3 10-19.6 20.4-19.6zm0 16.2c-5.8 0-10.5 4.7-10.5 10.5s4.7 10.5 10.5 10.5 10.5-4.7 10.5-10.5-4.7-10.5-10.5-10.5z"/>
+      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">airbnb</text>
     </svg>
   `),
 
