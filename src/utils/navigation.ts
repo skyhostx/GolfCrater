@@ -4,6 +4,7 @@ export type AppRoute =
   | { page: 'services' }
   | { page: 'pricing' }
   | { page: 'blog' }
+  | { page: 'blog-post'; postSlug: string }
   | { page: 'faq' }
   | { page: 'shop' }
   | { page: 'category'; category: string }
@@ -60,12 +61,12 @@ export const getBasePath = (): string => {
   const hostname = window.location.hostname;
   
   // If hosted on GitHub Pages subfolder
-  if (hostname.endsWith('github.io')) {
+  if (hostname && hostname.endsWith('github.io')) {
     const segments = window.location.pathname.split('/').filter(Boolean);
     if (segments.length > 0) {
       const first = segments[0].toLowerCase();
       // If first segment is not one of our standard top-level routes, it's the repo name
-      if (!['category', 'product', 'shop', 'contact', 'track-order', 'orders'].includes(first)) {
+      if (!['category', 'product', 'shop', 'contact', 'track-order', 'orders', 'blog', 'about', 'services', 'pricing', 'faq'].includes(first)) {
         return `/${segments[0]}`;
       }
     }
@@ -89,6 +90,8 @@ export const routeToPath = (route: AppRoute): string => {
       return `${base}/pricing`;
     case 'blog':
       return `${base}/blog`;
+    case 'blog-post':
+      return `${base}/blog/${route.postSlug}`;
     case 'faq':
       return `${base}/faq`;
     case 'shop':
@@ -145,6 +148,11 @@ const parseRouteSegments = (segmentsString: string): AppRoute => {
   }
 
   const parts = clean.split('/');
+  if (parts[0] === 'blog') {
+    if (!parts[1]) return { page: 'blog' };
+    const decodedPostSlug = decodeURIComponent(parts[1]);
+    return { page: 'blog-post', postSlug: decodedPostSlug };
+  }
   if (parts[0] === 'category') {
     if (!parts[1]) return { page: 'shop' };
     const decodedCategory = decodeURIComponent(parts[1]);

@@ -15,6 +15,8 @@ import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { PricingPage } from './pages/PricingPage';
 import { BlogPage } from './pages/BlogPage';
+import { BlogPostPage } from './pages/BlogPostPage';
+import { BLOG_POSTS } from './data/blogPostsData';
 import { FaqPage } from './pages/FaqPage';
 import { SEO } from './components/SEO';
 import { getCategorySeo, getProductSeo, getSiteStructuredData } from './utils/seoData';
@@ -293,14 +295,27 @@ export default function App() {
         return <PricingPage onNavigate={navigateTo} />;
 
       case 'blog':
+        return <BlogPage onNavigate={navigateTo} />;
+
+      case 'blog-post': {
+        const post = BLOG_POSTS.find((p) => p.slug === currentRoute.postSlug);
+        if (!post) {
+          return <NotFoundPage onNavigate={navigateTo} />;
+        }
+        const relatedProduct = PRODUCTS.find(
+          (p) => p.id === post.productId || p.slug === post.productId
+        );
         return (
-          <BlogPage
-            products={PRODUCTS}
+          <BlogPostPage
+            post={post}
+            relatedProduct={relatedProduct}
+            allPosts={BLOG_POSTS}
             onNavigate={navigateTo}
             onAddToCart={handleAddToCart}
             onBuyNow={handleBuyNow}
           />
         );
+      }
 
       case 'faq':
         return <FaqPage onNavigate={navigateTo} />;
