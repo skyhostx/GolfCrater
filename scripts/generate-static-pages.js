@@ -575,7 +575,7 @@ const products = [
     name: 'Buy Aged Gmail Accounts (PVA)',
     category: 'Email Service',
     categorySlug: 'email-service',
-    startingPrice: '15',
+    startingPrice: '20',
     rating: '4.9',
     reviewCount: '620',
     description: 'Buy aged phone-verified Gmail accounts (PVA) with 100% inbox deliverability, recovery email access, and clean IP histories.',
