@@ -1,0 +1,202 @@
+import React, { useState } from 'react';
+import { Product, ProductVariant } from '../types';
+import { AppRoute } from '../utils/navigation';
+import { Hero } from '../components/Hero';
+import { TrustBar } from '../components/TrustBar';
+import { CategoryGrid } from '../components/CategoryGrid';
+import { ProductCard } from '../components/ProductCard';
+import { HowItWorks } from '../components/HowItWorks';
+import { PromotionalBanner } from '../components/PromotionalBanner';
+import { WhyChooseUs } from '../components/WhyChooseUs';
+import { CustomerReviewsSection } from '../components/CustomerReviewsSection';
+import { FAQSection } from '../components/FAQSection';
+import { Newsletter } from '../components/Newsletter';
+import { ArrowRight, Sparkles } from 'lucide-react';
+
+interface HomePageProps {
+  products: Product[];
+  onNavigate: (route: AppRoute) => void;
+  onAddToCart: (product: Product, variant: ProductVariant, customReq?: string) => void;
+  onBuyNow: (product: Product, variant: ProductVariant, customReq?: string) => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({
+  products,
+  onNavigate,
+  onAddToCart,
+  onBuyNow,
+}) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
+
+  const getProductPrice = (p: Product) => {
+    if (typeof p.startingPrice === 'number' && !isNaN(p.startingPrice)) {
+      return p.startingPrice;
+    }
+    const prices = p.variants.map((v) => v.price).filter((pr) => typeof pr === 'number' && !isNaN(pr));
+    return prices.length > 0 ? Math.min(...prices) : 0;
+  };
+
+  // Filtered & sorted products for popular showcase
+  const filteredProducts = products.filter((p) => {
+    if (selectedCategory !== 'All') {
+      if (selectedCategory === 'Reviews Service' && p.category !== 'Reviews') return false;
+      if (selectedCategory !== 'Reviews Service' && p.category !== selectedCategory) return false;
+    }
+    return true;
+  }).sort((a, b) => {
+    if (sortBy === 'price-low') {
+      const diff = getProductPrice(a) - getProductPrice(b);
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
+    if (sortBy === 'price-high') {
+      const diff = getProductPrice(b) - getProductPrice(a);
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
+    if (sortBy === 'rating') {
+      const diff = b.rating - a.rating;
+      if (diff !== 0) return diff;
+      return b.reviewCount - a.reviewCount;
+    }
+    return b.reviewCount - a.reviewCount;
+  });
+
+  return (
+    <div className="space-y-0">
+      {/* 1. Hero Section */}
+      <Hero
+        onExploreServices={() => onNavigate({ page: 'shop' })}
+        onViewCategories={() => {
+          const el = document.getElementById('categories');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }}
+        onSelectProductById={(id) => onNavigate({ page: 'product', productId: id })}
+      />
+
+      {/* 2. Trust Bar */}
+      <TrustBar />
+
+      {/* 3. Service Categories Grid */}
+      <CategoryGrid
+        onSelectCategory={(cat) => onNavigate({ page: 'category', category: cat })}
+        activeCategory={selectedCategory}
+      />
+
+      {/* 4. Popular Products Catalog */}
+      <section id="products" className="py-16 sm:py-20 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header & Controls */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                Instant Fulfillment
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">
+                Popular Products & Services
+              </h2>
+              <p className="text-slate-600 text-xs sm:text-sm mt-1">
+                Showing {filteredProducts.length} verified listings in{' '}
+                <strong className="text-slate-900">{selectedCategory === 'All' ? 'All Categories' : selectedCategory}</strong>
+              </p>
+            </div>
+
+            {/* Sorting Filter */}
+            <div className="flex items-center space-x-3">
+              <span className="text-xs text-slate-500 font-medium">Sort by:</span>
+              <div className="relative">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as any)}
+                  className="text-xs font-bold bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 cursor-pointer pr-8"
+                >
+                  <option value="featured">Most Popular / Featured</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="rating">Highest Customer Rating</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Category Filter Tabs */}
+          <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto pb-3 mb-6 no-scrollbar border-b border-slate-100">
+            {['All', 'Account', 'Bank Account', 'Crypto Account', 'Reviews Service', 'SMM Account', 'Email Service', 'Other'].map((cat) => {
+              const isSelected = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                    isSelected
+                      ? 'bg-slate-900 text-white shadow-xs'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Products Grid */}
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-16 bg-slate-50 rounded-2xl border border-slate-200">
+              <p className="text-base font-bold text-slate-800">No products match this category.</p>
+              <button
+                onClick={() => setSelectedCategory('All')}
+                className="mt-3 px-4 py-2 bg-emerald-400 text-slate-950 font-bold text-xs rounded-lg cursor-pointer"
+              >
+                View All Products
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onViewDetails={(p) => onNavigate({ page: 'product', productId: p.id })}
+                  onAddToCart={onAddToCart}
+                  onBuyNow={onBuyNow}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* View All Button */}
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => onNavigate({ page: 'shop' })}
+              className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer"
+            >
+              <span>Explore All Verified Digital Services in Marketplace</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. How It Works */}
+      <HowItWorks onExploreClick={() => onNavigate({ page: 'shop' })} />
+
+      {/* 6. Promotional Banner */}
+      <PromotionalBanner onViewDeals={() => onNavigate({ page: 'shop' })} />
+
+      {/* 7. Why Choose Us */}
+      <WhyChooseUs />
+
+      {/* 8. Customer Reviews */}
+      <CustomerReviewsSection />
+
+      {/* 9. FAQ Section */}
+      <FAQSection onOpenContact={() => onNavigate({ page: 'contact' })} />
+
+      {/* 10. Newsletter */}
+      <Newsletter />
+    </div>
+  );
+};

@@ -1,0 +1,8 @@
+{
+  "name": "GolfCrater is the premier digital marketplace for verified digital products",
+  "description": "Premium Digital Marketplace for verified digital services, business accounts, reputation management, and online professional solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /orders
+Disallow: /dashboard
+Disallow: /login
+Disallow: /admin
+
+Sitemap: https://golfcrater.com/sitemap.xml
