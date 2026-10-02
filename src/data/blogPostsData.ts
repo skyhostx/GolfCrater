@@ -208,6 +208,10 @@ const TRENDING_TITLES: Record<string, { title: string; slug: string }> = {
     title: 'The Complete Guide to Buying Verified MoonPay Accounts for Instant Credit Card Crypto Purchases',
     slug: 'complete-guide-to-buying-verified-moonpay-accounts',
   },
+  'buy-verified-bitget-accounts': {
+    title: 'How to Buy Verified Bitget Accounts in 2026: Tier-2 KYC Verification, Copy Trading & Futures Setup',
+    slug: 'how-to-buy-verified-bitget-accounts-kyc-copy-trading',
+  },
   'buy-gmail-accounts': {
     title: 'Why Aged Gmail Accounts Are Critical for Cold Email Deliverability in 2026: The Anti-Spam Blueprint',
     slug: 'why-aged-gmail-accounts-are-critical-for-cold-email-deliverability',

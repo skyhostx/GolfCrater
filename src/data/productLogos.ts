@@ -247,6 +247,26 @@ export const PRODUCT_LOGOS: Record<string, string> = {
     </svg>
   `),
 
+  // 19. Bitget Account (Official Bitget Cyan Chevrons)
+  'buy-verified-bitget-accounts': svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+      <rect width="200" height="200" rx="44" fill="#0A1118"/>
+      <!-- Glowing cyan background accent -->
+      <circle cx="100" cy="84" r="54" fill="#00F0FF" opacity="0.12"/>
+      <!-- Official Bitget Angled Chevrons -->
+      <g transform="translate(100, 82) scale(1.15)">
+        <!-- Cyan Chevron -->
+        <path d="M-36 -28 L-12 -28 L6 4 L-18 4 Z" fill="#00F0FF"/>
+        <path d="M-18 4 L6 4 L-12 36 L-36 36 Z" fill="#00C4D4"/>
+        <!-- White/Silver Offset Chevron -->
+        <path d="M18 -28 L36 -28 L12 4 L-6 4 Z" fill="#FFFFFF" opacity="0.95"/>
+        <path d="M-6 4 L12 4 L36 36 L18 36 Z" fill="#94A3B8" opacity="0.85"/>
+      </g>
+      <text x="100" y="152" text-anchor="middle" fill="#00F0FF" font-size="20" font-weight="900" font-family="Arial, sans-serif" letter-spacing="3">BITGET</text>
+      <text x="100" y="174" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800" font-family="Arial, sans-serif" letter-spacing="2">VERIFIED EXCHANGE</text>
+    </svg>
+  `),
+
   // 20. Buy Gmail Accounts (Official Google Gmail 4-Color M)
   'buy-gmail-accounts': svgToDataUri(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">

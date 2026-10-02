@@ -323,6 +323,23 @@ export const BLOG_POST_PHOTOS: Record<string, PostPhotoConfig> = {
     },
   },
 
+  // 18b. Bitget Accounts
+  'buy-verified-bitget-accounts': {
+    cover: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?auto=format&fit=crop&w=1200&q=80',
+    coverAlt: 'Bitget cryptocurrency exchange trading interface with derivatives charts',
+    figureCaption: 'Figure 1: Fully verified Bitget trading account featuring copy-trading privileges and high daily withdrawal limits.',
+    sectionImage1: {
+      url: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1000&q=80',
+      alt: 'Bitget One-Click copy trading terminal and strategy leaderboards',
+      caption: 'Figure 2: Real-time copy trading mirroring top crypto portfolio managers with automated trade execution.',
+    },
+    sectionImage2: {
+      url: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=1000&q=80',
+      alt: 'Bitget futures order book with high leverage and deep asset liquidity',
+      caption: 'Figure 3: Deep liquidity across USDT-M and Coin-M futures pairs with maximum leverage capacity.',
+    },
+  },
+
   // 19. Gmail Accounts
   'buy-gmail-accounts': {
     cover: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&w=1200&q=80',

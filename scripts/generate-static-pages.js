@@ -561,6 +561,16 @@ const products = [
     description: 'Buy verified MoonPay accounts for instant debit/credit card to crypto conversion with high weekly velocity limits.',
   },
   {
+    id: 'buy-verified-bitget-accounts',
+    name: 'Buy Verified Bitget Accounts',
+    category: 'Crypto Account',
+    categorySlug: 'crypto-account',
+    startingPrice: '220',
+    rating: '4.9',
+    reviewCount: '184',
+    description: 'Buy verified Bitget crypto exchange accounts with Level-2 KYC verification, one-click copy trading, high withdrawal limits, and full document archives.',
+  },
+  {
     id: 'buy-gmail-accounts',
     name: 'Buy Aged Gmail Accounts (PVA)',
     category: 'Email Service',
