@@ -1,12 +1,10 @@
 User-agent: *
 Allow: /
 
+# Prevent crawl waste on dynamic transactional states
 Disallow: /api/
 Disallow: /checkout
 Disallow: /cart
-Disallow: /orders
-Disallow: /dashboard
-Disallow: /login
-Disallow: /admin
 
 Sitemap: https://golfcrater.com/sitemap.xml
+

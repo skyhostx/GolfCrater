@@ -2,71 +2,20 @@ import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { PRODUCTS } from './src/data/products';
+import { BLOG_POSTS } from './src/data/blogPostsData';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = 3000;
 const isProd = process.env.NODE_ENV === 'production';
 
-// List of all valid product IDs for exact route validation
-const VALID_PRODUCT_IDS = new Set([
-  'buy-google-reviews',
-  'buy-trustpilot-reviews',
-  'buy-facebook-reviews',
-  'buy-amazon-reviews',
-  'buy-yelp-reviews',
-  'buy-bbb-reviews',
-  'buy-verified-g2-reviews',
-  'buy-glassdoor-reviews',
-  'buy-verified-cash-app-accounts',
-  'buy-verified-paypal-account',
-  'buy-verified-wise-account',
-  'buy-verified-payoneer-account',
-  'buy-verified-stripe-account',
-  'buy-verified-revolut-account',
-  'buy-verified-binance-account',
-  'buy-verified-coinbase-account',
-  'buy-verified-kraken-accounts',
-  'buy-moonpay-account',
-  'buy-gmail-accounts',
-  'buy-smtp-mailgun-accounts',
-  'buy-smtp-brevo-accounts',
-  'buy-smtp-relay-services-account',
-  // Account category products
-  'buy-amazon-account',
-  'buy-apple-developer-account',
-  'buy-google-play-console-account',
-  'buy-facebook-ads-accounts',
-  'buy-github-accounts',
-  'buy-google-ads-account',
-  'buy-google-ads-accounts',
-  'buy-taboola-ads-account',
-  'buy-bing-ads-accounts',
-  'buy-tiktok-ads-account',
-  'buy-snapchat-ads-account',
-  'buy-twitter-ads-accounts',
-  'buy-twitter-accounts',
-  'buy-outbrain-ads-account',
-  'buy-instagram-account',
-  'buy-linkedin-accounts',
-  'buy-facebook-accounts',
-  'buy-ticketmaster-accounts',
-  'buy-tinder-account',
-  'buy-verified-airbnb-accounts',
-  'buy-verified-bybit-accounts',
-  // Other category products
-  'buy-ssn-number',
-  'buy-verified-ssn-number',
-  'buy-driving-license',
-  'buy-textnow-accounts',
-  'buy-old-gmail-accounts',
-  'buy-google-voice-accounts',
-]);
+// List of all valid product IDs derived dynamically from products dataset
+const VALID_PRODUCT_IDS = new Set(PRODUCTS.map((p) => p.id));
 
 // List of all valid category slugs
 const VALID_CATEGORY_SLUGS = new Set([
   'reviews',
-  'reviews-service',
   'bank-account',
   'crypto-account',
   'smm-account',
@@ -75,6 +24,9 @@ const VALID_CATEGORY_SLUGS = new Set([
   'account',
   'other',
 ]);
+
+// List of all valid blog post slugs derived dynamically from blog posts dataset
+const VALID_BLOG_SLUGS = new Set(BLOG_POSTS.map((b) => b.slug));
 
 // Top level known pages
 const VALID_TOP_LEVEL_PAGES = new Set([
@@ -87,9 +39,6 @@ const VALID_TOP_LEVEL_PAGES = new Set([
   'shop',
   'contact',
   'track-order',
-  'orders',
-  'cart',
-  'checkout',
 ]);
 
 /**
@@ -109,6 +58,9 @@ function isValidRoute(pathname: string): boolean {
   if (parts[0] === 'product') {
     return parts.length === 2 && VALID_PRODUCT_IDS.has(parts[1]);
   }
+  if (parts[0] === 'blog') {
+    return parts.length === 1 || (parts.length === 2 && VALID_BLOG_SLUGS.has(parts[1]));
+  }
 
   return false;
 }
@@ -116,6 +68,44 @@ function isValidRoute(pathname: string): boolean {
 async function startServer() {
   const app = express();
   const distPath = path.join(process.cwd(), 'dist');
+
+  // Trust reverse proxies (Google Cloud Run / load balancers)
+  app.set('trust proxy', true);
+
+  // 1. Technical SEO Redirects (HTTP -> HTTPS, www -> non-www, canonical aliases)
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    const host = (req.headers['x-forwarded-host'] as string) || req.hostname || '';
+    const proto = (req.headers['x-forwarded-proto'] as string) || req.protocol || 'http';
+    const isWww = host.toLowerCase().startsWith('www.');
+    const isHttp = proto.toLowerCase() === 'http';
+
+    // In production or custom domain, redirect to canonical HTTPS non-www domain
+    if (isProd || host.includes('golfcrater.com')) {
+      if (isWww || (isHttp && !req.headers.host?.includes('localhost') && !req.headers.host?.includes('0.0.0.0'))) {
+        const cleanHost = host.replace(/^www\./i, '');
+        const targetUrl = `https://${cleanHost}${req.originalUrl}`;
+        return res.redirect(301, targetUrl);
+      }
+    }
+
+    // Canonical path alias 301 redirects
+    const cleanPath = req.originalUrl.split('?')[0].replace(/\/+$/, '') || '/';
+    if (cleanPath === '/orders' || cleanPath === '/track') {
+      const qs = req.originalUrl.includes('?') ? `?${req.originalUrl.split('?')[1]}` : '';
+      return res.redirect(301, `/track-order${qs}`);
+    }
+    if (cleanPath === '/category/reviews-service') {
+      const qs = req.originalUrl.includes('?') ? `?${req.originalUrl.split('?')[1]}` : '';
+      return res.redirect(301, `/category/reviews${qs}`);
+    }
+
+    // Security & Crawler Headers
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.removeHeader('X-Robots-Tag');
+
+    next();
+  });
 
   // API Healthcheck route
   app.get('/api/health', (req: Request, res: Response) => {
@@ -126,13 +116,10 @@ async function startServer() {
   const ROBOTS_TXT_CONTENT = `User-agent: *
 Allow: /
 
+# Disallow non-indexable transactional and backend endpoints
 Disallow: /api/
 Disallow: /checkout
 Disallow: /cart
-Disallow: /orders
-Disallow: /dashboard
-Disallow: /login
-Disallow: /admin
 
 Sitemap: https://golfcrater.com/sitemap.xml
 `;
@@ -143,21 +130,21 @@ Sitemap: https://golfcrater.com/sitemap.xml
     res.send(ROBOTS_TXT_CONTENT);
   });
 
-  // Dynamic sitemap.xml endpoint containing all public pages with canonical URLs
+  // Dynamic sitemap.xml endpoint containing all 113 public pages with canonical URLs
   app.get('/sitemap.xml', (_req: Request, res: Response) => {
     const today = new Date().toISOString().split('T')[0];
     const baseUrl = 'https://golfcrater.com';
 
     const corePages = [
       { loc: `${baseUrl}/`, priority: '1.0', changefreq: 'daily' },
-      { loc: `${baseUrl}/about`, priority: '0.8', changefreq: 'monthly' },
+      { loc: `${baseUrl}/shop`, priority: '0.9', changefreq: 'daily' },
       { loc: `${baseUrl}/services`, priority: '0.85', changefreq: 'weekly' },
       { loc: `${baseUrl}/pricing`, priority: '0.85', changefreq: 'weekly' },
-      { loc: `${baseUrl}/blog`, priority: '0.75', changefreq: 'weekly' },
+      { loc: `${baseUrl}/about`, priority: '0.8', changefreq: 'monthly' },
+      { loc: `${baseUrl}/blog`, priority: '0.8', changefreq: 'weekly' },
       { loc: `${baseUrl}/faq`, priority: '0.75', changefreq: 'monthly' },
-      { loc: `${baseUrl}/shop`, priority: '0.9', changefreq: 'daily' },
+      { loc: `${baseUrl}/track-order`, priority: '0.7', changefreq: 'weekly' },
       { loc: `${baseUrl}/contact`, priority: '0.6', changefreq: 'monthly' },
-      { loc: `${baseUrl}/track-order`, priority: '0.6', changefreq: 'weekly' },
     ];
 
     const categorySlugs = [
@@ -166,10 +153,13 @@ Sitemap: https://golfcrater.com/sitemap.xml
       'crypto-account',
       'smm-account',
       'email-service',
+      'account',
       'digital-tools',
+      'other',
     ];
 
     const productSlugs = Array.from(VALID_PRODUCT_IDS);
+    const blogSlugs = Array.from(VALID_BLOG_SLUGS);
 
     let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
     sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
@@ -187,6 +177,11 @@ Sitemap: https://golfcrater.com/sitemap.xml
     // Product Pages
     for (const prod of productSlugs) {
       sitemap += `  <url>\n    <loc>${baseUrl}/product/${prod}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+    }
+
+    // Blog Post Pages
+    for (const slug of blogSlugs) {
+      sitemap += `  <url>\n    <loc>${baseUrl}/blog/${slug}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.75</priority>\n  </url>\n`;
     }
 
     sitemap += '</urlset>\n';
