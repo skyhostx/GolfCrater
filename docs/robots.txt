@@ -1,12 +1,9 @@
 User-agent: *
 Allow: /
 
+# Disallow non-indexable transactional and backend endpoints
 Disallow: /api/
 Disallow: /checkout
 Disallow: /cart
-Disallow: /orders
-Disallow: /dashboard
-Disallow: /login
-Disallow: /admin
 
 Sitemap: https://golfcrater.com/sitemap.xml

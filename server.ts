@@ -1,12 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
 import { PRODUCTS } from './src/data/products';
 import { BLOG_POSTS } from './src/data/blogPostsData';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const PORT = 3000;
 const isProd = process.env.NODE_ENV === 'production';
 

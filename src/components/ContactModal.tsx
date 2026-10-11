@@ -54,26 +54,49 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         <div className="p-6 space-y-6">
           
           {/* Fast channels banner */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div className="p-3.5 bg-emerald-50/70 border border-emerald-200/80 rounded-xl flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                <Send className="w-4 h-4" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+            <a
+              href="https://t.me/Go2Rapid"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-cyan-50/80 hover:bg-cyan-100/80 border border-cyan-200 rounded-xl flex items-center space-x-2.5 transition-colors group cursor-pointer"
+            >
+              <div className="w-8 h-8 rounded-lg bg-[#029be5] text-white flex items-center justify-center shrink-0">
+                <Send className="w-3.5 h-3.5" />
               </div>
-              <div>
-                <span className="font-bold text-slate-900 block">Telegram Priority Desk</span>
-                <span className="text-emerald-700 font-semibold text-[11px]">@GolfCraterSupport</span>
+              <div className="min-w-0">
+                <span className="font-bold text-slate-900 block text-[11px] truncate">Telegram</span>
+                <span className="text-[#029be5] font-semibold text-[10px] block truncate">@Go2Rapid</span>
               </div>
-            </div>
+            </a>
 
-            <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0">
-                <Mail className="w-4 h-4" />
+            <a
+              href="https://wa.me/12534080049"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-emerald-50/80 hover:bg-emerald-100/80 border border-emerald-200 rounded-xl flex items-center space-x-2.5 transition-colors group cursor-pointer"
+            >
+              <div className="w-8 h-8 rounded-lg bg-[#25D366] text-white flex items-center justify-center shrink-0">
+                <MessageCircle className="w-3.5 h-3.5" />
               </div>
-              <div>
-                <span className="font-bold text-slate-900 block">Direct Email</span>
-                <span className="text-slate-600 text-[11px]">support@golfcrater.com</span>
+              <div className="min-w-0">
+                <span className="font-bold text-slate-900 block text-[11px] truncate">WhatsApp</span>
+                <span className="text-emerald-700 font-semibold text-[10px] block truncate">+12534080049</span>
               </div>
-            </div>
+            </a>
+
+            <a
+              href="mailto:support@golfcrater.com"
+              className="p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl flex items-center space-x-2.5 transition-colors group cursor-pointer"
+            >
+              <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0">
+                <Mail className="w-3.5 h-3.5" />
+              </div>
+              <div className="min-w-0">
+                <span className="font-bold text-slate-900 block text-[11px] truncate">Email Desk</span>
+                <span className="text-slate-600 text-[10px] block truncate">support@golfcrater.com</span>
+              </div>
+            </a>
           </div>
 
           {submitted ? (

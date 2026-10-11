@@ -1,10 +1,9 @@
 User-agent: *
 Allow: /
 
-# Prevent crawl waste on dynamic transactional states
+# Disallow non-indexable transactional and backend endpoints
 Disallow: /api/
 Disallow: /checkout
 Disallow: /cart
 
 Sitemap: https://golfcrater.com/sitemap.xml
-

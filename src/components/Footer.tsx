@@ -260,18 +260,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <h4 className="text-xs font-bold uppercase tracking-wider text-white pt-3">
               Direct Contact
             </h4>
-            <div className="space-y-1 text-[11px]">
+            <div className="space-y-1.5 text-[11px]">
               <a
-                href="https://t.me/GolfCraterSupport"
+                href="https://t.me/Go2Rapid"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-emerald-400 transition-colors block"
+                className="hover:text-cyan-400 transition-colors flex items-center space-x-1.5 text-slate-300"
               >
-                Telegram: @GolfCraterSupport
+                <span>Telegram: @Go2Rapid</span>
+              </a>
+              <a
+                href="https://wa.me/12534080049"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-400 transition-colors flex items-center space-x-1.5 text-slate-300"
+              >
+                <span>WhatsApp: +12534080049</span>
               </a>
               <a
                 href="mailto:support@golfcrater.com"
-                className="hover:text-emerald-400 transition-colors block"
+                className="hover:text-emerald-400 transition-colors block text-slate-400"
               >
                 support@golfcrater.com
               </a>

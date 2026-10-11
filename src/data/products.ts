@@ -1857,7 +1857,7 @@ export const FAQS = [
   },
   {
     question: 'How can I contact support?',
-    answer: 'Our dedicated support team is active 24/7. You can use our built-in Live Chat widget, submit an inquiry through the Contact page, or contact us directly on Telegram (@GolfCraterSupport) and email at support@golfcrater.com. Typical response time is under 15 minutes.',
+    answer: 'Our dedicated support team is active 24/7. You can contact us directly via our floating quick action buttons on Telegram (@Go2Rapid) and WhatsApp (+12534080049), submit an inquiry through the Contact page, or email us at support@golfcrater.com. Typical response time is under 15 minutes.',
   },
   {
     question: 'Are your services compliant with applicable laws and platform rules?',

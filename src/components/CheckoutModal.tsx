@@ -443,7 +443,8 @@ Estimated Handover: ${completedOrder.deliveryEta}
 All credentials, API keys, or verification tracking dossiers are sent to: ${completedOrder.buyerEmail}
 
 NEED SUPPORT?
-Telegram: @GolfCraterSupport
+Telegram: @Go2Rapid (https://t.me/Go2Rapid)
+WhatsApp: +12534080049 (https://wa.me/12534080049)
 Email   : support@golfcrater.com
 Web     : https://golfcrater.com/
 =====================================================`;

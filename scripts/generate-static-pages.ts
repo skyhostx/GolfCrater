@@ -529,11 +529,16 @@ const topPages = [
     bodyH1: 'Contact GolfCrater Customer Support',
     bodyContent: `
       <p class="text-slate-600 mb-6 text-base leading-relaxed">Our support specialists and compliance engineers are available 24 hours a day, 7 days a week to assist with order fulfillment, replacement inquiries, and custom package requests.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
         <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
           <h2 class="font-bold text-slate-900 text-sm mb-1">Telegram Priority Desk</h2>
           <p class="text-xs text-slate-600 mb-2">Instant messaging and real-time credential verification assistance.</p>
-          <span class="text-xs font-bold text-emerald-600">@golfcratersupport</span>
+          <a href="https://t.me/Go2Rapid" class="text-xs font-bold text-cyan-600 hover:underline">@Go2Rapid →</a>
+        </div>
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <h2 class="font-bold text-slate-900 text-sm mb-1">WhatsApp Direct Support</h2>
+          <p class="text-xs text-slate-600 mb-2">Instant mobile chat, order handover, and quick inquiries.</p>
+          <a href="https://wa.me/12534080049" class="text-xs font-bold text-emerald-600 hover:underline">+12534080049 →</a>
         </div>
         <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
           <h2 class="font-bold text-slate-900 text-sm mb-1">Official Support Email</h2>

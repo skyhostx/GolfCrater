@@ -23,6 +23,7 @@ import { getCategorySeo, getProductSeo, getSiteStructuredData } from './utils/se
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { SearchModal } from './components/SearchModal';
+import { FloatingContactWidget } from './components/FloatingContactWidget';
 import { Check } from 'lucide-react';
 
 export default function App() {
@@ -382,11 +383,14 @@ export default function App() {
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-xl flex items-center space-x-2 border border-slate-800 animate-in fade-in slide-in-from-bottom-2">
+        <div className="fixed bottom-6 left-6 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-xl flex items-center space-x-2 border border-slate-800 animate-in fade-in slide-in-from-bottom-2">
           <Check className="w-4 h-4 text-emerald-400" />
           <span>{toastMessage}</span>
         </div>
       )}
+
+      {/* Floating Instant Contact Buttons (Telegram @Go2Rapid & WhatsApp +12534080049) */}
+      <FloatingContactWidget />
 
       {/* Primary Sticky Header */}
       <Navbar

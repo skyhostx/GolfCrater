@@ -20,7 +20,7 @@ export const TrustBar: React.FC = () => {
     {
       icon: MessageSquare,
       title: 'Customer Support',
-      desc: '24/7 dedicated live chat & Telegram',
+      desc: '24/7 Telegram & WhatsApp desks',
       color: 'text-blue-500',
       bg: 'bg-blue-50',
     },

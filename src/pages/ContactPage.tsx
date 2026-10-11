@@ -4,7 +4,8 @@ import { FAQS } from '../data/products';
 import { 
   Mail, 
   Send, 
-  MessageSquare, 
+  MessageSquare,
+  MessageCircle, 
   Clock, 
   ShieldCheck, 
   ChevronRight, 
@@ -83,19 +84,38 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               <div className="space-y-4">
                 {/* Telegram */}
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start space-x-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0 mt-0.5">
                     <Send className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-slate-900 block">Telegram Support</span>
-                    <span className="text-xs text-slate-500 block mt-0.5">Instant live chat with technical engineers</span>
+                    <span className="text-xs font-bold text-slate-900 block">Telegram Priority Desk</span>
+                    <span className="text-xs text-slate-500 block mt-0.5">Instant live chat with senior consultants</span>
                     <a
-                      href="https://t.me/GolfCraterSupport"
+                      href="https://t.me/Go2Rapid"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-1.5 text-xs font-bold text-cyan-600 hover:text-cyan-700 underline"
+                    >
+                      @Go2Rapid →
+                    </a>
+                  </div>
+                </div>
+
+                {/* WhatsApp */}
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start space-x-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                    <MessageCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block">WhatsApp Direct Chat</span>
+                    <span className="text-xs text-slate-500 block mt-0.5">Fast mobile handover & instant order updates</span>
+                    <a
+                      href="https://wa.me/12534080049"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block mt-1.5 text-xs font-bold text-emerald-600 hover:text-emerald-700 underline"
                     >
-                      @GolfCraterSupport →
+                      +12534080049 →
                     </a>
                   </div>
                 </div>

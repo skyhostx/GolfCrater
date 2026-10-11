@@ -72,7 +72,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
             </div>
             <div>
               <h4 className="text-sm font-bold text-slate-900">Have a specific custom requirement?</h4>
-              <p className="text-xs text-slate-600">Our senior account consultants are available 24/7 on Live Chat & Telegram.</p>
+              <p className="text-xs text-slate-600">Our senior account consultants are available 24/7 on Telegram & WhatsApp.</p>
             </div>
           </div>
 
