@@ -404,58 +404,43 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     }, 3200);
   };
 
-  const handleDownloadInvoice = () => {
-    if (!completedOrder) return;
+  const getWhatsAppDeliveryUrl = (order: Order) => {
+    const itemsList = order.items
+      .map((it, idx) => `${idx + 1}. ${it.productName} (${it.variant.name}) x${it.quantity} - $${it.variant.price * it.quantity}`)
+      .join('\n');
 
-    let paymentSpecifics = '';
-    if (completedOrder.paymentMethod === 'crypto') {
-      paymentSpecifics = `Cryptocurrency: ${completedOrder.cryptoCurrency}\nWallet: ${CRYPTO_WALLETS[(completedOrder.cryptoCurrency as CryptoCoinKey) || 'BSC']?.address || 'N/A'}\nTxHash: ${completedOrder.paymentReference || 'N/A'}`;
-    } else if (completedOrder.paymentMethod === 'skrill') {
-      paymentSpecifics = `Skrill Merchant Email: ${SKRILL_CONFIG.email}\nSender / Ref: ${completedOrder.paymentReference || 'N/A'}`;
-    } else if (completedOrder.paymentMethod === 'bank_transfer') {
-      paymentSpecifics = `Account Option: ${completedOrder.bankAccountType}\nBeneficiary: Md Sayrul Islam\nBank Ref: ${completedOrder.paymentReference || 'N/A'}`;
+    let paymentDetails = `Payment Method: ${order.paymentMethod.toUpperCase().replace('_', ' ')}`;
+    if (order.cryptoCurrency) {
+      paymentDetails += `\nCrypto Network: ${order.cryptoCurrency}`;
+    }
+    if (order.bankAccountType) {
+      paymentDetails += `\nBank Account: ${order.bankAccountType}`;
+    }
+    if (order.paymentReference) {
+      paymentDetails += `\nPayment Reference / TxID: ${order.paymentReference}`;
     }
 
-    const content = `=====================================================
-            GOLFCRATER DIGITAL MARKETPLACE
-             OFFICIAL TRANSACTION RECEIPT
-=====================================================
-Order Reference : ${completedOrder.id}
-Date & Time     : ${completedOrder.createdAt}
-Buyer Email     : ${completedOrder.buyerEmail}
-Support Contact : ${completedOrder.contactHandle || 'N/A'}
-Payment Method  : ${completedOrder.paymentMethod.toUpperCase().replace('_', ' ')}
-${paymentSpecifics}
-Transaction Status: VERIFIED / IN QUEUE
+    const message = `Hello GolfCrater, here are my Order Details for Delivery:
+
+📦 ORDER FULL DETAILS
+-------------------------------------
+Order ID: #${order.id}
+Date & Time: ${order.createdAt}
+Buyer Email: ${order.buyerEmail}
+${order.contactHandle ? `Contact Handle: ${order.contactHandle}\n` : ''}Payment Status: Submitted / Verified
 
 PURCHASED ITEMS:
------------------------------------------------------
-${completedOrder.items.map((it, i) => `${i + 1}. ${it.productName}
-   Variant: ${it.variant.name} x ${it.quantity}
-   Unit: $${it.variant.price} | Total: $${it.variant.price * it.quantity}`).join('\n')}
+${itemsList}
 
-Subtotal        : $${completedOrder.subtotal}.00
-Discount        : -$${completedOrder.discount}.00
-Grand Total     : $${completedOrder.total}.00
------------------------------------------------------
-DELIVERY TIMEFRAME:
-Estimated Handover: ${completedOrder.deliveryEta}
-All credentials, API keys, or verification tracking dossiers are sent to: ${completedOrder.buyerEmail}
+Subtotal: $${order.subtotal}.00
+${order.discount > 0 ? `Discount: -$${order.discount}.00\n` : ''}Grand Total: $${order.total}.00 USD
 
-NEED SUPPORT?
-Telegram: @Go2Rapid (https://t.me/Go2Rapid)
-WhatsApp: +12534080049 (https://wa.me/12534080049)
-Email   : support@golfcrater.com
-Web     : https://golfcrater.com/
-=====================================================`;
+${paymentDetails}
+Delivery ETA: ${order.deliveryEta}
+-------------------------------------
+Please confirm and arrange delivery!`;
 
-    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `GolfCrater_Receipt_${completedOrder.id}.txt`;
-    link.click();
-    URL.revokeObjectURL(url);
+    return `https://wa.me/12534080049?text=${encodeURIComponent(message)}`;
   };
 
   const selectedCrypto = CRYPTO_WALLETS[cryptoCoin];
@@ -586,23 +571,27 @@ Web     : https://golfcrater.com/
                   What Happens Next?
                 </span>
                 <p className="text-[11px] leading-relaxed text-emerald-800">
-                  Our automated delivery system and compliance verification team are reviewing your settlement reference. You can check order status with ID <strong>{completedOrder.id}</strong> at any time via the Track Order link.
+                  Our automated delivery system and compliance verification team are reviewing your settlement reference. Click <strong>Whats-app for Delivery</strong> below to send your complete order details directly to our delivery desk for instant dispatch.
                 </p>
               </div>
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto pt-2">
-                <button
-                  onClick={handleDownloadInvoice}
-                  className="flex-1 py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center space-x-2 cursor-pointer shadow-xs transition-all"
+                <a
+                  href={getWhatsAppDeliveryUrl(completedOrder)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-black text-xs flex items-center justify-center space-x-2 cursor-pointer shadow-md shadow-[#25D366]/25 transition-all transform hover:scale-[1.01] active:scale-[0.99]"
                 >
-                  <Download className="w-4 h-4 text-emerald-400" />
-                  <span>Download Invoice (.txt)</span>
-                </button>
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current shrink-0" aria-hidden="true">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  <span>Whats-app for Delivery</span>
+                </a>
 
                 <button
                   onClick={onClose}
-                  className="flex-1 py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-bold text-xs flex items-center justify-center cursor-pointer transition-all shadow-xs"
+                  className="flex-1 py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center cursor-pointer transition-all shadow-xs"
                 >
                   <span>Continue Shopping</span>
                 </button>

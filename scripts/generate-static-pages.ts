@@ -533,7 +533,7 @@ const topPages = [
         <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
           <h2 class="font-bold text-slate-900 text-sm mb-1">Telegram Priority Desk</h2>
           <p class="text-xs text-slate-600 mb-2">Instant messaging and real-time credential verification assistance.</p>
-          <a href="https://t.me/Go2Rapid" class="text-xs font-bold text-cyan-600 hover:underline">@Go2Rapid →</a>
+          <a href="https://t.me/Go2Rapid?text=Hello%20GolfCrater%2C%20I%20need%20assistance%20with%20an%20inquiry" class="text-xs font-bold text-cyan-600 hover:underline">@Go2Rapid →</a>
         </div>
         <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
           <h2 class="font-bold text-slate-900 text-sm mb-1">WhatsApp Direct Support</h2>

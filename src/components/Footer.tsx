@@ -262,7 +262,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <div className="space-y-1.5 text-[11px]">
               <a
-                href="https://t.me/Go2Rapid"
+                href="https://t.me/Go2Rapid?text=Hello%20GolfCrater%2C%20I%20need%20assistance%20with%20an%20inquiry"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-cyan-400 transition-colors flex items-center space-x-1.5 text-slate-300"

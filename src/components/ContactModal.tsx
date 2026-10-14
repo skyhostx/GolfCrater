@@ -56,7 +56,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           {/* Fast channels banner */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
             <a
-              href="https://t.me/Go2Rapid"
+              href="https://t.me/Go2Rapid?text=Hello%20GolfCrater%2C%20I%20need%20assistance%20with%20an%20inquiry"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-cyan-50/80 hover:bg-cyan-100/80 border border-cyan-200 rounded-xl flex items-center space-x-2.5 transition-colors group cursor-pointer"

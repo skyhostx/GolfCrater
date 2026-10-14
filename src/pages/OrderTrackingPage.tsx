@@ -206,7 +206,7 @@ export const OrderTrackingPage: React.FC<OrderTrackingPageProps> = ({
                   Contact Live Desk
                 </button>
                 <a
-                  href="https://t.me/Go2Rapid"
+                  href="https://t.me/Go2Rapid?text=Hello%20GolfCrater%2C%20I%20need%20assistance%20with%20an%20inquiry"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3.5 py-2 bg-cyan-400 hover:bg-cyan-300 text-slate-950 rounded-xl text-xs font-bold transition-colors cursor-pointer"
@@ -214,7 +214,9 @@ export const OrderTrackingPage: React.FC<OrderTrackingPageProps> = ({
                   Telegram: @Go2Rapid →
                 </a>
                 <a
-                  href="https://wa.me/12534080049"
+                  href={`https://wa.me/12534080049?text=${encodeURIComponent(
+                    `Hello GolfCrater, I need delivery assistance for Order #${matchingOrder.id} (${matchingOrder.buyerEmail || matchingOrder.customerEmail || 'Customer'}). Total: $${matchingOrder.total}.00. Status: ${matchingOrder.status}.`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3.5 py-2 bg-emerald-400 hover:bg-emerald-300 text-slate-950 rounded-xl text-xs font-bold transition-colors cursor-pointer"

@@ -4,7 +4,7 @@ export const FloatingContactWidget: React.FC = () => {
   const [hoveredButton, setHoveredButton] = useState<'telegram' | 'whatsapp' | null>(null);
 
   const telegramUsername = 'Go2Rapid';
-  const telegramUrl = 'https://t.me/Go2Rapid';
+  const telegramUrl = 'https://t.me/Go2Rapid?text=Hello%20GolfCrater%2C%20I%20need%20assistance%20with%20an%20inquiry';
   const whatsappNumber = '+12534080049';
   const whatsappUrl = 'https://wa.me/12534080049?text=Hello%20GolfCrater,%20I%20need%20assistance%20with%20an%20inquiry.';
 

@@ -91,7 +91,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     <span className="text-xs font-bold text-slate-900 block">Telegram Priority Desk</span>
                     <span className="text-xs text-slate-500 block mt-0.5">Instant live chat with senior consultants</span>
                     <a
-                      href="https://t.me/Go2Rapid"
+                      href="https://t.me/Go2Rapid?text=Hello%20GolfCrater%2C%20I%20need%20assistance%20with%20an%20inquiry"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block mt-1.5 text-xs font-bold text-cyan-600 hover:text-cyan-700 underline"
